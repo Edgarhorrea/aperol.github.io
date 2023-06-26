@@ -1,3 +1,5 @@
+const scriptURL = new URL(document.currentScript.src);
+
 window.onload = function () {
     console.log('onload event');
     if (!window.jQuery || typeof(window.jQuery) == 'undefined' || window.jQuery == null) {
@@ -206,7 +208,7 @@ ageGateOTP.prototype.startAgeGate = function () {
 
 ageGateOTP.prototype.loadHTML = function () {
     let _this = this;
-    var templateUrl = window.location.protocol + "//" + window.location.host + "/wdf-common/age-gate-otp/template.html";
+    var templateUrl = scriptURL.protocol + "//" + scriptURL.hostname + "/wdf-common/age-gate-otp/template.html";
 
     fetch(templateUrl).then(response=> response.text())
     .then(text=> {
@@ -273,7 +275,8 @@ ageGateOTP.prototype.getAllConfigurations = function (callback) {
 ageGateOTP.prototype.getConfiguration = function () {
     let _this = this;
 
-    var configURL = window.location.protocol + "//" + window.location.host + "/wdf-common/age-gate-otp/"+_this.sanitizer(_this.globalDomain)+"/ag-config.json";
+    var configURL = scriptURL.protocol + "//" + scriptURL.hostname + "/wdf-common/age-gate-otp/"+_this.sanitizer(_this.globalDomain)+"/ag-config.json";
+	console.log("Getting conf from " + configURL);
     return fetch(configURL).then(response => response.text())
     .then(json => {
         return JSON.parse(json);       
@@ -285,7 +288,7 @@ ageGateOTP.prototype.getConfiguration = function () {
 ageGateOTP.prototype.getLegalAgeList = function () {
     let _this = this;
 
-    var legalAgeListURL = window.location.protocol + "//" + window.location.host + "/wdf-common/age-gate-otp/ag-legalagelist.json";
+    var legalAgeListURL = scriptURL.protocol + "//" + scriptURL.hostname + "/wdf-common/age-gate-otp/ag-legalagelist.json";
     return fetch(legalAgeListURL).then(response => response.text())
     .then(json => {
         return JSON.parse(json);
@@ -492,7 +495,7 @@ ageGateOTP.prototype.setCountry = function (code, geolocalization = 0, isFirst =
 
     if(!isFirst || (isFirst && geolocalization)){
         _this.htmlStructure.find('.ag-country_name').text(countryName);
-        _this.htmlStructure.find('.ag-select_toggle > img').attr('src', "/wdf-common/age-gate-otp/flags/60x40/"+countryCode+".png");
+        _this.htmlStructure.find('.ag-select_toggle > img').attr('src', scriptURL.protocol + "//" + scriptURL.hostname + "/wdf-common/age-gate-otp/flags/60x40/"+countryCode+".png");
         _this.htmlStructure.find('.ag-select_toggle > img').show();
         _this.htmlStructure.find('.ag-select_menu').hide();
     } else {
@@ -638,7 +641,7 @@ ageGateOTP.prototype.populateCountrySelect = function () {
     });
 
     function appendOption(countryCode, countryName){
-        let optionHtml = '<div class="ag-select_menu_i" data-code="'+countryCode+'"><img src="/wdf-common/age-gate-otp/flags/60x40/'+countryCode+'.png" alt="'+countryName+' flag">'+countryName+'</div>';
+        let optionHtml = '<div class="ag-select_menu_i" data-code="'+countryCode+'"><img src="' + scriptURL.protocol + "//" + scriptURL.hostname + '/wdf-common/age-gate-otp/flags/60x40/'+countryCode+'.png" alt="'+countryName+' flag">'+countryName+'</div>';
         jQuery(selectDiv).append(optionHtml);        
     }
 };
