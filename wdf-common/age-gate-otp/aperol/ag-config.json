@@ -85,7 +85,7 @@
         {
             "country": "France",
             "code": "fr",
-            "type": "progressive",
+            "type": "full",
             "formatDate": "dd/mm/yyyy",
             "translations": {
                 "title": "Avez-vous l'âge légal pour boire?",
