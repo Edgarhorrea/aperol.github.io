@@ -1,0 +1,215 @@
+{
+    "customization": { 
+        "background-color": "transparent", 
+        "text-color": "#000000",
+        "font-size-desktop": "18px",
+        "font-size-tablet": "16px",
+        "font-size-mobile": "16px",
+        "main-title-color" : "#000000",
+
+        "main-title-font" : "ltc-bodoni-175",
+        "font-family": "ltc-bodoni-175",
+        "font-weight": "",        
+        "font-style": "italic",        
+
+        "input-color": "#000000",
+        "input-bg-color": "#f8f8f8",
+        "input-border-color": "#000000",
+        "input-border-color-focus": "#000000",
+        "input-font-size" : "21px",
+
+        "icon-color": "#000000",
+
+        "submit-font-family": "ltc-bodoni-175",
+        "submit-font-weight": "100",
+        "submit-bg-color": "#c10f28",
+        "submit-text-color": "#ffffff",
+        "submit-disabled-bg-color": "#6D798A",
+        "submit-disabled-text-color": "#ffffff",
+        "submit-hover-bg-color": "#c10f28",
+        "submit-hover-text-color": "#ffffff",
+
+        "danger-color": "#a6192e",
+        "success-color": "#a6192e",
+
+        "logo-url" : "/wp-content/themes/averna/build/images/averna-logo.png",        
+        "modal-bg-image-url" : "/wp-content/themes/averna/build/images/texture/grid-texture-white.jpg",
+        "modal-bg-image-position" : "center center",
+        "modal-bg-image-size" : "cover"
+    },
+    "default": {
+        "code": "int",
+        "type": "simple",
+        "formatDate": "dd/mm/yyyy",
+        "translations": {
+            "title": "Are you of legal drinking age?",
+            "errors": {
+                "invalidDate": "Invalid Date",
+                "invalidAge": "Invalid Age"
+            },
+            "submit": "submit",
+            "remember": "Remember my choice",
+            "terms": "By entering this site you accept terms and condition",
+            "locationMessage": "It seems that you are in USA, if not, select your country of origin",
+            "yesBtn": "yes",
+            "noBtn": "no"
+        }
+    },
+    "countries": [
+        {
+            "country": "Italia",
+            "code": "it",
+            "type": "simple",
+            "formatDate": "dd/mm/yyyy",
+            "translations": {
+                "title": "Hai l'età legale per bere?",
+                "errors": {
+                    "invalidDate": "Data Invalida",
+                    "invalidAge": "Età invalida"
+                },
+                "submit": "Entra",
+                "remember": "Ricorda la mia scelta",
+                "terms": "Entrando in questo sito accetti termini e condizioni",
+                "locationMessage": "Sembra che tu sia in Italia, se così non fosse seleziona la tua country di appartenenza",
+                "yesBtn": "si",
+                "noBtn": "no"
+            },
+            "redirectPath": "/it/"
+        },
+        {
+            "country": "France",
+            "code": "fr",
+            "type": "progressive",
+            "formatDate": "dd/mm/yyyy",
+            "translations": {
+                "title": "Avez-vous l'âge légal pour boire?",
+                "errors": {
+                    "invalidDate": "Date invalide",
+                    "invalidAge": "Âge invalide"
+                },
+                "submit": "Entrer",
+                "remember": "Souviens-toi de mon choix",
+                "terms": "En accédant à ce site, vous acceptez les termes et conditions",
+                "locationMessage": "Il semble que vous soyez aux France, sinon, sélectionnez votre pays d'origine",
+                "yesBtn": "oui",
+                "noBtn": "no"
+            }
+        },
+        {
+            "country": "Deutschland",
+            "code": "de",
+            "type": "progressive",
+            "formatDate": "dd/mm/yyyy",
+            "translations": {
+                "title": "Sind Sie volljährig?",
+                "errors": {
+                    "invalidDate": "Ungültiges Datum",
+                    "invalidAge": "Ungültiges Alter"
+                },
+                "submit": "Einreichen",
+                "remember": "Erinnere dich an meine Wahl",
+                "terms": "Mit dem Betreten dieser Website akzeptieren Sie die Allgemeinen Geschäftsbedingungen",
+                "locationMessage": "Anscheinend sind Sie in Deutschland, wenn nicht, wählen Sie Ihr Herkunftsland",
+                "yesBtn": "jawohl",
+                "noBtn": "nein"
+            },
+            "redirectPath": "/de/"
+        },
+        {
+            "country": "United Kingdom",
+            "code": "gb",
+            "type": "progressive",
+            "formatDate": "dd/mm/yyyy",
+            "translations": {
+                "title": "Are you of legal drinking age?",
+                "errors": {
+                    "invalidDate": "Invalid Date",
+                    "invalidAge": "Invalid Age"
+                },
+                "submit": "submit",
+                "remember": "Remember my choice",
+                "terms": "By entering this site you accept terms and condition",
+                "locationMessage": "It seems that you are in United Kingdom, if not, select your country of origin",
+                "yesBtn": "yes",
+                "noBtn": "no"
+            }
+        },
+        {
+            "country": "Canada",
+            "code": "ca",
+            "type": "progressive",
+            "formatDate": "dd/mm/yyyy",
+            "translations": {
+                "title": "Are you of legal drinking age?",
+                "errors": {
+                    "invalidDate": "Invalid Date",
+                    "invalidAge": "Invalid Age"
+                },
+                "submit": "submit",
+                "remember": "Remember my choice",
+                "terms": "By entering this site you accept terms and condition",
+                "locationMessage": "It seems that you are in Canada, if not, select your country of origin",
+                "yesBtn": "yes",
+                "noBtn": "no"
+            }
+        },
+        {
+            "country": "Belgium",
+            "code": "be",
+            "type": "progressive",
+            "formatDate": "dd/mm/yyyy",
+            "translations": {
+                "title": "Heeft u de wettelijke leeftijd om alcohol te drinken?",
+                "errors": {
+                    "invalidDate": "Ongeldige datum",
+                    "invalidAge": "Ongeldige leeftijd"
+                },
+                "submit": "indienen",
+                "remember": "Onthoud mijn keuze",
+                "terms": "Door deze site te betreden, accepteert u de algemene voorwaarden",
+                "locationMessage": "Het lijkt erop dat u zich in België bevindt, zo niet, selecteer dan uw land van herkomst",
+                "yesBtn": "ja",
+                "noBtn": "nee"
+            }
+        },
+        {
+            "country": "USA",
+            "code": "us",
+            "type": "complete",
+            "formatDate": "yyyy/mm/dd",
+            "translations": {
+                "title": "Are you of legal drinking age?",
+                "errors": {
+                    "invalidDate": "Invalid Date",
+                    "invalidAge": "Invalid Age"
+                },
+                "submit": "submit",
+                "remember": "Remember my choice",
+                "terms": "By entering this site you accept terms and condition",
+                "locationMessage": "It seems that you are in USA, if not, select your country of origin",
+                "yesBtn": "yes",
+                "noBtn": "no"
+            }
+        },
+        {
+            "country": "Spain",
+            "code": "es",
+            "type": "complete",
+            "formatDate": "yyyy/mm/dd",
+            "translations": {
+                "title": "Are you of legal drinking age?",
+                "errors": {
+                    "invalidDate": "Invalid Date",
+                    "invalidAge": "Invalid Age"
+                },
+                "submit": "submit",
+                "remember": "Remember my choice",
+                "terms": "By entering this site you accept terms and condition",
+                "locationMessage": "It seems that you are in Spain, if not, select your country of origin",
+                "yesBtn": "yes",
+                "noBtn": "no"
+            },
+            "redirectPath": "/es/"
+        }
+    ]
+}
