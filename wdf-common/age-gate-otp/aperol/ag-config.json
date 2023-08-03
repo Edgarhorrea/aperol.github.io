@@ -1,51 +1,45 @@
 {
-    "customization": { 
-        "background-color": "#eb3300", 
-        "text-color": "#ffffff",
-        "font-size-desktop": "14px",
-        "font-size-tablet": "14px",
-        "font-size-mobile": "14px",
-        "main-title-color" : "#ffffff",
+    "customization": {
+        "background-color": "transparent", 
+        "text-color": "#fffff",
+        "font-size-desktop": "18px",
+        "font-size-tablet": "16px",
+        "font-size-mobile": "16px",
+        "main-title-color" : "#fffff",
 
-        "main-title-font" : "Futura, sans-serif",
-        "font-family": "Futura, sans-serif",
+        "main-title-font" : "ltc-bodoni-175",
+        "font-family": "ltc-bodoni-175",
         "font-weight": "",        
-        "font-style": "",        
+        "font-style": "italic",        
 
-        "input-color": "#ffffff",
-        "input-bg-color": "#eb3300",
-        "input-border-color": "#ffffff",
-        "input-border-color-focus": "#ffffff",
-        "input-border-radius": "5px",
-        "input-font-size" : "18px",
+        "input-color": "#000000",
+        "input-bg-color": "#f8f8f8",
+        "input-border-color": "#fffff",
+        "input-border-color-focus": "#fffff",
+        "input-font-size" : "21px",
 
-        "select-color": "#000000",
-        "select-bg-color": "#ffffff",
+        "icon-color": "#fffff",
 
-
-        "icon-color": "#ffffff",
-
-        "submit-font-family": "Futura, sans-serif",
+        "submit-font-family": "ltc-bodoni-175",
         "submit-font-weight": "100",
-        "submit-bg-color": "#ffffff",
-        "submit-text-color": "#000000",
-        "submit-disabled-bg-color": "#f5997f",
-        "submit-disabled-text-color": "#000000",
-        "submit-hover-bg-color": "#ffffff",
-        "submit-hover-text-color": "#000000",
-		"button-radius": "32px",
+        "submit-bg-color": "#c10f28",
+        "submit-text-color": "#ffffff",
+        "submit-disabled-bg-color": "#6D798A",
+        "submit-disabled-text-color": "#ffffff",
+        "submit-hover-bg-color": "#c10f28",
+        "submit-hover-text-color": "#ffffff",
 
-        "danger-color": "#ffffff",
-        "success-color": "#eb3300",
+        "danger-color": "#a6192e",
+        "success-color": "#a6192e",
 
-        "logo-url" : "https://cdn.shopify.com/s/files/1/0728/5905/8518/files/Logo_Aperol.png?v=1683729151&width=300",        
-        "modal-bg-image-url" : "",
+        "logo-url" : "https://www.aperol.com/app/uploads/2023/04/aperol-logo-white-min.png",        
+        "modal-bg-image-url" : "https://www.aperol.com/app/uploads/2023/04/agegate-bg.jpg",
         "modal-bg-image-position" : "center center",
         "modal-bg-image-size" : "cover"
     },
     "default": {
         "code": "int",
-        "type": "simple",
+        "type": "complete",
         "formatDate": "dd/mm/yyyy",
         "translations": {
             "title": "Are you of legal drinking age?",
@@ -53,12 +47,13 @@
                 "invalidDate": "Invalid Date",
                 "invalidAge": "Invalid Age"
             },
-            "submit": "submit",
+            "submit": "Enter",
             "remember": "Remember my choice",
-            "terms": "By entering this site you accept terms and condition",
-            "locationMessage": "It seems that you are in USA, if not, select your country of origin",
-            "yesBtn": "yes",
-            "noBtn": "no"
+            "terms": "By entering this site, I accept <a href=\"https://www.aperol.com/privacy-policy/\">Privacy Policy</a> and <a href=\"https://www.aperol.com/terms-conditions/\">Terms & Conditions</a>",
+            "locationMessage": "Select your country of origin",
+            "selectLabel": "Select Your Country/Region",
+            "yesBtn": "Yes",
+            "noBtn": "No"
         }
     },
     "countries": [
@@ -70,22 +65,23 @@
             "translations": {
                 "title": "Hai l'età legale per bere?",
                 "errors": {
-                    "invalidDate": "Data Invalida",
-                    "invalidAge": "Età invalida"
+                    "invalidDate": "Data non valida",
+                    "invalidAge": "Età non valida"
                 },
                 "submit": "Entra",
                 "remember": "Ricorda la mia scelta",
-                "terms": "Entrando in questo sito accetti termini e condizioni",
-                "locationMessage": "Sembra che tu sia in Italia, se così non fosse seleziona la tua country di appartenenza",
-                "yesBtn": "si",
-                "noBtn": "no"
+                "terms": "Visitando questo sito accetto l'<a href=\"https://www.aperol.com/it-it/privacy-policy/\">Informativa sulla privacy</a> e il <a href=\"https://www.aperol.com/it-it/termini-condizioni/\">Regolamento</a>",
+                "locationMessage": "Sembra che tu sia in Italia, se non è così, seleziona il tuo paese di origine",
+                "selectLabel": "Seleziona il paese",
+                "yesBtn": "Sì",
+                "noBtn": "No"
             },
-            "redirectPath": "/it/"
+            "redirectPath": "/it-it/"
         },
         {
             "country": "France",
             "code": "fr",
-            "type": "full",
+            "type": "progressive",
             "formatDate": "dd/mm/yyyy",
             "translations": {
                 "title": "Avez-vous l'âge légal pour boire?",
@@ -94,7 +90,7 @@
                     "invalidAge": "Âge invalide"
                 },
                 "submit": "Entrer",
-                "remember": "Souviens-toi de mon choix",
+                "remember": "Se souvenir de mon choix",
                 "terms": "En accédant à ce site, vous acceptez les termes et conditions",
                 "locationMessage": "Il semble que vous soyez aux France, sinon, sélectionnez votre pays d'origine",
                 "yesBtn": "oui",
@@ -107,14 +103,14 @@
             "type": "progressive",
             "formatDate": "dd/mm/yyyy",
             "translations": {
-                "title": "Sind Sie volljährig?",
+                "title": "Bist du volljährig?",
                 "errors": {
                     "invalidDate": "Ungültiges Datum",
                     "invalidAge": "Ungültiges Alter"
                 },
-                "submit": "Einreichen",
-                "remember": "Erinnere dich an meine Wahl",
-                "terms": "Mit dem Betreten dieser Website akzeptieren Sie die Allgemeinen Geschäftsbedingungen",
+                "submit": "Weiter",
+                "remember": "Auswahl merken",
+                "terms": "Mit dem Besuch dieser Website akzeptiere ich die <a href=\"https://www.aperol.com/de-de/privacy-policy/\">Privacy Policy</a> und die <a href=\"https://www.aperol.com/de-de/nutzungsbedingungen/\">Nutzungsbedingungen</a>",
                 "locationMessage": "Anscheinend sind Sie in Deutschland, wenn nicht, wählen Sie Ihr Herkunftsland",
                 "yesBtn": "jawohl",
                 "noBtn": "nein"
@@ -132,13 +128,54 @@
                     "invalidDate": "Invalid Date",
                     "invalidAge": "Invalid Age"
                 },
-                "submit": "submit",
+                "submit": "Enter",
                 "remember": "Remember my choice",
-                "terms": "By entering this site you accept terms and condition",
+                "terms": "By entering this site, I accept <a href=\"https://www.aperol.com/en-gb/privacy-policy/\">Privacy Policy</a> and <a href=\"https://www.aperol.com/en-gb/terms-conditions/\">Terms & Conditions</a>",
                 "locationMessage": "It seems that you are in United Kingdom, if not, select your country of origin",
-                "yesBtn": "yes",
-                "noBtn": "no"
+                "selectLabel": "Select Your Country/Region",
+                "yesBtn": "Yes",
+                "noBtn": "No"
             }
+        },
+        {
+            "country": "Greece",
+            "code": "gr",
+            "type": "progressive",
+            "formatDate": "dd/mm/yyyy",
+            "translations": {
+                "title": "Είσαι στο νόμιμο όριο ηλικίας?",
+                "errors": {
+                    "invalidDate": "Invalid Date",
+                    "invalidAge": "Invalid Age"
+                },
+                "submit": "Είσοδος",
+                "remember": "Θυμήσου την επιλογή μου",
+                "terms": "Με την είσοδο σε αυτόν τον ιστότοπο, αποδέχομαι <a href=\"https://www.aperol.com/el-gr/politiki-aporritou\">Πολιτική Απορρήτου</a> και <a href=\"https://www.aperol.com/el-gr/oroi-xrisis/\">Όρους & Προϋποθέσεις</a>",
+                "locationMessage": "It seems that you are in Greece, if not, select your country of origin",
+                "selectLabel": "ΔΙΑΛΕΞΕ ΤΗ ΧΩΡΑ ΣΟΥ",
+                "yesBtn": "Ναί",
+                "noBtn": "όχι"
+            },
+            "redirectPath": "/el-gr/"
+        },
+        {
+            "code": "at",
+            "country": "Austria",
+            "type": "progressive",
+            "translations": {
+                "title": "Sind Sie volljährig?",
+                "errors": {
+                    "invalidDate": "Ungültiges Datum",
+                    "invalidAge": "Ungültiges Alter"
+                },
+                "submit": "Weiter",
+                "remember": "Auswahl merken",
+                "terms": "Mit dem Besuch dieser Website akzeptiere ich die <a href=\"https://www.aperol.com/de-at/privacy-policy/\">Datenschutzrichtlinie</a> und die <a href=\"https://www.aperol.com/de-at/nutzungsbedingungen/\">Nutzungsbedingungen</a>",
+                "locationMessage": "Anscheinend sind Sie in Österreich, wenn nicht, wählen Sie Ihr Herkunftsland",
+                "yesBtn": "jawohl",
+                "noBtn": "nein"
+            },
+            "redirectPath": "/de-at/"
         },
         {
             "country": "Canada",
@@ -174,9 +211,11 @@
                 "remember": "Onthoud mijn keuze",
                 "terms": "Door deze site te betreden, accepteert u de algemene voorwaarden",
                 "locationMessage": "Het lijkt erop dat u zich in België bevindt, zo niet, selecteer dan uw land van herkomst",
+                "selectLabel": "Select Your Country/Region",
                 "yesBtn": "ja",
                 "noBtn": "nee"
-            }
+            },
+            "redirectPath": "/nl-be/"
         },
         {
             "country": "USA",
@@ -203,19 +242,167 @@
             "type": "complete",
             "formatDate": "yyyy/mm/dd",
             "translations": {
+                "title": "¿Tienes edad legal para beber alcohol?",
+                "errors": {
+                    "invalidDate": "Invalid Date",
+                    "invalidAge": "Invalid Age"
+                },
+                "submit": "Enter",
+                "remember": "Recordar selección",
+                "terms": "Al acceder a la web, acepto la <a href=\"https://www.aperol.com/es/politica-privacidad/\">Política de privacidad</a> y los <a href=\"https://www.aperol.com/es-es/terminos-condiciones/\">Términos y condiciones</a>",
+                "locationMessage": "It seems that you are in Spain, if not, select your country of origin",
+                "selectLabel": "SELECCIONAR PAÍS",
+                "yesBtn": "sì",
+                "noBtn": "No"
+            },
+            "redirectPath": "/es-es/"
+        },
+        {
+            "code": "au",
+            "country": "Australia",
+            "formatDate": "yyyy/mm/dd",
+            "type": "complete",
+            "translations": {
                 "title": "Are you of legal drinking age?",
                 "errors": {
                     "invalidDate": "Invalid Date",
                     "invalidAge": "Invalid Age"
                 },
-                "submit": "submit",
+                "submit": "Enter",
                 "remember": "Remember my choice",
-                "terms": "By entering this site you accept terms and condition",
-                "locationMessage": "It seems that you are in Spain, if not, select your country of origin",
-                "yesBtn": "yes",
-                "noBtn": "no"
+                "terms": "By entering this site, I accept <a href=\"https://www.aperol.com/en-au/privacy-policy/\">Privacy Policy</a> and <a href=\"https://www.aperol.com/en-au/terms-conditions/\">Terms & Conditions</a>",
+                "locationMessage": "Select your country of origin",
+                "selectLabel": "It seems that you are in Australia, if not, select Your Country/Region",
+                "yesBtn": "Yes",
+                "noBtn": "No"
             },
-            "redirectPath": "/es/"
+            "redirectPath": "/en-au/"
+        },
+        {
+            "code": "cz",
+            "country": "Czech Republic",
+            "type": "progressive",
+            "formatDate": "yyyy/mm/dd",
+            "translations": {
+                "title": "Zadejte váš rok narození",
+                "errors": {
+                    "invalidDate": "Invalid Date",
+                    "invalidAge": "Invalid Age"
+                },
+                "submit": "Vstoupit",
+                "remember": "Zapamatovat moji volbu",
+                "terms": "Vstupem na tyto stránky přijímám <a href=\"https://www.aperol.com/cs-cz/ochrana-osobnich-udaju\">zásady o ochraně osobních</a> údajů a <a href=\"https://www.aperol.com/cs-cz/vseobecne-obchodni-podminky/\">smluvní podmínky</a>.",
+                "locationMessage": "It seems that you are in Czechia, if not, select your country of origin",
+                "selectLabel": "VYBERTE ZEMI",
+                "yesBtn": "Ano",
+                "noBtn": "Ne"
+            },
+            "redirectPath": "/cs-cz/"
+        },
+        {
+            "code": "sk",
+            "type": "complete",
+            "country": "Slovakia",
+            "formatDate": "yyyy/mm/dd",
+            "translations": {
+                "title": "Už ste mali osemnásť rokov?",
+                "errors": {
+                    "invalidDate": "Invalid Date",
+                    "invalidAge": "Invalid Age"
+                },
+                "submit": "Vstúpiť",
+                "remember": "Zapamätať moju voľbu",
+                "terms": "Vstupom na tieto stránky prijímam <a href=\"https://www.aperol.com/sk-sk/ochrana-osobnych-udajov/\">zásady o ochrane osobných</a> údajov a <a href=\"https://www.aperol.com/sk-sk/vseobecne-obchodne-podmienky/\">zmluvné podmienky</a>.",
+                "locationMessage": "It seems that you are in Czechia, if not, select your country of origin",
+                "selectLabel": "VYBERTE ZEMI",
+                "yesBtn": "Yes",
+                "noBtn": "No"
+            },
+            "redirectPath": "/sk-sk/"
+        },
+        {
+            "code": "pl",
+            "country": "Poland",
+            "type": "complete",
+            "formatDate": "yyyy/mm/dd",
+            "translations": {
+                "title": "Are you of legal drinking age?",
+                "errors": {
+                    "invalidDate": "Invalid Date",
+                    "invalidAge": "Invalid Age"
+                },
+                "submit": "Enter",
+                "remember": "Remember my choice",
+                "terms": "By entering this site, I accept <a href=\"https://www.aperol.com/en-us/privacy-policy/\">Privacy Policy</a> and <a href=\"https://www.aperol.com/en-us/terms-conditions/\">Terms & Conditions</a>",
+                "locationMessage": "It seems that you are in USA, if not, select your country of origin",
+                "selectLabel": "Select Your Country/Region",
+                "yesBtn": "Yes",
+                "noBtn": "No"
+            },
+            "redirectPath": "/pl-pl/"
+        },
+        {
+            "code": "hu",
+            "type": "complete",
+            "country": "Hungary",
+            "formatDate": "yyyy/mm/dd",
+            "translations": {
+                "title": "Elmúltál már 18 éves?",
+                "errors": {
+                    "invalidDate": "Invalid Date",
+                    "invalidAge": "Invalid Age"
+                },
+                "submit": "Belépés",
+                "remember": "Emlékezz rám",
+                "terms": "Az oldalra való belépéssel elfogadom az <a href=\"https://www.aperol.com/en-us/privacy-policy/\">Adatvédelmi szabályzatot</a> és az <a href=\"https://www.aperol.com/en-us/terms-conditions/\">Általános szerződési feltételeket</a>",
+                "locationMessage": "Úgy tűnik, hogy Magyarországon tartózkodik, ha nem, válassza ki a származási országát",
+                "selectLabel": "Válassza ki országát/régióját",
+                "yesBtn": "Igen",
+                "noBtn": "Nem"
+            },
+            "redirectPath": "/hu-hu/"
+        },
+        {
+            "country": "Japan",
+            "code": "jp",
+            "type": "complete",
+            "formatDate": "yyyy/mm/dd",
+            "translations": {
+                "title": "あなたは法律で飲酒が認められている年齢ですか？",
+                "errors": {
+                    "invalidDate": "無効な日付",
+                    "invalidAge": "無効な年齢"
+                },
+                "submit": "入力する",
+                "remember": "入力内容を保存する",
+                "terms": "本サイトにアクセスすることにより、お客様は利用規約に同意したものとみなされます。",
+                "locationMessage": "It seems that you are in Japan, if not, select your country of origin",
+                "selectLabel": "国/地域を選んでください",
+                "yesBtn": "は",
+                "noBtn": "ノー"
+            },
+            "redirectPath": "/ja-jp/"
+        },
+        {
+            "code": "cn",
+            "type": "complete",
+            "country": "China",
+            "formatDate": "yyyy/mm/dd",
+            "translations": {
+                "title": "您已达到法定饮酒年龄吗？",
+                "errors": {
+                    "invalidDate": "失效日期",
+                    "invalidAge": "无效年龄"
+                },
+                "submit": "进入",
+                "remember": "记住我的选择",
+                "terms": "进入本网站即表示我接受 <a href=\"https://www.aperol.com/zh-cn/privacy-policy/\">隐私政策</a> 和 <a href=\"https://www.aperol.com/zh-cn/terms-conditions/\">条款及条件</a>",
+                "locationMessage": "看来您在中国，如果不是，请选择您的原籍国",
+                "selectLabel": "选择您的国家/地区",
+                "yesBtn": "是的",
+                "noBtn": "不"
+            },
+            "redirectPath": "/zh-cn/"
         }
     ]
 }

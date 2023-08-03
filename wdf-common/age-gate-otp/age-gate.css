@@ -1,0 +1,152 @@
+#age-gate-otp {
+    font-family: 'Poppins', sans-serif;
+}
+
+#age-gate-otp .ag-card {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    padding: 0px !important;
+}
+
+#age-gate-otp .ag-card_logo{
+    max-height: 75px !important;
+    margin-bottom: 40px !important;
+}
+
+#age-gate-otp .ag-card .main_text {
+    color:#ffffff !important;
+    font-family: 'Poppins', sans-serif !important;
+    text-transform: initial !important;
+    font-size: 24px !important;
+    font-weight: 600 !important;
+    letter-spacing: normal !important;
+}
+
+#age-gate-otp .ag-disclaimer {
+    color:#ffffff !important;
+    font-size: 14px !important;
+    font-family: 'Poppins', sans-serif !important;
+    text-transform: initial !important;
+    letter-spacing: normal !important;
+}
+
+#age-gate-otp .remember_text {
+    color:#ffffff !important;
+    font-family: 'Poppins', sans-serif !important;
+    text-transform: initial !important;
+    letter-spacing: normal !important;
+    font-size: 14px !important;
+}
+
+#age-gate-otp .sn_form_custom_control._checkbox {
+    display: flex;
+}
+
+#age-gate-otp .ag-select{
+    color: #fe5000 !important;
+    font-style:normal !important;
+
+    font-family: 'Poppins', sans-serif !important;
+    text-transform: initial !important;
+    letter-spacing: normal !important;
+    font-size: 16px !important;
+}
+
+#age-gate-otp .ag-select_toggle{
+    background-color: transparent !important;
+    border-bottom-color: #ffffff !important;
+    color: #ffffff !important;
+    justify-content: flex-start !important;
+}
+
+#age-gate-otp .ag-select_menu_wr{
+    justify-content: flex-start !important;
+}
+
+#age-gate-otp .ag-select_toggle .sn_sprite{
+    fill: #ffffff !important;
+}
+
+#age-gate-otp .sn_form_custom_control>label .sn_sprite{
+    border-color: #ffffff !important;
+    border-radius: 1px !important;
+}
+
+#age-gate-otp .sn_form_custom_control>input:checked~label .sn_sprite{
+    background-color: #ffffff !important;
+    fill: #fe5000 !important;
+}
+
+#age-gate-otp .ag-card .ag-background {
+    background-image: none !important;
+}
+
+#age-gate-otp .modalbg {
+    background-image: url(https://www.aperol.com/app/uploads/2023/04/agegate-bg.jpg) !important;
+}
+
+#age-gate-otp .ag-buttons .sn_btn{
+    background-color: transparent !important;
+    border-radius: 2px !important;
+    border-color: #fff !important;
+    border-color: #fff !important;
+    color: #fff !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    height: 64px !important;
+    text-transform: capitalize !important;
+
+    font-family: 'Poppins', sans-serif !important;
+    letter-spacing: normal !important;
+    font-size: 16px !important;
+}
+
+#age-gate-otp .ag-buttons .sn_btn.selected{
+    background-color: #fff !important;
+    color: #fe5000 !important;
+}
+
+#age-gate-otp .ag-buttons{
+    gap: 10px !important;
+}
+
+#age-gate-otp .geolocation_message{
+    display: none !important;
+}
+
+#age-gate-otp .submit_btn {
+    color: #fe5000 !important;
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+    border-radius: 2.3em !important;
+    font-weight: 700 !important;
+}
+
+#age-gate-otp .submit_btn[disabled="disabled"] {
+    color: #868686 !important;
+    background-color: #e3e3e3 !important;
+    border-color: #e3e3e3 !important;
+}
+
+#age-gate-otp .ag-select img{
+    height: 13px !important;
+    margin-right: 12px !important;
+    width: auto !important;
+}
+
+#age-gate-otp .ag-inputs[data-type="progressive"] .form-group-1{
+    width: 100% !important;
+}
+
+#age-gate-otp .ag-inputs input{
+    background-color: transparent !important;
+    border-bottom-color: #ffffff !important;
+    color: #ffffff !important;
+    border-radius: 2px !important;
+    font-style: normal !important;
+}
+
+#age-gate-otp .ag-inputs input::placeholder{
+    color: #ffffff !important;
+}
+
