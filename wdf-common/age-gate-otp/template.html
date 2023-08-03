@@ -5,6 +5,7 @@
         --tc-inputs-text-color-default: __input-color__;
         --tc-color-main-text: __main-title-color__;
         --tc-main-title-font: __main-title-font__;
+		--tc-main-title-font-weight: __main-title-font-weight__;
         --tc-selects-background-color-default: __select-bg-color__;
         --tc-selects-text-color-default: __select-color__;
 
@@ -1535,6 +1536,7 @@
         text-transform: uppercase;
         color: var(--tc-color-main-text, #fff) !important;
         font-family: var(--tc-main-title-font);
+		font-weight: var(--tc-main-title-font-weight);
     }
 
     @media only screen and (min-width: 52.125em){
@@ -2108,7 +2110,7 @@
 
     #age-gate-otp input, #age-gate-otp button, #age-gate-otp select, #age-gate-otp optgroup, #age-gate-otp textarea {
         margin: 0;
-        font-family: inherit;
+        font-family: var(--tc-general-font-family);
         font-size: inherit;
         line-height: inherit;
     }
