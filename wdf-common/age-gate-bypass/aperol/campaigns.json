@@ -1,0 +1,53 @@
+{
+  "agegateCookieName": "age-gate-ok",
+  "agegateCookieValue": true,
+  "refreshPage": false,
+  "isBypassActive": true,
+  "elementsToHide": "#age-gate-otp",
+  "bypassedDiv": {
+    "disappearingSecs": 5,
+    "class": "top-message",
+    "id": "bypass-cookie-message",
+    "text": "We have identified you coming from a social platform where you have a profile with a legal drinking age. If this is not the case, we ask you to end your navigation. Click to close.",
+    "style": "position: fixed;z-index: 9999; top:0;left: 0;font-size: 1rem;font-family: inherit;padding: 0.8rem 30px;background-color: red;color: white;width: 100%;text-align: center;box-sizing: border-box; cursor:pointer;",
+    "closeSpanId": "close-bypass-cookie-message",
+    "closeSpanStyle": "position: absolute;right: 1rem;cursor: pointer; display:none;",
+    "closeSpanText": "CLOSE"
+  },
+  "reopenMessageDiv": {
+    "class": "bottom-message",
+    "id": "reopen-message",
+    "text": "",
+    "style": "position: relative;z-index: 9999;font-size: 1rem;font-family: inherit;padding: 0 2rem 2rem 2rem;background-color: white;color: #FE5000;width: 100%;text-align: center;box-sizing: border-box;",
+    "closeSpanId": "close-reopen-message",
+    "closeSpanStyle": "display:inline;cursor: pointer;",
+    "closeSpanText": "Click here to discover why you bypassed Age Gate"
+  },
+  "translations": {
+    "it-IT": {
+      "bypassedDivText": "Sei arrivato su questo sito da una campagna social media e sei stato identificato come 18+. Se non sei 18+ ti chiediamo di uscire da questo sito. Clicca per chiudere il messaggio",
+      "bypassedCloseTest": "Chiudi",
+      "reopenMessageDivText": "",
+      "reopenMessageCloseText": "Clicca qui per scoprire il motivo del bypass"
+    },
+    "en-GB": {
+      "bypassedDivText": "We have identified you coming from a social platform where you have a profile with a legal drinking age. If this is not the case, we ask you to end your navigation. Click to close.",
+      "bypassedCloseTest": "Close",
+      "reopenMessageDivText": "",
+      "reopenMessageCloseText": "Click here to discover why you bypassed Age Gate"
+    }
+  },
+  "campaigns": {
+    "utm_source": {
+      "Facebook": {},
+      "Instagram": {},
+      "Pinterest": {},
+      "Twitter": {},
+      "Snapchat": {},
+	  "Testnet":{}
+    },
+    "utm_medium": {
+      "Paid_Social": {}
+    }
+  }
+}
