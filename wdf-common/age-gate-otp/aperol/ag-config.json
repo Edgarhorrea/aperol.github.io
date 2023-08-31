@@ -1,18 +1,16 @@
 {
     "customization": {
         "background-color": "transparent", 
-        "select-bg-color": "#ffffff", 
         "text-color": "#fffff",
         "font-size-desktop": "18px",
         "font-size-tablet": "16px",
         "font-size-mobile": "16px",
         "main-title-color" : "#fffff",
 
-        "main-title-font" : "Futura,sans-serif",
-        "main-title-font-weight" : "700",
-        "font-family": "Futura,sans-serif",
-        "font-weight": "400",        
-        "font-style": "",        
+        "main-title-font" : "ltc-bodoni-175",
+        "font-family": "ltc-bodoni-175",
+        "font-weight": "",        
+        "font-style": "italic",        
 
         "input-color": "#000000",
         "input-bg-color": "#f8f8f8",
@@ -22,8 +20,8 @@
 
         "icon-color": "#fffff",
 
-        "submit-font-family": "Futura,sans-serif",
-        "submit-font-weight": "400",
+        "submit-font-family": "ltc-bodoni-175",
+        "submit-font-weight": "100",
         "submit-bg-color": "#c10f28",
         "submit-text-color": "#ffffff",
         "submit-disabled-bg-color": "#6D798A",
