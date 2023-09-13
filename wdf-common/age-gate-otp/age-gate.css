@@ -28,6 +28,7 @@
     font-family: 'Poppins', sans-serif !important;
     text-transform: initial !important;
     letter-spacing: normal !important;
+    font-style: normal !important;
 }
 
 #age-gate-otp .remember_text {
@@ -70,6 +71,11 @@
 #age-gate-otp .sn_form_custom_control>label .sn_sprite{
     border-color: #ffffff !important;
     border-radius: 1px !important;
+}
+
+#age-gate-otp .sn_form_custom_control>label{
+    align-items: center !important;
+    font-style: normal;
 }
 
 #age-gate-otp .sn_form_custom_control>input:checked~label .sn_sprite{
@@ -144,9 +150,53 @@
     color: #ffffff !important;
     border-radius: 2px !important;
     font-style: normal !important;
+    outline: none !important;
+}
+
+#age-gate-otp .ag-inputs input.is-invalid{
+    border-bottom-color: #ffffff !important;    
+    border-color: #ffffff !important; 
 }
 
 #age-gate-otp .ag-inputs input::placeholder{
     color: #ffffff !important;
 }
 
+#age-gate-otp .ag-country_name {
+    color: #ffffff !important;
+}
+
+#age-gate-otp  .ag-select_menu_i {
+    color: #fe5000 !important;
+}
+
+#age-gate-otp .submit_btn,
+#age-gate-otp ._text_danger {
+    font-family: 'Poppins', sans-serif !important;
+    font-style: normal !important;
+}
+
+#age-gate-otp ._text_danger{
+    font-size: 12px !important;
+    padding-left: 10px !important;
+    text-align: left;
+}
+
+.sn_form .form-group .form-control.is-invalid,.sn_form .form-group .form-control-1.is-invalid,.sn_form .form-group .custom-select.is-invalid,.sn_form .form-group-1 .form-control.is-invalid,.sn_form .form-group-1 .form-control-1.is-invalid,.sn_form .form-group-1 .custom-select.is-invalid {
+    color: var(--tc-color-danger, #a6192e);
+    border-color: #ffffff !important;
+    background-image: none;
+}
+
+.sn_form .form-group .form-control.is-invalid~label,.sn_form .form-group .form-control-1.is-invalid~label,.sn_form .form-group .custom-select.is-invalid~label,.sn_form .form-group-1 .form-control.is-invalid~label,.sn_form .form-group-1 .form-control-1.is-invalid~label,.sn_form .form-group-1 .custom-select.is-invalid~label {
+    color: #ffffff !important;
+}
+
+#age-gate-otp .ag-inputs .form-group .form-control:focus,
+#age-gate-otp .ag-inputs .form-group-1 .form-control-1:focus {
+    border-color: #ffffff !important;
+}
+
+#age-gate-otp .ag-inputs .form-group-1 .form-control-1{
+    width: 100% !important;
+}
