@@ -217,6 +217,27 @@
             "redirectPath": "/nl"
         },
         {
+            "country": "Netherlands",
+            "code": "nl",
+            "type": "progressive",
+            "formatDate": "dd/mm/yyyy",
+            "translations": {
+                "title": "Heeft u de wettelijke leeftijd om alcohol te drinken?",
+                "errors": {
+                    "invalidDate": "Ongeldige datum",
+                    "invalidAge": "Ongeldige leeftijd"
+                },
+                "submit": "indienen",
+                "remember": "Onthoud mijn keuze",
+                "terms": "Door deze site te betreden, accepteer ik het <a href=\"https://shop.aperol.com/nl/policies/privacy-policy\">privacybeleid</a> en de <a href=\"https://shop.aperol.com/nl/policies/terms-of-sale\">verkoopvoorwaarden</a>.",
+                "locationMessage": "Het lijkt erop dat u zich in België bevindt, zo niet, selecteer dan uw land van herkomst",
+                "selectLabel": "Select Your Country/Region",
+                "yesBtn": "ja",
+                "noBtn": "nee"
+            },
+            "redirectPath": "/nl"
+        },
+        {
             "country": "USA",
             "code": "us",
             "type": "complete",
