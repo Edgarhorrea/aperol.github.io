@@ -90,12 +90,12 @@
                 },
                 "submit": "Entrer",
                 "remember": "Se souvenir de mon choix",
-                "terms": "En entrant sur ce site, j'accepte la <a href=\"https://shop.aperol.com/fr/policies/privacy-policy\">Politique de confidentialité</a> et les <a href=\"https://shop.aperol.com/fr/policies/terms-of-sale\">Conditions générales de vente</a>.",
+                "terms": "En entrant sur ce site, j'accepte la <a href=\"https://shop.aperol.com/fr-be/policies/privacy-policy\">Politique de confidentialité</a> et les <a href=\"https://shop.aperol.com/fr-be/policies/terms-of-sale\">Conditions générales de vente</a>.",
                 "locationMessage": "Il semble que vous soyez aux France, sinon, sélectionnez votre pays d'origine",
                 "yesBtn": "oui",
                 "noBtn": "no"
             },
-            "redirectPath": "/fr"
+            "redirectPath": "/fr-be"
         },
         {
             "country": "Deutschland",
@@ -110,12 +110,12 @@
                 },
                 "submit": "Weiter",
                 "remember": "Auswahl merken",
-                "terms": "Durch den Zugriff auf diese Website akzeptiere ich die <a href=\"https://shop.aperol.com/de/policies/privacy-policy\">Datenschutzrichtlinie</a> und die <a href=\"https://shop.aperol.com/de/policies/terms-of-sale\">Allgemeinen Geschäftsbedingungen</a>.",
+                "terms": "Durch den Zugriff auf diese Website akzeptiere ich die <a href=\"https://shop.aperol.com/de-at/policies/privacy-policy\">Datenschutzrichtlinie</a> und die <a href=\"https://shop.aperol.com/de-at/policies/terms-of-sale\">Allgemeinen Geschäftsbedingungen</a>.",
                 "locationMessage": "Anscheinend sind Sie in Deutschland, wenn nicht, wählen Sie Ihr Herkunftsland",
                 "yesBtn": "jawohl",
                 "noBtn": "nein"
             },
-            "redirectPath": "/de"
+            "redirectPath": "/de-at"
         },
         {
             "country": "United Kingdom",
@@ -169,12 +169,12 @@
                 },
                 "submit": "Weiter",
                 "remember": "Auswahl merken",
-                "terms": "Durch den Zugriff auf diese Website akzeptiere ich die <a href=\"https://shop.aperol.com/de/policies/privacy-policy\">Datenschutzrichtlinie</a> und die <a href=\"https://shop.aperol.com/de/policies/terms-of-sale\">Allgemeinen Geschäftsbedingungen</a>.",
+                "terms": "Durch den Zugriff auf diese Website akzeptiere ich die <a href=\"https://shop.aperol.com/de-at/policies/privacy-policy\">Datenschutzrichtlinie</a> und die <a href=\"https://shop.aperol.com/de-at/policies/terms-of-sale\">Allgemeinen Geschäftsbedingungen</a>.",
                 "locationMessage": "Anscheinend sind Sie in Österreich, wenn nicht, wählen Sie Ihr Herkunftsland",
                 "yesBtn": "jawohl",
                 "noBtn": "nein"
             },
-            "redirectPath": "/de"
+            "redirectPath": "/de-at"
         },
         {
             "country": "Canada",
@@ -208,13 +208,13 @@
                 },
                 "submit": "indienen",
                 "remember": "Onthoud mijn keuze",
-                "terms": "Door deze site te betreden, accepteer ik het <a href=\"https://shop.aperol.com/nl/policies/privacy-policy\">privacybeleid</a> en de <a href=\"https://shop.aperol.com/nl/policies/terms-of-sale\">verkoopvoorwaarden</a>.",
+                "terms": "Door deze site te betreden, accepteer ik het <a href=\"https://shop.aperol.com/nl-be/policies/privacy-policy\">privacybeleid</a> en de <a href=\"https://shop.aperol.com/nl-be/policies/terms-of-sale\">verkoopvoorwaarden</a>.",
                 "locationMessage": "Het lijkt erop dat u zich in België bevindt, zo niet, selecteer dan uw land van herkomst",
                 "selectLabel": "Select Your Country/Region",
                 "yesBtn": "ja",
                 "noBtn": "nee"
             },
-            "redirectPath": "/nl"
+            "redirectPath": "/nl-be"
         },
         {
             "country": "Netherlands",
@@ -229,13 +229,13 @@
                 },
                 "submit": "indienen",
                 "remember": "Onthoud mijn keuze",
-                "terms": "Door deze site te betreden, accepteer ik het <a href=\"https://shop.aperol.com/nl/policies/privacy-policy\">privacybeleid</a> en de <a href=\"https://shop.aperol.com/nl/policies/terms-of-sale\">verkoopvoorwaarden</a>.",
+                "terms": "Door deze site te betreden, accepteer ik het <a href=\"https://shop.aperol.com/nl-be/policies/privacy-policy\">privacybeleid</a> en de <a href=\"https://shop.aperol.com/nl-be/policies/terms-of-sale\">verkoopvoorwaarden</a>.",
                 "locationMessage": "Het lijkt erop dat u zich in België bevindt, zo niet, selecteer dan uw land van herkomst",
                 "selectLabel": "Select Your Country/Region",
                 "yesBtn": "ja",
                 "noBtn": "nee"
             },
-            "redirectPath": "/nl"
+            "redirectPath": "/nl-be"
         },
         {
             "country": "USA",
