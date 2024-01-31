@@ -471,6 +471,10 @@ ageGateOTP.prototype.onSubmit = function () {
             }
             break;
     }
+    localStorage.setItem('cmpr-age-gate-year', birthYear);
+    localStorage.setItem('cmpr-age-gate-month', birthMonth);
+    localStorage.setItem('cmpr-age-gate-day', birthDay);
+
 };
 
 ageGateOTP.prototype.checkAndDoRedirect = function () {
@@ -764,7 +768,7 @@ ageGateOTP.prototype.checkAgeProgressive = function () {
     _this.htmlStructure.find('.error_age').hide();
     _this.htmlStructure.find('.submit_btn').attr('disabled', 'disabled');
 
-    if(userAge >= _this.minAge && (parseInt(birthYear) !== (parseInt(currYear) - _this.minAge))){
+    if(userAge >= _this.minAge && (parseInt(birthYear) !== (parseInt(currYear) - _this.minAge) && !(_this.htmlStructure.find('[data-type="progressive"] [data-name="year_f"]').hasClass("is-invalid")))){
         _this.htmlStructure.find('.submit_btn').removeAttr('disabled');            
         _this.htmlStructure.find('.ag-inputs[data-type="progressive"] [data-name="month_f"]').parent().hide();
         _this.htmlStructure.find('.ag-inputs[data-type="progressive"] [data-name="day_f"]').parent().hide();
