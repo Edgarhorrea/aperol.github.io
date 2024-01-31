@@ -329,8 +329,29 @@ ageGateOTP.prototype.initListeners = function () {
     _this.htmlStructure.find('input[max]:not([max=""])').on('input', function (ev) {
         let maxlength = jQuery(this).attr('max').length;
         let v = jQuery(this).val();
+        
+        //verify what data type current input div has.
+        let _currDataType="full";
+        if (jQuery(".ag-inputs[data-type='progressive']").is(':visible')) {
+            _currDataType="progressive";
+        }
+        
         if (v && v.length >= maxlength) {
             jQuery(this).val(v.substr(0, maxlength));
+            
+            let allInputFilled=true;
+            jQuery('.ag-inputs[data-type="'+_currDataType+'"] input').each(function() {
+                if(jQuery(this).parent().is(':visible') && jQuery(this).val() === '') {
+                    allInputFilled = false;
+                }
+            });
+            if(allInputFilled){
+                document.activeElement.blur();
+            }
+            else{
+                jQuery(this).parent().next().find('input[type="number"]').focus();
+            }
+            
         }
     });
 
