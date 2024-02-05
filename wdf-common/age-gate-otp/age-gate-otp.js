@@ -329,8 +329,29 @@ ageGateOTP.prototype.initListeners = function () {
     _this.htmlStructure.find('input[max]:not([max=""])').on('input', function (ev) {
         let maxlength = jQuery(this).attr('max').length;
         let v = jQuery(this).val();
+        
+        //verify what data type current input div has.
+        let _currDataType="full";
+        if (jQuery(".ag-inputs[data-type='progressive']").is(':visible')) {
+            _currDataType="progressive";
+        }
+        
         if (v && v.length >= maxlength) {
             jQuery(this).val(v.substr(0, maxlength));
+            
+            let allInputFilled=true;
+            jQuery('.ag-inputs[data-type="'+_currDataType+'"] input').each(function() {
+                if(jQuery(this).parent().is(':visible') && jQuery(this).val() === '') {
+                    allInputFilled = false;
+                }
+            });
+            if(allInputFilled){
+                document.activeElement.blur();
+            }
+            else{
+                jQuery(this).parent().next().find('input[type="number"]').focus();
+            }
+            
         }
     });
 
@@ -450,6 +471,10 @@ ageGateOTP.prototype.onSubmit = function () {
             }
             break;
     }
+    localStorage.setItem('cmpr-age-gate-year', birthYear);
+    localStorage.setItem('cmpr-age-gate-month', birthMonth);
+    localStorage.setItem('cmpr-age-gate-day', birthDay);
+
 };
 
 ageGateOTP.prototype.checkAndDoRedirect = function () {
@@ -743,7 +768,7 @@ ageGateOTP.prototype.checkAgeProgressive = function () {
     _this.htmlStructure.find('.error_age').hide();
     _this.htmlStructure.find('.submit_btn').attr('disabled', 'disabled');
 
-    if(userAge >= _this.minAge && (parseInt(birthYear) !== (parseInt(currYear) - _this.minAge))){
+    if(userAge >= _this.minAge && (parseInt(birthYear) !== (parseInt(currYear) - _this.minAge) && !(_this.htmlStructure.find('[data-type="progressive"] [data-name="year_f"]').hasClass("is-invalid")))){
         _this.htmlStructure.find('.submit_btn').removeAttr('disabled');            
         _this.htmlStructure.find('.ag-inputs[data-type="progressive"] [data-name="month_f"]').parent().hide();
         _this.htmlStructure.find('.ag-inputs[data-type="progressive"] [data-name="day_f"]').parent().hide();
