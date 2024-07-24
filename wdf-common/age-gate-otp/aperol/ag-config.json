@@ -58,7 +58,7 @@
     },
     "countries": [
         {
-            "country": "Italia",
+            "country": "lia",
             "code": "it",
             "type": "simple",
             "formatDate": "dd/mm/yyyy",
@@ -75,7 +75,8 @@
                 "selectLabel": "Seleziona il paese",
                 "yesBtn": "Sì",
                 "noBtn": "No"
-            }
+            },
+            "redirectPath": "/it-it"
         },
         {
             "country": "France",
