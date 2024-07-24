@@ -58,7 +58,7 @@
     },
     "countries": [
         {
-            "country": "lia",
+            "country": "Italia",
             "code": "it",
             "type": "simple",
             "formatDate": "dd/mm/yyyy",
