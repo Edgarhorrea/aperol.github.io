@@ -480,18 +480,28 @@ ageGateOTP.prototype.onSubmit = function () {
 
 ageGateOTP.prototype.checkAndDoRedirect = function () {
     let _this = this;
-  
-    if(_this.redirectPath != null){
-        let current = window.location.pathname;
+    let currentUrl = window.location.href; // Full URL of the current page
 
-        if (current == '/') {
-            console.log('Is the homepage.');
-            window.location.replace(window.location.origin + _this.redirectPath + window.location.search);
-        } else {
-            console.log('Not on the homepage.');
+    // Check if the current URL is the US store domain
+    if (currentUrl.includes('us-shop.aperol.com')) {
+        // If on the US store, replace the URL with the same path but without redirectPath
+        window.location.replace(window.location.origin + window.location.search);
+    } else {
+        // Check if redirectPath is set
+        if (_this.redirectPath != null) {
+            let current = window.location.pathname; // Path part of the current URL
+
+            // If the current path is the homepage
+            if (current == '/') {
+                console.log('Is the homepage.');
+                window.location.replace(window.location.origin + _this.redirectPath + window.location.search);
+            } else {
+                console.log('Not on the homepage.');
+            }
         }
     }
 };
+
 
 ageGateOTP.prototype.setCountry = function (code, geolocalization = 0, isFirst = 0) {
     let _this = this;
