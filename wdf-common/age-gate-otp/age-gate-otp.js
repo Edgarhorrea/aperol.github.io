@@ -12,36 +12,6 @@ window.onload = function () {
     }
 }
 
-// Default URL for the US store
-const defaultUSUrl = 'https://us-shop.aperol.com/';
-
-// Function to handle redirection
-function handleRedirection(userCountry) {
-  const currentUrl = window.location.href;
-  const isUSStore = currentUrl.includes('us-shop.aperol.com');
-  const isMainStore = currentUrl.includes('shop.aperol.com') && !isUSStore;
-
-  // If the user is on the main domain and not on the US store
-  if (isMainStore) {
-    // If the user is from the US, redirect to the US store
-    if (userCountry.toLowerCase() === 'us') {
-      window.location.href = defaultUSUrl;
-    }
-    // If the user is from another country, do nothing
-    else {
-      console.log('User is in a supported country. No redirection needed.');
-    }
-  } else {
-    // If already on the US store, do nothing
-    console.log('Already on the US shop. No redirection needed.');
-  }
-}
-
-// Example usage of the function
-// userCountry could be detected from the user's input on the site (e.g., through the age gate)
-const userCountry = 'US'; // Replace with dynamic retrieval of the actual country
-handleRedirection(userCountry);
-
 
 class ageGateOTP {
     constructor(id, _chiamante) {
