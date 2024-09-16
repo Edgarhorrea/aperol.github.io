@@ -485,7 +485,8 @@ ageGateOTP.prototype.checkAndDoRedirect = function () {
     // Check if the current URL is the US store domain
     if (currentUrl.includes('us-shop.aperol.com')) {
         // If on the US store, replace the URL with the same path but without redirectPath
-        window.location.replace(window.location.origin + window.location.search);
+	console.log('On the US store');
+        window.location.replace(window.location.origin);
     } else {
         // Check if redirectPath is set
         if (_this.redirectPath != null) {
