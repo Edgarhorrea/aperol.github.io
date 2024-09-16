@@ -480,18 +480,54 @@ ageGateOTP.prototype.onSubmit = function () {
 
 ageGateOTP.prototype.checkAndDoRedirect = function () {
     let _this = this;
-  
-    if(_this.redirectPath != null){
-        let current = window.location.pathname;
 
-        if (current == '/') {
+    // Define the default URL for the US store
+    const defaultUSUrl = 'https://us-shop.aperol.com/';
+
+    // Function to handle redirection based on the current URL and user country
+    function handleRedirection(userCountry) {
+        const currentUrl = window.location.href;
+        const isUSStore = currentUrl.includes('us-shop.aperol.com');
+        const isMainStore = currentUrl.includes('shop.aperol.com') && !isUSStore;
+
+        // If the user is on the main domain and not on the US store
+        if (isMainStore) {
+            // If the user is from the US, redirect to the US store
+            if (userCountry.toLowerCase() === 'us') {
+                window.location.href = defaultUSUrl;
+            }
+            // If the user is from another country, do nothing
+            else {
+                console.log('User is in a supported country. No redirection needed.');
+            }
+        } else {
+            // If already on the US store, do nothing
+            console.log('Already on the US shop. No redirection needed.');
+        }
+    }
+
+    // Check if a redirection path is set
+    if (_this.redirectPath != null) {
+        let currentPath = window.location.pathname;
+
+        // If the user is on the homepage
+        if (currentPath == '/') {
             console.log('Is the homepage.');
+
+            // Replace the URL with the redirection path
             window.location.replace(window.location.origin + _this.redirectPath + window.location.search);
         } else {
             console.log('Not on the homepage.');
+
+            // Example userCountry variable for demonstration purposes
+            const userCountry = 'US'; // Replace with actual country detection logic
+
+            // Call the redirection handler
+            handleRedirection(userCountry);
         }
     }
 };
+
 
 ageGateOTP.prototype.setCountry = function (code, geolocalization = 0, isFirst = 0) {
     let _this = this;
