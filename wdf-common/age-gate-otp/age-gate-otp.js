@@ -489,16 +489,19 @@ ageGateOTP.prototype.checkAndDoRedirect = function () {
         window.location.replace(window.location.origin);
     } else {
         // Check if redirectPath is set
-        if (_this.redirectPath != null) {
+        if (_this.redirectPath != null ) {
             let current = window.location.pathname; // Path part of the current URL
-
             // If the current path is the homepage
             if (current == '/') {
                 console.log('Is the homepage.');
                 window.location.replace(window.location.origin + _this.redirectPath + window.location.search);
             } else {
                 console.log('Not on the homepage.');
-            }
+		    
+            } else if (_this.redirectPathUs != null) {
+		console.log('Redirecting to the US store.');
+		window.location.replace('https://us-shop.aperol.com');
+	    }
         }
     }
 };
@@ -516,6 +519,7 @@ ageGateOTP.prototype.setCountry = function (code, geolocalization = 0, isFirst =
     let countryName = typeof(selectedCountry.country) != 'undefined' ? selectedCountry.country : 'International';
     let countryCode = typeof(selectedCountry.code) != 'undefined' ? selectedCountry.code.toLowerCase() : 'int';
     _this.redirectPath = typeof(selectedCountry.redirectPath) != 'undefined' ? selectedCountry.redirectPath : null;
+    _this.redirectPathUSA = typeof(selectedCountry.redirectPathUSA) != 'undefined' ? selectedCountry.redirectPathUSA : null;
 
     let translations = selectedCountry.translations;
     _this.dateFormat = selectedCountry.formatDate;
