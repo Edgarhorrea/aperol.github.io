@@ -485,22 +485,23 @@ ageGateOTP.prototype.checkAndDoRedirect = function () {
     // Check if the current URL is the US store domain
     if (currentUrl.includes('us-shop.aperol.com')) {
         // If on the US store, replace the URL with the same path but without redirectPath
-	console.log('On the US store');
+        console.log('On the US store');
         window.location.replace(window.location.origin);
     } else {
         // Check if redirectPath is set
-        if (_this.redirectPath != null ) {
+        if (_this.redirectPath != null) {
             let current = window.location.pathname; // Path part of the current URL
+
             // If the current path is the homepage
             if (current == '/') {
                 console.log('Is the homepage.');
                 window.location.replace(window.location.origin + _this.redirectPath + window.location.search);
             } else {
                 console.log('Not on the homepage.');
-	    } else if (_this.redirectPathUs != null) {
-		console.log('Redirecting to the US store.');
-		window.location.replace('https://us-shop.aperol.com');
-	    }
+            }
+        } else if (_this.redirectPathUSA != null) {
+            console.log('Redirecting to the US store.');
+            window.location.replace('https://us-shop.aperol.com');
         }
     }
 };
