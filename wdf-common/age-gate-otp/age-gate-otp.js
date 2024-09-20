@@ -497,10 +497,6 @@ ageGateOTP.prototype.checkAndDoRedirect = function () {
                 window.location.replace(window.location.origin + _this.redirectPath + window.location.search);
             } else {
                 console.log('Not on the homepage.');
-		    
-            } else if (_this.redirectPathUSA != null) {
-		console.log('Redirecting to the US store.');
-		window.location.replace('https://us-shop.aperol.com');
 	    }
         }
     }
