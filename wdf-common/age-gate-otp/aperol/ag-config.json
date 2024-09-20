@@ -176,7 +176,7 @@
                 "yesBtn": "ja",
                 "noBtn": "nee"
             },
-            "redirectPath": "https://us-shop.aperol.com"
+            "redirectPath": "nl-be"
         },
         {
             "country": "Netherlands",
@@ -217,7 +217,7 @@
                 "yesBtn": "yes",
                 "noBtn": "no"
             },
-            "redirectPath": "/de-de"
+            "redirectPath": "https://us-shop.aperol.com"
         },
         {
             "country": "Europe",
