@@ -87,7 +87,7 @@
                 "title": "Avez-vous l'âge légal pour boire?",
                 "errors": {
                     "invalidDate": "Date invalide",
-                    "invalidAge": "Âge invalide"
+                    "invalidAge": " ge invalide"
                 },
                 "submit": "Entrer",
                 "remember": "Se souvenir de mon choix",
@@ -217,7 +217,6 @@
                 "yesBtn": "yes",
                 "noBtn": "no"
             }
-        },
         }
     ]
 }
