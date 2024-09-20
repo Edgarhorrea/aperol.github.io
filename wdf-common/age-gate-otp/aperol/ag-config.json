@@ -136,7 +136,8 @@
                 "selectLabel": "Select Your Country/Region",
                 "yesBtn": "Yes",
                 "noBtn": "No"
-            }
+            },
+            "redirectPath": "/en-gb"
         },
         {
             "code": "at",
