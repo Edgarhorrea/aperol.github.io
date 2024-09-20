@@ -485,7 +485,7 @@ ageGateOTP.prototype.checkAndDoRedirect = function () {
     // Check if the current URL is the US store domain
     if (currentUrl.includes('us-shop.aperol.com')) {
         // If on the US store, replace the URL with the same path but without redirectPath
-        console.log('On the US store');
+	console.log('On the US store');
         window.location.replace(window.location.origin);
     } else {
         // Check if redirectPath is set
@@ -499,9 +499,6 @@ ageGateOTP.prototype.checkAndDoRedirect = function () {
             } else {
                 console.log('Not on the homepage.');
             }
-        } else if (_this.redirectPathUSA != null) {
-            console.log('Redirecting to the US store.');
-            window.location.replace('https://us-shop.aperol.com');
         }
     }
 };
@@ -519,7 +516,6 @@ ageGateOTP.prototype.setCountry = function (code, geolocalization = 0, isFirst =
     let countryName = typeof(selectedCountry.country) != 'undefined' ? selectedCountry.country : 'International';
     let countryCode = typeof(selectedCountry.code) != 'undefined' ? selectedCountry.code.toLowerCase() : 'int';
     _this.redirectPath = typeof(selectedCountry.redirectPath) != 'undefined' ? selectedCountry.redirectPath : null;
-    _this.redirectPathUSA = typeof(selectedCountry.redirectPathUSA) != 'undefined' ? selectedCountry.redirectPathUSA : null;
 
     let translations = selectedCountry.translations;
     _this.dateFormat = selectedCountry.formatDate;
