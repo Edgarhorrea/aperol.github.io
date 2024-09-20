@@ -217,8 +217,7 @@
                 "locationMessage": "It seems that you are in USA, if not, select your country of origin",
                 "yesBtn": "yes",
                 "noBtn": "no"
-            },
-            "redirectPath": "https://us-shop.aperol.com"
+            }
         },
         {
             "country": "Europe",
