@@ -496,19 +496,19 @@ ageGateOTP.prototype.checkAndDoRedirect = function () {
             if (currentUrl.includes(_this.redirectPath)) {
                 console.log('Already on the page with the correct redirectPath. No redirection.');
                 return; // Exit the function to avoid redirection
-            }
-
-            // If the current path is the homepage
-            if (current == '/') {
-                console.log('Is the homepage.');
-                window.location.replace(window.location.origin + _this.redirectPath + window.location.search);
             } else {
-                console.log('Not on the homepage.');
+                // If not already on the correct page, proceed with redirection
+                if (current == '/') {
+                    console.log('Is the homepage.');
+                    window.location.replace(window.location.origin + _this.redirectPath + window.location.search);
+                } else {
+                    console.log('Not on the homepage, redirecting to correct path.');
+                    window.location.replace(window.location.origin + _this.redirectPath + window.location.search);
+                }
             }
         }
     }
 };
-
 
 
 ageGateOTP.prototype.setCountry = function (code, geolocalization = 0, isFirst = 0) {
