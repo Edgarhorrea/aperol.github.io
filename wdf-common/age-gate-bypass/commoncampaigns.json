@@ -1,1 +1,31 @@
-{}
+{
+  "utm_source": {
+    "Newsletter": {},
+    "newsletter": {},
+    "NEWSLETTER":{},
+    "email": {},
+    "Email": {},
+    "EMAIL": {},
+    "lead_gen": {},
+    "Lead_Gen":{},
+    "LEAD_GEN":{},
+    "wifi":{},
+    "Wifi":{},
+    "WIFI": {},
+    "youtube": {},
+    "Youtube": {},
+    "YOUTUBE": {},
+    "Website":{},
+    "website":{},
+    "WEBSITE":{}
+  },
+  "utm_medium": {
+    "CRM": {},
+    "crm": {},
+    "Crm": {},
+    "Online_Video": {},
+    "aperol":{},
+    "Aperol":{},
+    "APEROL":{}
+  }
+}
