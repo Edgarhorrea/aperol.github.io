@@ -140,6 +140,27 @@
             "redirectPath": "/en-gb"
         },
         {
+            "country": "Republic of Ireland",
+            "code": "ie",
+            "type": "progressive",
+            "formatDate": "dd/mm/yyyy",
+            "translations": {
+                "title": "Are you of legal drinking age?",
+                "errors": {
+                    "invalidDate": "Invalid Date",
+                    "invalidAge": "Invalid Age"
+                },
+                "submit": "Enter",
+                "remember": "Remember my choice",
+                "terms": "By entering this site, I accept <a href=\"https://shop.aperol.com/policies/privacy-policy\">Privacy Policy</a> and <a href=\"https://shop.aperol.com/policies/terms-of-sale\">Terms & Conditions</a>.",
+                "locationMessage": "It seems that you are in United Kingdom, if not, select your country of origin",
+                "selectLabel": "Select Your Country/Region",
+                "yesBtn": "Yes",
+                "noBtn": "No"
+            },
+            "redirectPath": "/en-eu"
+        },
+        {
             "code": "at",
             "country": "Austria",
             "type": "progressive",
