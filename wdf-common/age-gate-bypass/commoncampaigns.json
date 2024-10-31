@@ -14,12 +14,18 @@
     "WIFI": {},
     "youtube": {},
     "Youtube": {},
-    "YOUTUBE": {}
+    "YOUTUBE": {},
+    "Website":{},
+    "website":{},
+    "WEBSITE":{}
   },
   "utm_medium": {
     "CRM": {},
     "crm": {},
     "Crm": {},
-    "Online_Video": {}
+    "Online_Video": {},
+    "aperol":{},
+    "Aperol":{},
+    "APEROL":{}
   }
 }
