@@ -2384,13 +2384,34 @@
 
                                     <div class="layout_box ag-inputs" data-type="progressive">
                                         <div class="form-group-1" >
-                                            <input type="number" placeholder="YYYY" max="2121" min="0" class="form-control-1 mt-10" data-name="year_f">
+                                             <select data-name="year_f" class="form-control-1 mt-10">
+                                                <option value="">YYYY</option>
+                                                <script>
+                                                    for (let i = 2121; i >= 1900; i--) {
+                                                        document.write(`<option value="${i}">${i}</option>`);
+                                                    }
+                                                </script>
+                                            </select>
                                         </div>
                                         <div class="form-group-1" style="display: none;">
-                                            <input type="number" placeholder="MM" max="12" min="0" class="form-control-1 mt-10" data-name="month_f" >
+                                            <select data-name="month_f" class="form-control-1 mt-10">
+                                                <option value="">MM</option>
+                                                <script>
+                                                    for (let i = 1; i <= 12; i++) {
+                                                        document.write(`<option value="${i}">${i.toString().padStart(2, '0')}</option>`);
+                                                    }
+                                                </script>
+                                            </select>
                                         </div>
                                         <div class="form-group-1" style="display: none;">
-                                            <input type="number" placeholder="DD" max="31" min="0" class="form-control-1 mt-10" data-name="day_f" >
+                                             <select data-name="day_f" class="form-control-1 mt-10">
+                                                <option value="">DD</option>
+                                                <script>
+                                                    for (let i = 1; i <= 31; i++) {
+                                                        document.write(`<option value="${i}">${i.toString().padStart(2, '0')}</option>`);
+                                                    }
+                                                </script>
+                                            </select>
                                         </div>
                                     </div>
 
