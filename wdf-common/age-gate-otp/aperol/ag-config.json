@@ -32,8 +32,8 @@
         "danger-color": "#a6192e",
         "success-color": "#a6192e",
 
-        "logo-url" : "https://www.aperol.com/app/uploads/2023/04/aperol-logo-white-min.png",        
-        "modal-bg-image-url" : "https://cdn.shopify.com/s/files/1/0728/5905/8518/files/agegate-bg.webp",
+        "logo-url" : "https://www.aperol.com/app/uploads/2025/02/white-logo.webp",        
+        "modal-bg-image-url" : "https://www.aperol.com/app/uploads/2025/02/Age-Gate-3.0.web",
         "modal-bg-image-position" : "center center",
         "modal-bg-image-size" : "cover"
     },
@@ -58,29 +58,28 @@
     },
     "countries": [
         {
-            "country": "Italia",
-            "code": "it",
-            "type": "simple",
-            "formatDate": "dd/mm/yyyy",
+            "code": "at",
+            "country": "Austria",
+            "type": "progressive",
             "translations": {
-                "title": "Hai l'età legale per bere?",
+                "title": "Sind Sie volljährig?",
                 "errors": {
-                    "invalidDate": "Data non valida",
-                    "invalidAge": "Età non valida"
+                    "invalidDate": "Ungültiges Datum",
+                    "invalidAge": "Ungültiges Alter"
                 },
-                "submit": "Entra",
-                "remember": "Ricorda la mia scelta",
-                "terms": "Entrando in questo sito, accetto l'<a href=\"https://shop.aperol.com/policies/privacy-policy\">Informativa sulla Privacy</a> e i <a href=\"https://shop.aperol.com/policies/terms-of-sale\">Termini e le Condizioni Generali di Vendita</a>.",
-                "locationMessage": "Sembra che tu sia in Italia, se non è così, seleziona il tuo paese di origine",
-                "selectLabel": "Seleziona il paese",
-                "yesBtn": "Sì",
-                "noBtn": "No"
+                "submit": "Weiter",
+                "remember": "Auswahl merken",
+                "terms": "Durch den Zugriff auf diese Website akzeptiere ich die <a href=\"https://shop.aperol.com/de-at/policies/privacy-policy\">Datenschutzrichtlinie</a> und die <a href=\"https://shop.aperol.com/de-at/policies/terms-of-sale\">Allgemeinen Geschäftsbedingungen</a>.",
+                "locationMessage": "Anscheinend sind Sie in Österreich, wenn nicht, wählen Sie Ihr Herkunftsland",
+                "yesBtn": "jawohl",
+                "noBtn": "nein"
             },
-            "redirectPath": "/it-it"
+            "redirectPath": "/de-at"
         },
+        
         {
-            "country": "France",
-            "code": "fr",
+            "country": "Belgium | Français",
+            "code": "be",
             "type": "progressive",
             "formatDate": "dd/mm/yyyy",
             "translations": {
@@ -97,6 +96,27 @@
                 "noBtn": "no"
             },
             "redirectPath": "/fr-be"
+        },
+        {
+            "country": "Belgium | Dutch",
+            "code": "be",
+            "type": "progressive",
+            "formatDate": "dd/mm/yyyy",
+            "translations": {
+                "title": "Heeft u de wettelijke leeftijd om alcohol te drinken?",
+                "errors": {
+                    "invalidDate": "Ongeldige datum",
+                    "invalidAge": "Ongeldige leeftijd"
+                },
+                "submit": "indienen",
+                "remember": "Onthoud mijn keuze",
+                "terms": "Door deze site te betreden, accepteer ik het <a href=\"https://shop.aperol.com/nl-be/policies/privacy-policy\">privacybeleid</a> en de <a href=\"https://shop.aperol.com/nl-be/policies/terms-of-sale\">verkoopvoorwaarden</a>.",
+                "locationMessage": "Het lijkt erop dat u zich in België bevindt, zo niet, selecteer dan uw land van herkomst",
+                "selectLabel": "Select Your Country/Region",
+                "yesBtn": "ja",
+                "noBtn": "nee"
+            },
+            "redirectPath": "nl-be"
         },
         {
             "country": "Deutschland",
@@ -119,86 +139,25 @@
             "redirectPath": "/de-de"
         },
         {
-            "country": "United Kingdom",
-            "code": "gb",
-            "type": "progressive",
+            "country": "Italia",
+            "code": "it",
+            "type": "simple",
             "formatDate": "dd/mm/yyyy",
             "translations": {
-                "title": "Are you of legal drinking age?",
+                "title": "Hai l'età legale per bere?",
                 "errors": {
-                    "invalidDate": "Invalid Date",
-                    "invalidAge": "Invalid Age"
+                    "invalidDate": "Data non valida",
+                    "invalidAge": "Età non valida"
                 },
-                "submit": "Enter",
-                "remember": "Remember my choice",
-                "terms": "By entering this site, I accept <a href=\"https://shop.aperol.com/policies/privacy-policy\">Privacy Policy</a> and <a href=\"https://shop.aperol.com/policies/terms-of-sale\">Terms & Conditions</a>.",
-                "locationMessage": "It seems that you are in United Kingdom, if not, select your country of origin",
-                "selectLabel": "Select Your Country/Region",
-                "yesBtn": "Yes",
+                "submit": "Entra",
+                "remember": "Ricorda la mia scelta",
+                "terms": "Entrando in questo sito, accetto l'<a href=\"https://shop.aperol.com/policies/privacy-policy\">Informativa sulla Privacy</a> e i <a href=\"https://shop.aperol.com/policies/terms-of-sale\">Termini e le Condizioni Generali di Vendita</a>.",
+                "locationMessage": "Sembra che tu sia in Italia, se non è così, seleziona il tuo paese di origine",
+                "selectLabel": "Seleziona il paese",
+                "yesBtn": "Sì",
                 "noBtn": "No"
             },
-            "redirectPath": "/en-gb"
-        },
-        {
-            "country": "Republic of Ireland",
-            "code": "ie",
-            "type": "progressive",
-            "formatDate": "dd/mm/yyyy",
-            "translations": {
-                "title": "Are you of legal drinking age?",
-                "errors": {
-                    "invalidDate": "Invalid Date",
-                    "invalidAge": "Invalid Age"
-                },
-                "submit": "Enter",
-                "remember": "Remember my choice",
-                "terms": "By entering this site, I accept <a href=\"https://shop.aperol.com/policies/privacy-policy\">Privacy Policy</a> and <a href=\"https://shop.aperol.com/policies/terms-of-sale\">Terms & Conditions</a>.",
-                "locationMessage": "It seems that you are in United Kingdom, if not, select your country of origin",
-                "selectLabel": "Select Your Country/Region",
-                "yesBtn": "Yes",
-                "noBtn": "No"
-            },
-            "redirectPath": "/en-eu"
-        },
-        {
-            "code": "at",
-            "country": "Austria",
-            "type": "progressive",
-            "translations": {
-                "title": "Sind Sie volljährig?",
-                "errors": {
-                    "invalidDate": "Ungültiges Datum",
-                    "invalidAge": "Ungültiges Alter"
-                },
-                "submit": "Weiter",
-                "remember": "Auswahl merken",
-                "terms": "Durch den Zugriff auf diese Website akzeptiere ich die <a href=\"https://shop.aperol.com/de-at/policies/privacy-policy\">Datenschutzrichtlinie</a> und die <a href=\"https://shop.aperol.com/de-at/policies/terms-of-sale\">Allgemeinen Geschäftsbedingungen</a>.",
-                "locationMessage": "Anscheinend sind Sie in Österreich, wenn nicht, wählen Sie Ihr Herkunftsland",
-                "yesBtn": "jawohl",
-                "noBtn": "nein"
-            },
-            "redirectPath": "/de-at"
-        },
-        {
-            "country": "Belgium",
-            "code": "be",
-            "type": "progressive",
-            "formatDate": "dd/mm/yyyy",
-            "translations": {
-                "title": "Heeft u de wettelijke leeftijd om alcohol te drinken?",
-                "errors": {
-                    "invalidDate": "Ongeldige datum",
-                    "invalidAge": "Ongeldige leeftijd"
-                },
-                "submit": "indienen",
-                "remember": "Onthoud mijn keuze",
-                "terms": "Door deze site te betreden, accepteer ik het <a href=\"https://shop.aperol.com/nl-be/policies/privacy-policy\">privacybeleid</a> en de <a href=\"https://shop.aperol.com/nl-be/policies/terms-of-sale\">verkoopvoorwaarden</a>.",
-                "locationMessage": "Het lijkt erop dat u zich in België bevindt, zo niet, selecteer dan uw land van herkomst",
-                "selectLabel": "Select Your Country/Region",
-                "yesBtn": "ja",
-                "noBtn": "nee"
-            },
-            "redirectPath": "/nl-be"
+            "redirectPath": "/it-it"
         },
         {
             "country": "Netherlands",
@@ -222,23 +181,25 @@
             "redirectPath": "/nl-nl"
         },
         {
-            "country": "USA",
-            "code": "us",
-            "type": "complete",
-            "formatDate": "yyyy/mm/dd",
+            "country": "United Kingdom",
+            "code": "gb",
+            "type": "progressive",
+            "formatDate": "dd/mm/yyyy",
             "translations": {
                 "title": "Are you of legal drinking age?",
                 "errors": {
                     "invalidDate": "Invalid Date",
                     "invalidAge": "Invalid Age"
                 },
-                "submit": "submit",
+                "submit": "Enter",
                 "remember": "Remember my choice",
                 "terms": "By entering this site, I accept <a href=\"https://shop.aperol.com/policies/privacy-policy\">Privacy Policy</a> and <a href=\"https://shop.aperol.com/policies/terms-of-sale\">Terms & Conditions</a>.",
-                "locationMessage": "It seems that you are in USA, if not, select your country of origin",
-                "yesBtn": "yes",
-                "noBtn": "no"
-            }
+                "locationMessage": "It seems that you are in United Kingdom, if not, select your country of origin",
+                "selectLabel": "Select Your Country/Region",
+                "yesBtn": "Yes",
+                "noBtn": "No"
+            },
+            "redirectPath": "/en-gb"
         },
         {
             "country": "Europe",
@@ -259,6 +220,25 @@
                 "noBtn": "no"
             },
             "redirectPath": "/en-eu"
+        },
+        {
+            "country": "USA",
+            "code": "us",
+            "type": "complete",
+            "formatDate": "yyyy/mm/dd",
+            "translations": {
+                "title": "Are you of legal drinking age?",
+                "errors": {
+                    "invalidDate": "Invalid Date",
+                    "invalidAge": "Invalid Age"
+                },
+                "submit": "submit",
+                "remember": "Remember my choice",
+                "terms": "By entering this site, I accept <a href=\"https://shop.aperol.com/policies/privacy-policy\">Privacy Policy</a> and <a href=\"https://shop.aperol.com/policies/terms-of-sale\">Terms & Conditions</a>.",
+                "locationMessage": "It seems that you are in USA, if not, select your country of origin",
+                "yesBtn": "yes",
+                "noBtn": "no"
+            }
         }
     ]
 }
