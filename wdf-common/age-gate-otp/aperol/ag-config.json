@@ -79,7 +79,7 @@
         
         {
             "country": "Belgium | Français",
-            "code": "fr",
+            "code": "fr-be",
             "type": "progressive",
             "formatDate": "dd/mm/yyyy",
             "translations": {
@@ -99,7 +99,7 @@
         },
         {
             "country": "Belgium | Dutch",
-            "code": "be",
+            "code": "nl-be",
             "type": "progressive",
             "formatDate": "dd/mm/yyyy",
             "translations": {
