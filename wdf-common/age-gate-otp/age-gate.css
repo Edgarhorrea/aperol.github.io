@@ -149,6 +149,7 @@
     font-size: 18px !important;
     font-weight: 500 !important;
     border-radius: 8px !important;
+    color: #ff5000 !important;
 }
 
 #age-gate-otp .ag-inputs input.is-invalid{
