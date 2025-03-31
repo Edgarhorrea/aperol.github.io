@@ -14,7 +14,7 @@
 }
 
 #age-gate-otp .ag-card .main_text {
-        color: #FFFBE6 !important;
+    color: #FFFBE6 !important;
     font-family: "Afacad", sans-serif !important;
     text-transform: uppercase !important;
     font-size: 32px !important;
@@ -147,9 +147,10 @@
 #age-gate-otp .ag-inputs input{
     background-color: #FFFBE6;
     font-size: 18px !important;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
     border-radius: 8px !important;
     color: #ff5000 !important;
+    font-style: normal;
 }
 
 #age-gate-otp .ag-inputs input.is-invalid{
