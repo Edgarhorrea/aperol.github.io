@@ -188,7 +188,7 @@
 }
 
 .sn_form .form-group .form-control.is-invalid~label,.sn_form .form-group .form-control-1.is-invalid~label,.sn_form .form-group .custom-select.is-invalid~label,.sn_form .form-group-1 .form-control.is-invalid~label,.sn_form .form-group-1 .form-control-1.is-invalid~label,.sn_form .form-group-1 .custom-select.is-invalid~label {
-    color: #FFFBE6 !important;
+    color: #fe5000 !important;
 }
 
 #age-gate-otp .ag-inputs .form-group .form-control:focus,
