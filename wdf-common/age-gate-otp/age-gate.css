@@ -151,6 +151,7 @@
     border-radius: 8px !important;
     color: #ff5000 !important;
     font-style: normal;
+    height: 64px;
 }
 
 #age-gate-otp .ag-inputs input.is-invalid{
