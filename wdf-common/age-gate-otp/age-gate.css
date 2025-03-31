@@ -183,7 +183,7 @@
 
 .sn_form .form-group .form-control.is-invalid,.sn_form .form-group .form-control-1.is-invalid,.sn_form .form-group .custom-select.is-invalid,.sn_form .form-group-1 .form-control.is-invalid,.sn_form .form-group-1 .form-control-1.is-invalid,.sn_form .form-group-1 .custom-select.is-invalid {
     color: var(--tc-color-danger, #a6192e);
-    border-color: #FFFBE6 !important;
+    border-color: #fe5000 !important;
     background-image: none;
 }
 
@@ -193,7 +193,7 @@
 
 #age-gate-otp .ag-inputs .form-group .form-control:focus,
 #age-gate-otp .ag-inputs .form-group-1 .form-control-1:focus {
-    border-color: #FFFBE6 !important;
+    border-color: #fe5000 !important;
 }
 
 #age-gate-otp .ag-inputs .form-group-1 .form-control-1{
