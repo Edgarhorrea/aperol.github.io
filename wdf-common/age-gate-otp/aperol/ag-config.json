@@ -116,7 +116,7 @@
                 "yesBtn": "ja",
                 "noBtn": "nee"
             },
-            "redirectPath": "nl-be"
+            "redirectPath": "/nl-be"
         },
         {
             "country": "Deutschland",
