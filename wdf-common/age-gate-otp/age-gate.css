@@ -153,7 +153,7 @@
 }
 
 #age-gate-otp .ag-inputs input.is-invalid{
-    border-bottom-color: ##FFFBE6 !important;    
+    border-bottom-color: #FFFBE6 !important;    
     border-color: #FFFBE6 !important; 
 }
 
