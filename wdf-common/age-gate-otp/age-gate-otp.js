@@ -481,29 +481,41 @@ ageGateOTP.prototype.onSubmit = function () {
 ageGateOTP.prototype.checkAndDoRedirect = function () {
     let _this = this;
     let currentUrl = window.location.href; // Full URL of the current page
+    let currentPath = window.location.pathname; // Current path
 
     // Check if the current URL is the US store domain
     if (currentUrl.includes('us-shop.aperol.com')) {
         // If on the US store, replace the URL with the same path but without redirectPath
         console.log('On the US store');
-        window.location.replace(window.location.origin);  // Removes redirectPath
+        window.location.replace(window.location.origin + currentPath);  // Keep the current path
     } else {
         // Check if redirectPath is set
         if (_this.redirectPath != null) {
-            let current = window.location.pathname; // Path part of the current URL
-
             // Check if the current URL already contains the redirectPath (e.g., fr-be, nl-be, etc.)
             if (currentUrl.includes(_this.redirectPath)) {
                 console.log('Already on the page with the correct redirectPath. No redirection.');
                 return; // Exit the function to avoid redirection
             } else {
-                // If not already on the correct page, proceed with redirection
-                if (current == '/') {
-                    console.log('Is the homepage.');
+                // Extract the path without any market prefix
+                let pathWithoutMarket = currentPath;
+                
+                // Check if current path starts with a market prefix (like /fr-be/, /de-at/, etc.)
+                // This regex matches paths that start with / followed by 2-3 letters, then - and 2 letters
+                let marketPrefixRegex = /^\/[a-z]{2,3}-[a-z]{2}(\/|$)/i;
+                if (marketPrefixRegex.test(currentPath)) {
+                    // Remove the market prefix to get the real path
+                    pathWithoutMarket = currentPath.replace(/^\/[a-z]{2,3}-[a-z]{2}/, '');
+                    console.log('Detected market prefix, path without market: ' + pathWithoutMarket);
+                }
+                
+                // If pathWithoutMarket is empty or just '/', use the redirectPath directly
+                if (!pathWithoutMarket || pathWithoutMarket === '/') {
+                    console.log('Redirecting to market homepage: ' + window.location.origin + _this.redirectPath);
                     window.location.replace(window.location.origin + _this.redirectPath + window.location.search);
                 } else {
-                    console.log('Not on the homepage, redirecting to correct path.');
-                    window.location.replace(window.location.origin + _this.redirectPath + window.location.search);
+                    // Otherwise, keep the path and add it after the redirectPath
+                    console.log('Redirecting to same page in different market: ' + window.location.origin + _this.redirectPath + pathWithoutMarket);
+                    window.location.replace(window.location.origin + _this.redirectPath + pathWithoutMarket + window.location.search);
                 }
             }
         }
