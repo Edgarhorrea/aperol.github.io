@@ -95,22 +95,6 @@
   fill: #fe5000 !important;
 }
 
-#age-gate-otp .ag-card .ag-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  min-height: 100vh;
-  max-height: 100vh;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  z-index: 0;
-}
-
 #age-gate-otp .modalbg {
   background-image: url(https://www.aperol.com/app/uploads/2025/02/Age-Gate-3.0.webp) !important;
 }
@@ -240,11 +224,9 @@
 #age-gate-otp .container,
 #age-gate-otp .row,
 #age-gate-otp .ag-card {
-  min-height: 100vh;
-  max-height: 100vh;
-  overflow: auto;
-  position: relative;
-  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 body.overflowHidden {
