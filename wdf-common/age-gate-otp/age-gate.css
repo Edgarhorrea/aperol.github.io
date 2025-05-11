@@ -1,203 +1,253 @@
 #age-gate-otp {
-    font-family: 'Afacad', sans-serif;
+  font-family: "Afacad", sans-serif;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden !important;
+  z-index: 99999;
+  background: orange; /* ou votre couleur/fond par défaut */
 }
 
 #age-gate-otp .ag-card {
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    padding: 0px !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  padding: 0px !important;
 }
 
-#age-gate-otp .ag-card_logo{
-    max-height: 75px !important;
-    margin-bottom: 40px !important;
+#age-gate-otp .ag-card_logo {
+  max-height: 75px !important;
+  margin-bottom: 40px !important;
 }
 
 #age-gate-otp .ag-card .main_text {
-    color: #FFFBE6 !important;
-    font-family: "Afacad", sans-serif !important;
-    text-transform: uppercase !important;
-    font-size: 32px !important;
-    font-weight: 500 !important;
-    letter-spacing: calc((var(--tc-h5-letter-spacing, 0) / 1000)* 1em);
+  color: #fffbe6 !important;
+  font-family: "Afacad", sans-serif !important;
+  text-transform: uppercase !important;
+  font-size: 32px !important;
+  font-weight: 500 !important;
+  letter-spacing: calc((var(--tc-h5-letter-spacing, 0) / 1000) * 1em);
 }
 
 #age-gate-otp .ag-disclaimer {
-    color:#FFFBE6 !important;
-    font-size: 14px !important;
-    font-family: 'Afacad', sans-serif !important;
-    text-transform: initial !important;
-    letter-spacing: normal !important;
-    font-style: normal !important;
+  color: #fffbe6 !important;
+  font-size: 14px !important;
+  font-family: "Afacad", sans-serif !important;
+  text-transform: initial !important;
+  letter-spacing: normal !important;
+  font-style: normal !important;
 }
 
 #age-gate-otp .remember_text {
-    color:#FFFBE6 !important;
-    font-family: 'Afacad', sans-serif !important;
-    text-transform: initial !important;
-    letter-spacing: normal !important;
-    font-size: 14px !important;
+  color: #fffbe6 !important;
+  font-family: "Afacad", sans-serif !important;
+  text-transform: initial !important;
+  letter-spacing: normal !important;
+  font-size: 14px !important;
 }
 
 #age-gate-otp .sn_form_custom_control._checkbox {
-    display: flex;
+  display: flex;
 }
 
-#age-gate-otp .ag-select{
-    color: #fe5000 !important;
-    font-style:normal !important;
+#age-gate-otp .ag-select {
+  color: #fe5000 !important;
+  font-style: normal !important;
 
-    font-family: 'Afacad', sans-serif !important;
-    text-transform: initial !important;
-    letter-spacing: normal !important;
-    font-size: 16px !important;
+  font-family: "Afacad", sans-serif !important;
+  text-transform: initial !important;
+  letter-spacing: normal !important;
+  font-size: 16px !important;
 }
 
-#age-gate-otp .ag-select_toggle{
-    background-color: transparent !important;
-    border-bottom-color: #FFFBE6 !important;
-    color: #FFFBE6 !important;
-    justify-content: flex-start !important;
+#age-gate-otp .ag-select_toggle {
+  background-color: transparent !important;
+  border-bottom-color: #fffbe6 !important;
+  color: #fffbe6 !important;
+  justify-content: flex-start !important;
 }
 
-#age-gate-otp .ag-select_menu_wr{
-    justify-content: flex-start !important;
+#age-gate-otp .ag-select_menu_wr {
+  justify-content: flex-start !important;
 }
 
-#age-gate-otp .ag-select_toggle .sn_sprite{
-    fill: #FFFBE6 !important;
+#age-gate-otp .ag-select_toggle .sn_sprite {
+  fill: #fffbe6 !important;
 }
 
-#age-gate-otp .sn_form_custom_control>label .sn_sprite{
-    border-color: #FFFBE6 !important;
-    border-radius: 1px !important;
+#age-gate-otp .sn_form_custom_control > label .sn_sprite {
+  border-color: #fffbe6 !important;
+  border-radius: 1px !important;
 }
 
-#age-gate-otp .sn_form_custom_control>label{
-    align-items: center !important;
-    font-style: normal;
+#age-gate-otp .sn_form_custom_control > label {
+  align-items: center !important;
+  font-style: normal;
 }
 
-#age-gate-otp .sn_form_custom_control>input:checked~label .sn_sprite{
-    background-color: #FFFBE6 !important;
-    fill: #fe5000 !important;
+#age-gate-otp .sn_form_custom_control > input:checked ~ label .sn_sprite {
+  background-color: #fffbe6 !important;
+  fill: #fe5000 !important;
 }
 
 #age-gate-otp .ag-card .ag-background {
-    background-image: none !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 0;
 }
 
 #age-gate-otp .modalbg {
-    background-image: url(https://www.aperol.com/app/uploads/2025/02/Age-Gate-3.0.webp) !important;
+  background-image: url(https://www.aperol.com/app/uploads/2025/02/Age-Gate-3.0.webp) !important;
 }
 
 #age-gate-otp .ag-buttons .sn_btn {
-    background-color: #fffae6 !important;
-    border-radius: 2px !important;
-    font-size: 18px !important;
-    font-weight: 500 !important;
-    border-radius: 8px !important;
-    font-size: 20px !important;
-    font-weight: 500 !important;
-    height: 64px !important;
-    text-transform: capitalize !important;
-    color: #ff5000 !important;
-    font-family: 'Afacad', sans-serif !important;
-    letter-spacing: normal !important;
-    font-size: 18px !important;
+  background-color: #fffae6 !important;
+  border-radius: 2px !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  height: 64px !important;
+  text-transform: capitalize !important;
+  color: #ff5000 !important;
+  font-family: "Afacad", sans-serif !important;
+  letter-spacing: normal !important;
+  font-size: 18px !important;
 }
 
-#age-gate-otp .ag-buttons .sn_btn.selected{
-    background-color: #fff !important;
-    color: #fe5000 !important;
+#age-gate-otp .ag-buttons .sn_btn.selected {
+  background-color: #fff !important;
+  color: #fe5000 !important;
 }
 
-#age-gate-otp .ag-buttons{
-    gap: 10px !important;
+#age-gate-otp .ag-buttons {
+  gap: 10px !important;
 }
 
-#age-gate-otp .geolocation_message{
-    display: none !important;
+#age-gate-otp .geolocation_message {
+  display: none !important;
 }
 
 #age-gate-otp .submit_btn {
-    color: #fe5000 !important;
-    background-color: #FFFBE6 !important;
-    border-color: #FFFBE6 !important;
-    border-radius: 2.3em !important;
-    font-weight: 700 !important;
+  color: #fe5000 !important;
+  background-color: #fffbe6 !important;
+  border-color: #fffbe6 !important;
+  border-radius: 2.3em !important;
+  font-weight: 700 !important;
 }
 
 #age-gate-otp .submit_btn[disabled="disabled"] {
-    color: #868686 !important;
-    background-color: #e3e3e3 !important;
-    border-color: #e3e3e3 !important;
+  color: #868686 !important;
+  background-color: #e3e3e3 !important;
+  border-color: #e3e3e3 !important;
 }
 
-#age-gate-otp .ag-select img{
-    height: 13px !important;
-    margin-right: 12px !important;
-    width: auto !important;
+#age-gate-otp .ag-select img {
+  height: 13px !important;
+  margin-right: 12px !important;
+  width: auto !important;
 }
 
-#age-gate-otp .ag-inputs[data-type="progressive"] .form-group-1{
-    width: 100% !important;
+#age-gate-otp .ag-inputs[data-type="progressive"] .form-group-1 {
+  width: 100% !important;
 }
 
-#age-gate-otp .ag-inputs input{
-    background-color: #FFFBE6;
-    font-size: 18px !important;
-    font-weight: 400 !important;
-    border-radius: 8px !important;
-    color: #ff5000 !important;
-    font-style: normal;
-    height: 64px;
+#age-gate-otp .ag-inputs input {
+  background-color: #fffbe6;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  border-radius: 8px !important;
+  color: #ff5000 !important;
+  font-style: normal;
+  height: 64px;
 }
 
-#age-gate-otp .ag-inputs input.is-invalid{
-    border-bottom-color: #FFFBE6 !important;    
-    border-color: #FFFBE6 !important; 
+#age-gate-otp .ag-inputs input.is-invalid {
+  border-bottom-color: #fffbe6 !important;
+  border-color: #fffbe6 !important;
 }
 
-#age-gate-otp .ag-inputs input::placeholder{
-    color: #FF7846 !important;
+#age-gate-otp .ag-inputs input::placeholder {
+  color: #ff7846 !important;
 }
 
 #age-gate-otp .ag-country_name {
-    color: #FFFBE6 !important;
+  color: #fffbe6 !important;
 }
 
-#age-gate-otp  .ag-select_menu_i {
-    color: #fe5000 !important;
+#age-gate-otp .ag-select_menu_i {
+  color: #fe5000 !important;
 }
 
 #age-gate-otp .submit_btn,
 #age-gate-otp ._text_danger {
-    font-family: 'Afacad', sans-serif !important;
-    font-style: normal !important;
+  font-family: "Afacad", sans-serif !important;
+  font-style: normal !important;
 }
 
-#age-gate-otp ._text_danger{
-    font-size: 12px !important;
-    padding-left: 10px !important;
-    text-align: left;
+#age-gate-otp ._text_danger {
+  font-size: 12px !important;
+  padding-left: 10px !important;
+  text-align: left;
 }
 
-.sn_form .form-group .form-control.is-invalid,.sn_form .form-group .form-control-1.is-invalid,.sn_form .form-group .custom-select.is-invalid,.sn_form .form-group-1 .form-control.is-invalid,.sn_form .form-group-1 .form-control-1.is-invalid,.sn_form .form-group-1 .custom-select.is-invalid {
-    color: var(--tc-color-danger, #a6192e);
-    border-color: #fe5000 !important;
-    background-image: none;
+.sn_form .form-group .form-control.is-invalid,
+.sn_form .form-group .form-control-1.is-invalid,
+.sn_form .form-group .custom-select.is-invalid,
+.sn_form .form-group-1 .form-control.is-invalid,
+.sn_form .form-group-1 .form-control-1.is-invalid,
+.sn_form .form-group-1 .custom-select.is-invalid {
+  color: var(--tc-color-danger, #a6192e);
+  border-color: #fe5000 !important;
+  background-image: none;
 }
 
-.sn_form .form-group .form-control.is-invalid~label,.sn_form .form-group .form-control-1.is-invalid~label,.sn_form .form-group .custom-select.is-invalid~label,.sn_form .form-group-1 .form-control.is-invalid~label,.sn_form .form-group-1 .form-control-1.is-invalid~label,.sn_form .form-group-1 .custom-select.is-invalid~label {
-    color: #fe5000 !important;
+.sn_form .form-group .form-control.is-invalid ~ label,
+.sn_form .form-group .form-control-1.is-invalid ~ label,
+.sn_form .form-group .custom-select.is-invalid ~ label,
+.sn_form .form-group-1 .form-control.is-invalid ~ label,
+.sn_form .form-group-1 .form-control-1.is-invalid ~ label,
+.sn_form .form-group-1 .custom-select.is-invalid ~ label {
+  color: #fe5000 !important;
 }
 
 #age-gate-otp .ag-inputs .form-group .form-control:focus,
 #age-gate-otp .ag-inputs .form-group-1 .form-control-1:focus {
-    border-color: #fe5000 !important;
+  border-color: #fe5000 !important;
 }
 
-#age-gate-otp .ag-inputs .form-group-1 .form-control-1{
-    width: 100% !important;
+#age-gate-otp .ag-inputs .form-group-1 .form-control-1 {
+  width: 100% !important;
+}
+
+#age-gate-otp .ag-wrapper,
+#age-gate-otp .container,
+#age-gate-otp .row,
+#age-gate-otp .ag-card {
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: auto;
+  position: relative;
+  z-index: 1;
+}
+
+body.overflowHidden {
+  overflow: hidden !important;
+  height: 100vh !important;
 }
