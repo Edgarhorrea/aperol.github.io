@@ -160,6 +160,27 @@
             "redirectPath": "/it-it"
         },
         {
+            "country": "Spain",
+            "code": "es",
+            "type": "simple",
+            "formatDate": "dd/mm/yyyy",
+            "translations": {
+                "title": "¿Tienes edad legal para beber?",
+                "errors": {
+                    "invalidDate": "Fecha no válida",
+                    "invalidAge": "Edad no válida"
+                },
+                "submit": "Entrare",
+                "remember": "Recuerda mi elección",
+                "terms": "Al entrar en este sitio, acepto la <a href=\"https://shop.aperol.com/es-es/policies/privacy-policy\">Política de Privacidad</a> las <a href=\"https://shop.aperol.com/es-es/policies/terms-of-sale\">Condiciones Generales de Venta</a>.",
+                "locationMessage": "Parece que se encuentra en Italia, si no es así, seleccione su país de origen",
+                "selectLabel": "Seleccione un país",
+                "yesBtn": "Si",
+                "noBtn": "No"
+            },
+            "redirectPath": "/it-it"
+        },
+        {
             "country": "Netherlands",
             "code": "nl",
             "type": "progressive",
