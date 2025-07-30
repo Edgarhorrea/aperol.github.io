@@ -2504,6 +2504,19 @@
       overflow: hidden;
     }
   }
+
+  /* Classe pour le contenu accessible aux lecteurs d'écran mais invisible visuellement */
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
 </style>
 
 <section id="age-gate-otp" class="_show">
@@ -2541,12 +2554,25 @@
                   </div>
                 </div>
                 <div class="ag-select mb-30">
-                  <div class="ag-select_toggle">
+                  <label for="country-select" class="sr-only"
+                    >Sélectionner votre pays</label
+                  >
+                  <div
+                    class="ag-select_toggle"
+                    role="button"
+                    tabindex="0"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    aria-labelledby="country-select-label"
+                  >
                     <img
                       src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/us.png"
+                      alt="Drapeau des États-Unis"
                     />
-                    <div class="ag-country_name">United States</div>
-                    <i class="sn_sprite _accordion">
+                    <div class="ag-country_name" id="country-select-label">
+                      United States
+                    </div>
+                    <i class="sn_sprite _accordion" aria-hidden="true">
                       <svg viewBox="0 0 500 500">
                         <path
                           xmlns="http://www.w3.org/2000/svg"
@@ -2555,67 +2581,112 @@
                       </svg>
                     </i>
                   </div>
-                  <div class="ag-select_menu" style="display: none">
+                  <div
+                    class="ag-select_menu"
+                    style="display: none"
+                    role="listbox"
+                    aria-label="Liste des pays disponibles"
+                  >
                     <div class="ag-select_menu_wr">
                       <div class="ag-select_menu_in">
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          tabindex="0"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/tk.png"
-                            alt="International flag"
+                            alt="Drapeau international"
                           />International
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          tabindex="0"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/us.png"
-                            alt="United States flag"
+                            alt="Drapeau des États-Unis"
                           />United States
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          tabindex="0"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/it.png"
-                            alt="Italy flag"
+                            alt="Drapeau de l'Italie"
                           />Italy
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          tabindex="0"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/de.png"
-                            alt="Germany flag"
+                            alt="Drapeau de l'Allemagne"
                           />Germany
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          tabindex="0"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/fr.png"
-                            alt="France flag"
+                            alt="Drapeau de la France"
                           />France
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          tabindex="0"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/es.png"
-                            alt="Spain flag"
+                            alt="Drapeau de l'Espagne"
                           />Spain
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          tabindex="0"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/nl.png"
-                            alt="Netherlands flag"
+                            alt="Drapeau des Pays-Bas"
                           />Netherlands
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          tabindex="0"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/br.png"
-                            alt="Brazil flag"
+                            alt="Drapeau du Brésil"
                           />Brazil
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          tabindex="0"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/be.png"
-                            alt="Belgium flag"
+                            alt="Drapeau de la Belgique"
                           />Belgium
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          tabindex="0"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/jp.png"
-                            alt="Japan flag"
+                            alt="Drapeau du Japon"
                           />Japan
                         </div>
                       </div>
@@ -2623,44 +2694,82 @@
                   </div>
                 </div>
                 <div id="ag-b-co">
-                  <div class="layout_box ag-inputs" data-type="full">
+                  <!-- Description du formulaire pour les lecteurs d'écran -->
+                  <div class="sr-only" id="age-form-description">
+                    Ce formulaire permet de vérifier votre âge pour accéder au
+                    site. Veuillez saisir votre date de naissance.
+                  </div>
+
+                  <div
+                    class="layout_box ag-inputs"
+                    data-type="full"
+                    role="group"
+                    aria-labelledby="age-form-description"
+                  >
                     <div class="form-group _m">
+                      <label for="birth-month" class="sr-only"
+                        >Mois de naissance</label
+                      >
                       <input
                         type="number"
-                        min="0"
-                        data-name="month_f"
+                        id="birth-month"
+                        name="birth-month"
+                        min="1"
                         max="12"
                         placeholder="MM"
+                        aria-label="Mois de naissance"
+                        aria-describedby="age-form-description"
                         class="form-control"
+                        data-name="month_f"
                       />
                     </div>
                     <div class="form-group _d">
+                      <label for="birth-day" class="sr-only"
+                        >Jour de naissance</label
+                      >
                       <input
                         type="number"
-                        min="0"
+                        id="birth-day"
+                        name="birth-day"
+                        min="1"
                         max="31"
-                        data-name="day_f"
                         placeholder="DD"
+                        aria-label="Jour de naissance"
+                        aria-describedby="age-form-description"
                         class="form-control"
+                        data-name="day_f"
                       />
                     </div>
                     <div class="form-group _y">
+                      <label for="birth-year" class="sr-only"
+                        >Année de naissance</label
+                      >
                       <input
                         type="number"
-                        min="0"
+                        id="birth-year"
+                        name="birth-year"
+                        min="1900"
                         max="2121"
-                        data-name="year_f"
-                        placeholder="YYYY"
+                        placeholder="AAAA"
+                        aria-label="Année de naissance"
+                        aria-describedby="age-form-description"
                         class="form-control"
+                        data-name="year_f"
                       />
                     </div>
                   </div>
 
-                  <div class="layout_box ag-buttons" data-type="simple">
+                  <div
+                    class="layout_box ag-buttons"
+                    data-type="simple"
+                    role="group"
+                    aria-label="Vérification de l'âge"
+                  >
                     <button
                       value="y"
                       id="y_btn"
                       class="sn_btn _tertiary ml-20 mr-20 mb-10"
+                      aria-label="Oui, j'ai l'âge légal"
                     >
                       yes
                     </button>
@@ -2668,38 +2777,65 @@
                       value="n"
                       id="n_btn"
                       class="sn_btn _tertiary ml-20 mr-20 mb-10"
+                      aria-label="Non, je n'ai pas l'âge légal"
                     >
                       no
                     </button>
                   </div>
 
-                  <div class="layout_box ag-inputs" data-type="progressive">
+                  <div
+                    class="layout_box ag-inputs"
+                    data-type="progressive"
+                    role="group"
+                    aria-labelledby="age-form-description"
+                  >
                     <div class="form-group-1">
+                      <label for="birth-year-progressive" class="sr-only"
+                        >Année de naissance</label
+                      >
                       <input
                         type="number"
-                        placeholder="YYYY"
+                        id="birth-year-progressive"
+                        name="birth-year-progressive"
+                        placeholder="AAAA"
                         max="2121"
-                        min="0"
+                        min="1900"
+                        aria-label="Année de naissance"
+                        aria-describedby="age-form-description"
                         class="form-control-1 mt-10"
                         data-name="year_f"
                       />
                     </div>
                     <div class="form-group-1" style="display: none">
+                      <label for="birth-month-progressive" class="sr-only"
+                        >Mois de naissance</label
+                      >
                       <input
                         type="number"
+                        id="birth-month-progressive"
+                        name="birth-month-progressive"
                         placeholder="MM"
                         max="12"
-                        min="0"
+                        min="1"
+                        aria-label="Mois de naissance"
+                        aria-describedby="age-form-description"
                         class="form-control-1 mt-10"
                         data-name="month_f"
                       />
                     </div>
                     <div class="form-group-1" style="display: none">
+                      <label for="birth-day-progressive" class="sr-only"
+                        >Jour de naissance</label
+                      >
                       <input
                         type="number"
-                        placeholder="DD"
+                        id="birth-day-progressive"
+                        name="birth-day-progressive"
+                        placeholder="JJ"
                         max="31"
-                        min="0"
+                        min="1"
+                        aria-label="Jour de naissance"
+                        aria-describedby="age-form-description"
                         class="form-control-1 mt-10"
                         data-name="day_f"
                       />
@@ -2715,9 +2851,13 @@
                     </div>
                   </div>
                   <div class="sn_form_custom_control _checkbox mt-20 mt-lg-30">
-                    <input type="checkbox" id="remember" />
+                    <input
+                      type="checkbox"
+                      id="remember"
+                      aria-describedby="remember-description"
+                    />
                     <label for="remember">
-                      <i class="sn_sprite _check">
+                      <i class="sn_sprite _check" aria-hidden="true">
                         <svg viewBox="0 0 500 500">
                           <path
                             xmlns="http://www.w3.org/2000/svg"
@@ -2727,11 +2867,17 @@
                       </i>
                       <span class="remember_text">__remember_text__</span>
                     </label>
+                    <div class="sr-only" id="remember-description">
+                      Cochez cette case pour que le site se souvienne de votre
+                      âge lors de votre prochaine visite
+                    </div>
                   </div>
 
                   <button
                     disabled="disabled"
                     class="submit_btn sn_btn _primary_variant _full mt-20 mt-lg-30"
+                    aria-label="Valider ma date de naissance"
+                    aria-describedby="age-form-description"
                   >
                     __button_text__
                   </button>
