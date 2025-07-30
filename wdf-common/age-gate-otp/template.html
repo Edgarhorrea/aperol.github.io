@@ -2565,7 +2565,7 @@
                     aria-expanded="false"
                     aria-labelledby="country-select-label"
                     tabindex="0"
-                    aria-activedescendant=""
+                    aria-activedescendant="option-us"
                   >
                     <img
                       src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/us.png"
@@ -2597,6 +2597,8 @@
                           role="option"
                           data-value="international"
                           aria-selected="false"
+                          tabindex="-1"
+                          id="option-international"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/tk.png"
@@ -2609,6 +2611,8 @@
                           role="option"
                           data-value="us"
                           aria-selected="true"
+                          tabindex="-1"
+                          id="option-us"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/us.png"
@@ -2621,6 +2625,8 @@
                           role="option"
                           data-value="it"
                           aria-selected="false"
+                          tabindex="-1"
+                          id="option-it"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/it.png"
@@ -2633,6 +2639,8 @@
                           role="option"
                           data-value="de"
                           aria-selected="false"
+                          tabindex="-1"
+                          id="option-de"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/de.png"
@@ -2645,6 +2653,8 @@
                           role="option"
                           data-value="fr"
                           aria-selected="false"
+                          tabindex="-1"
+                          id="option-fr"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/fr.png"
@@ -2657,6 +2667,8 @@
                           role="option"
                           data-value="es"
                           aria-selected="false"
+                          tabindex="-1"
+                          id="option-es"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/es.png"
@@ -2669,6 +2681,8 @@
                           role="option"
                           data-value="nl"
                           aria-selected="false"
+                          tabindex="-1"
+                          id="option-nl"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/nl.png"
@@ -2681,6 +2695,8 @@
                           role="option"
                           data-value="br"
                           aria-selected="false"
+                          tabindex="-1"
+                          id="option-br"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/br.png"
@@ -2693,6 +2709,8 @@
                           role="option"
                           data-value="be"
                           aria-selected="false"
+                          tabindex="-1"
+                          id="option-be"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/be.png"
@@ -2705,6 +2723,8 @@
                           role="option"
                           data-value="jp"
                           aria-selected="false"
+                          tabindex="-1"
+                          id="option-jp"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/jp.png"
@@ -2863,8 +2883,9 @@
                   </span>
 
                   <span id="country-select-help" class="sr-only">
-                    Use arrow keys to navigate through countries, Enter to
-                    select, Escape to close
+                    Press Enter or Space to open country selection. Use arrow
+                    keys to navigate through countries, Enter to select, Escape
+                    to close
                   </span>
                   <div class="sn_form_custom_control _checkbox mt-20 mt-lg-30">
                     <input
