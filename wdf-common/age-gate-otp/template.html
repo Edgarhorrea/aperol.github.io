@@ -2554,12 +2554,28 @@
                   </div>
                 </div>
                 <div class="ag-select mb-30">
-                  <div class="ag-select_toggle">
+                  <label for="country-select" class="sr-only"
+                    >Select your country/region</label
+                  >
+                  <div
+                    class="ag-select_toggle"
+                    id="country-select"
+                    role="combobox"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    aria-labelledby="country-select-label"
+                    tabindex="0"
+                    aria-activedescendant=""
+                  >
                     <img
                       src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/us.png"
+                      alt=""
+                      aria-hidden="true"
                     />
-                    <div class="ag-country_name">United States</div>
-                    <i class="sn_sprite _accordion">
+                    <div class="ag-country_name" id="country-select-label">
+                      United States
+                    </div>
+                    <i class="sn_sprite _accordion" aria-hidden="true">
                       <svg viewBox="0 0 500 500">
                         <path
                           xmlns="http://www.w3.org/2000/svg"
@@ -2568,67 +2584,132 @@
                       </svg>
                     </i>
                   </div>
-                  <div class="ag-select_menu" style="display: none">
+                  <div
+                    class="ag-select_menu"
+                    role="listbox"
+                    aria-labelledby="country-select-label"
+                    style="display: none"
+                  >
                     <div class="ag-select_menu_wr">
                       <div class="ag-select_menu_in">
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="international"
+                          aria-selected="false"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/tk.png"
-                            alt="International flag"
+                            alt=""
+                            aria-hidden="true"
                           />International
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="us"
+                          aria-selected="true"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/us.png"
-                            alt="United States flag"
+                            alt=""
+                            aria-hidden="true"
                           />United States
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="it"
+                          aria-selected="false"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/it.png"
-                            alt="Italy flag"
+                            alt=""
+                            aria-hidden="true"
                           />Italy
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="de"
+                          aria-selected="false"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/de.png"
-                            alt="Germany flag"
+                            alt=""
+                            aria-hidden="true"
                           />Germany
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="fr"
+                          aria-selected="false"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/fr.png"
-                            alt="France flag"
+                            alt=""
+                            aria-hidden="true"
                           />France
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="es"
+                          aria-selected="false"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/es.png"
-                            alt="Spain flag"
+                            alt=""
+                            aria-hidden="true"
                           />Spain
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="nl"
+                          aria-selected="false"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/nl.png"
-                            alt="Netherlands flag"
+                            alt=""
+                            aria-hidden="true"
                           />Netherlands
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="br"
+                          aria-selected="false"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/br.png"
-                            alt="Brazil flag"
+                            alt=""
+                            aria-hidden="true"
                           />Brazil
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="be"
+                          aria-selected="false"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/be.png"
-                            alt="Belgium flag"
+                            alt=""
+                            aria-hidden="true"
                           />Belgium
                         </div>
-                        <div class="ag-select_menu_i">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="jp"
+                          aria-selected="false"
+                        >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/jp.png"
-                            alt="Japan flag"
+                            alt=""
+                            aria-hidden="true"
                           />Japan
                         </div>
                       </div>
@@ -2688,6 +2769,7 @@
                       value="y"
                       id="y_btn"
                       class="sn_btn _tertiary ml-20 mr-20 mb-10"
+                      aria-label="I am of legal age"
                     >
                       yes
                     </button>
@@ -2695,6 +2777,7 @@
                       value="n"
                       id="n_btn"
                       class="sn_btn _tertiary ml-20 mr-20 mb-10"
+                      aria-label="I am not of legal age"
                     >
                       no
                     </button>
@@ -2754,11 +2837,19 @@
                     </div>
                   </div>
 
-                  <div class="mt-10 sn_caption">
-                    <div class="_text_danger error_date" style="display: none">
+                  <div class="mt-10 sn_caption" role="alert" aria-live="polite">
+                    <div
+                      class="_text_danger error_date"
+                      style="display: none"
+                      id="error-date"
+                    >
                       __invalid_date__
                     </div>
-                    <div class="_text_danger error_age" style="display: none">
+                    <div
+                      class="_text_danger error_age"
+                      style="display: none"
+                      id="error-age"
+                    >
                       __invalid_age__
                     </div>
                   </div>
@@ -2768,9 +2859,13 @@
                     age to access the site.
                   </span>
                   <div class="sn_form_custom_control _checkbox mt-20 mt-lg-30">
-                    <input type="checkbox" id="remember" />
+                    <input
+                      type="checkbox"
+                      id="remember"
+                      aria-describedby="remember-description"
+                    />
                     <label for="remember">
-                      <i class="sn_sprite _check">
+                      <i class="sn_sprite _check" aria-hidden="true">
                         <svg viewBox="0 0 500 500">
                           <path
                             xmlns="http://www.w3.org/2000/svg"
@@ -2780,11 +2875,16 @@
                       </i>
                       <span class="remember_text">__remember_text__</span>
                     </label>
+                    <span id="remember-description" class="sr-only">
+                      Check this box to remember your age verification for
+                      future visits
+                    </span>
                   </div>
 
                   <button
                     disabled="disabled"
                     class="submit_btn sn_btn _primary_variant _full mt-20 mt-lg-30"
+                    aria-label="Submit age verification"
                   >
                     __button_text__
                   </button>
