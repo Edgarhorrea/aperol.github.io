@@ -2464,6 +2464,19 @@
       max-width: 150px !important;
     }
   }
+  /* Classe pour le contenu accessible aux lecteurs d'écran mais invisible visuellement */
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
   #age-gate-otp .ag-wrapper {
     display: block;
     min-height: 100vh;
@@ -2625,32 +2638,46 @@
                 <div id="ag-b-co">
                   <div class="layout_box ag-inputs" data-type="full">
                     <div class="form-group _m">
+                      <label for="birth-month" class="sr-only"
+                        >Birth month</label
+                      >
                       <input
                         type="number"
-                        min="0"
-                        data-name="month_f"
+                        id="birth-month"
+                        name="birth-month"
+                        min="1"
                         max="12"
                         placeholder="MM"
+                        aria-label="Birth month"
+                        data-name="month_f"
                         class="form-control"
                       />
                     </div>
                     <div class="form-group _d">
+                      <label for="birth-day" class="sr-only">Birth day</label>
                       <input
                         type="number"
-                        min="0"
+                        id="birth-day"
+                        name="birth-day"
+                        min="1"
                         max="31"
-                        data-name="day_f"
                         placeholder="DD"
+                        aria-label="Birth day"
+                        data-name="day_f"
                         class="form-control"
                       />
                     </div>
                     <div class="form-group _y">
+                      <label for="birth-year" class="sr-only">Birth year</label>
                       <input
                         type="number"
-                        min="0"
+                        id="birth-year"
+                        name="birth-year"
+                        min="1900"
                         max="2121"
-                        data-name="year_f"
                         placeholder="YYYY"
+                        aria-label="Birth year"
+                        data-name="year_f"
                         class="form-control"
                       />
                     </div>
@@ -2675,31 +2702,52 @@
 
                   <div class="layout_box ag-inputs" data-type="progressive">
                     <div class="form-group-1">
+                      <label for="birth-year-progressive" class="sr-only"
+                        >Birth year</label
+                      >
                       <input
                         type="number"
+                        id="birth-year-progressive"
+                        name="birth-year-progressive"
                         placeholder="YYYY"
                         max="2121"
-                        min="0"
+                        min="1900"
+                        aria-label="Birth year"
+                        aria-describedby="age-check"
                         class="form-control-1 mt-10"
                         data-name="year_f"
                       />
                     </div>
                     <div class="form-group-1" style="display: none">
+                      <label for="birth-month-progressive" class="sr-only"
+                        >Birth month</label
+                      >
                       <input
                         type="number"
+                        id="birth-month-progressive"
+                        name="birth-month-progressive"
                         placeholder="MM"
                         max="12"
-                        min="0"
+                        min="1"
+                        aria-label="Birth month"
+                        aria-describedby="age-check"
                         class="form-control-1 mt-10"
                         data-name="month_f"
                       />
                     </div>
                     <div class="form-group-1" style="display: none">
+                      <label for="birth-day-progressive" class="sr-only"
+                        >Birth day</label
+                      >
                       <input
                         type="number"
+                        id="birth-day-progressive"
+                        name="birth-day-progressive"
                         placeholder="DD"
                         max="31"
-                        min="0"
+                        min="1"
+                        aria-label="Birth day"
+                        aria-describedby="age-check"
                         class="form-control-1 mt-10"
                         data-name="day_f"
                       />
@@ -2714,6 +2762,11 @@
                       __invalid_age__
                     </div>
                   </div>
+
+                  <span id="age-check" class="sr-only">
+                    These fields are required to verify that you are of legal
+                    age to access the site.
+                  </span>
                   <div class="sn_form_custom_control _checkbox mt-20 mt-lg-30">
                     <input type="checkbox" id="remember" />
                     <label for="remember">
