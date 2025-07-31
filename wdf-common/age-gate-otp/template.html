@@ -2830,3 +2830,112 @@
     </div>
   </div>
 </section>
+
+<script>
+  // JavaScript pour l'accessibilité du sélecteur de pays
+  document.addEventListener("DOMContentLoaded", function () {
+    const countrySelect = document.getElementById("country-select");
+    const countryMenu = document.querySelector(".ag-select_menu");
+    const countryOptions = document.querySelectorAll(".ag-select_menu_i");
+    let isOpen = false;
+    let currentIndex = 1; // Index de l'option sélectionnée par défaut (United States)
+
+    if (!countrySelect || !countryMenu || countryOptions.length === 0) {
+      return;
+    }
+
+    // Gestionnaire pour le toggle principal
+    countrySelect.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      isOpen = !isOpen;
+      countryMenu.style.display = isOpen ? "block" : "none";
+    });
+
+    // Gestionnaire pour les touches du clavier sur le toggle
+    countrySelect.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        isOpen = !isOpen;
+        countryMenu.style.display = isOpen ? "block" : "none";
+      }
+    });
+
+    // Gestionnaires pour chaque option
+    countryOptions.forEach((option, index) => {
+      option.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        selectCountry(index);
+      });
+
+      option.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          selectCountry(index);
+        }
+      });
+
+      // Rendre les options focusables
+      option.setAttribute("tabindex", "0");
+    });
+
+    // Gestionnaire pour la navigation au clavier dans le menu
+    countryMenu.addEventListener("keydown", function (e) {
+      if (!isOpen) return;
+
+      switch (e.key) {
+        case "ArrowDown":
+          e.preventDefault();
+          currentIndex = (currentIndex + 1) % countryOptions.length;
+          updateActiveOption();
+          break;
+        case "ArrowUp":
+          e.preventDefault();
+          currentIndex =
+            currentIndex === 0 ? countryOptions.length - 1 : currentIndex - 1;
+          updateActiveOption();
+          break;
+        case "Escape":
+          e.preventDefault();
+          isOpen = false;
+          countryMenu.style.display = "none";
+          countrySelect.focus();
+          break;
+      }
+    });
+
+    function updateActiveOption() {
+      countryOptions.forEach((option, index) => {
+        if (index === currentIndex) {
+          option.focus();
+        }
+      });
+    }
+
+    function selectCountry(index) {
+      const selectedOption = countryOptions[index];
+      const countryName = selectedOption.textContent.trim();
+      const countryFlag = selectedOption.querySelector("img").src;
+
+      // Mettre à jour l'affichage
+      countrySelect.querySelector("img").src = countryFlag;
+      countrySelect.querySelector(".ag-country_name").textContent = countryName;
+
+      // Fermer le menu
+      isOpen = false;
+      countryMenu.style.display = "none";
+
+      // Retourner le focus au toggle
+      countrySelect.focus();
+    }
+
+    // Fermer le menu si on clique ailleurs
+    document.addEventListener("click", function (e) {
+      if (!countrySelect.contains(e.target) && isOpen) {
+        isOpen = false;
+        countryMenu.style.display = "none";
+      }
+    });
+  });
+</script>
