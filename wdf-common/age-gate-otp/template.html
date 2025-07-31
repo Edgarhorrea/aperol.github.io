@@ -2594,7 +2594,66 @@
                   >
                     <div class="ag-select_menu_wr">
                       <div class="ag-select_menu_in">
-                        <!-- Les options seront générées dynamiquement par le script JavaScript -->
+                        <div class="ag-select_menu_i">
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/tk.png"
+                            alt="International flag"
+                          />International
+                        </div>
+                        <div class="ag-select_menu_i">
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/us.png"
+                            alt="United States flag"
+                          />United States
+                        </div>
+                        <div class="ag-select_menu_i">
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/it.png"
+                            alt="Italy flag"
+                          />Italy
+                        </div>
+                        <div class="ag-select_menu_i">
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/de.png"
+                            alt="Germany flag"
+                          />Germany
+                        </div>
+                        <div class="ag-select_menu_i">
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/fr.png"
+                            alt="France flag"
+                          />France
+                        </div>
+                        <div class="ag-select_menu_i">
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/es.png"
+                            alt="Spain flag"
+                          />Spain
+                        </div>
+                        <div class="ag-select_menu_i">
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/nl.png"
+                            alt="Netherlands flag"
+                          />Netherlands
+                        </div>
+                        <div class="ag-select_menu_i">
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/br.png"
+                            alt="Brazil flag"
+                          />Brazil
+                        </div>
+                        <div class="ag-select_menu_i">
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/be.png"
+                            alt="Belgium flag"
+                          />Belgium
+                        </div>
+                        <div class="ag-select_menu_i">
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/jp.png"
+                            alt="Japan flag"
+                          />Japan
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2905,6 +2964,15 @@
         e.stopPropagation();
         isOpen = !isOpen;
         countryMenu.style.display = isOpen ? "block" : "none";
+      });
+
+      // Gestionnaire pour les touches du clavier sur le toggle
+      countrySelect.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          isOpen = !isOpen;
+          countryMenu.style.display = isOpen ? "block" : "none";
+        }
       });
 
       // Gestionnaires pour chaque option
