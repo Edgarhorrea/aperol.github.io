@@ -2937,6 +2937,7 @@
                     disabled="disabled"
                     class="submit_btn sn_btn _primary_variant _full mt-20 mt-lg-30"
                     aria-label="Submit age verification"
+                    id="submit-button"
                   >
                     __button_text__
                   </button>
@@ -3011,10 +3012,6 @@
       countryLabel.textContent = countryName;
       countrySelect.querySelector("img").src = countryFlag;
 
-      // Fermer le menu
-      isOpen = false;
-      updateAriaState();
-
       // Annoncer le changement pour les lecteurs d'écran
       const announcement = document.createElement("div");
       announcement.setAttribute("aria-live", "polite");
@@ -3027,8 +3024,16 @@
     // Gestionnaire pour le toggle principal
     countrySelect.addEventListener("click", function (e) {
       e.preventDefault();
+      e.stopPropagation();
       isOpen = !isOpen;
       updateAriaState();
+
+      // Si le menu s'ouvre, focus sur l'option sélectionnée après un délai
+      if (isOpen) {
+        setTimeout(() => {
+          countryOptions[currentIndex].focus();
+        }, 10);
+      }
     });
 
     // Gestionnaire pour les touches du clavier sur le toggle
@@ -3093,6 +3098,10 @@
         e.preventDefault();
         e.stopPropagation();
         selectCountry(index);
+        // Fermer le menu après la sélection
+        isOpen = false;
+        updateAriaState();
+        countrySelect.focus();
       });
 
       // Navigation clavier sur les options
@@ -3146,6 +3155,7 @@
 
     // Fermer le menu si on clique ailleurs
     document.addEventListener("click", function (e) {
+      // Ne pas fermer si on clique sur le sélecteur ou ses enfants
       if (!countrySelect.contains(e.target) && isOpen) {
         isOpen = false;
         updateAriaState();
@@ -3182,5 +3192,112 @@
 
     // Initialiser l'état
     updateAriaState();
+
+    // Gestion du bouton submit
+    const submitButton = document.getElementById("submit-button");
+    const birthMonthInput = document.getElementById("birth-month");
+    const birthDayInput = document.getElementById("birth-day");
+    const birthYearInput = document.getElementById("birth-year");
+    const birthMonthProgressive = document.getElementById(
+      "birth-month-progressive"
+    );
+    const birthDayProgressive = document.getElementById(
+      "birth-day-progressive"
+    );
+    const birthYearProgressive = document.getElementById(
+      "birth-year-progressive"
+    );
+
+    // Fonction pour vérifier si tous les champs requis sont remplis
+    function checkFormValidity() {
+      // Vérifier les champs complets (data-type="full")
+      const fullInputs = [birthMonthInput, birthDayInput, birthYearInput];
+      const fullValid = fullInputs.every(
+        (input) => input && input.value.trim() !== ""
+      );
+
+      // Vérifier les champs progressifs (data-type="progressive")
+      const progressiveInputs = [
+        birthYearProgressive,
+        birthMonthProgressive,
+        birthDayProgressive,
+      ];
+      const progressiveValid = progressiveInputs.every(
+        (input) => input && input.value.trim() !== ""
+      );
+
+      // Activer le bouton si au moins un type de formulaire est valide
+      const isValid = fullValid || progressiveValid;
+
+      if (submitButton) {
+        submitButton.disabled = !isValid;
+        submitButton.setAttribute("aria-disabled", (!isValid).toString());
+
+        // Mettre à jour l'aria-label pour indiquer l'état
+        if (isValid) {
+          submitButton.setAttribute(
+            "aria-label",
+            "Submit age verification - Form is ready"
+          );
+        } else {
+          submitButton.setAttribute(
+            "aria-label",
+            "Submit age verification - Please fill in all required fields"
+          );
+        }
+      }
+    }
+
+    // Écouter les changements sur tous les champs de saisie
+    const allInputs = [
+      birthMonthInput,
+      birthDayInput,
+      birthYearInput,
+      birthMonthProgressive,
+      birthDayProgressive,
+      birthYearProgressive,
+    ];
+
+    allInputs.forEach((input) => {
+      if (input) {
+        input.addEventListener("input", checkFormValidity);
+        input.addEventListener("change", checkFormValidity);
+      }
+    });
+
+    // Vérifier l'état initial
+    checkFormValidity();
+
+    // Gestionnaire pour le bouton submit
+    if (submitButton) {
+      submitButton.addEventListener("click", function (e) {
+        if (submitButton.disabled) {
+          e.preventDefault();
+          // Annoncer pourquoi le bouton est désactivé
+          const announcement = document.createElement("div");
+          announcement.setAttribute("aria-live", "polite");
+          announcement.className = "sr-only";
+          announcement.textContent =
+            "Please fill in all required fields before submitting";
+          document.body.appendChild(announcement);
+          setTimeout(() => document.body.removeChild(announcement), 2000);
+        }
+      });
+
+      // Gestionnaire pour la touche Entrée sur le bouton
+      submitButton.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && submitButton.disabled) {
+          e.preventDefault();
+          // Annoncer pourquoi le bouton est désactivé
+          const announcement = document.createElement("div");
+          announcement.setAttribute("aria-live", "polite");
+          announcement.className = "sr-only";
+          announcement.textContent =
+            "Please fill in all required fields before submitting";
+          document.body.appendChild(announcement);
+          setTimeout(() => document.body.removeChild(announcement), 2000);
+        }
+      });
+    }
   });
 </script>
