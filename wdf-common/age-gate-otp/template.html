@@ -2989,6 +2989,15 @@
           (index === currentIndex).toString()
         );
       });
+
+      // Gérer la navigation Tab
+      countryOptions.forEach((option, index) => {
+        if (isOpen) {
+          option.setAttribute("tabindex", "0");
+        } else {
+          option.setAttribute("tabindex", "-1");
+        }
+      });
     }
 
     // Fonction pour sélectionner un pays
@@ -3031,9 +3040,9 @@
           isOpen = !isOpen;
           updateAriaState();
           if (isOpen) {
-            // Focus sur la première option quand le menu s'ouvre
+            // Focus sur l'option actuellement sélectionnée
             setTimeout(() => {
-              countryOptions[0].focus();
+              countryOptions[currentIndex].focus();
             }, 10);
           }
           break;
@@ -3043,7 +3052,7 @@
             isOpen = true;
             updateAriaState();
             setTimeout(() => {
-              countryOptions[0].focus();
+              countryOptions[currentIndex].focus();
             }, 10);
           } else {
             currentIndex = Math.min(
@@ -3060,7 +3069,7 @@
             isOpen = true;
             updateAriaState();
             setTimeout(() => {
-              countryOptions[countryOptions.length - 1].focus();
+              countryOptions[currentIndex].focus();
             }, 10);
           } else {
             currentIndex = Math.max(currentIndex - 1, 0);
@@ -3116,6 +3125,9 @@
             updateAriaState();
             countrySelect.focus();
             break;
+          case "Tab":
+            // Permettre la navigation Tab naturelle
+            break;
         }
       });
 
@@ -3157,6 +3169,14 @@
           currentIndex = index;
           updateAriaState();
         }
+      }
+    });
+
+    // Empêcher la navigation Tab dans le menu quand il est fermé
+    countryMenu.addEventListener("keydown", function (e) {
+      if (e.key === "Tab" && !isOpen) {
+        e.preventDefault();
+        countrySelect.focus();
       }
     });
 
