@@ -2936,3 +2936,159 @@
     </div>
   </div>
 </section>
+
+<script>
+  // Sélecteur de pays accessible
+  document.addEventListener("DOMContentLoaded", function () {
+    const countrySelect = document.getElementById("country-select");
+    const countryMenu = document.querySelector(".ag-select_menu");
+    const countryOptions = document.querySelectorAll(".ag-select_menu_i");
+    const countryLabel = document.getElementById("country-select-label");
+
+    let currentIndex = 1; // Index de l'option sélectionnée (US par défaut)
+    let isOpen = false;
+
+    // Fonction pour mettre à jour l'état ARIA
+    function updateAriaState() {
+      countrySelect.setAttribute("aria-expanded", isOpen.toString());
+      countryMenu.style.display = isOpen ? "block" : "none";
+
+      // Mettre à jour aria-activedescendant
+      const activeOption = countryOptions[currentIndex];
+      if (activeOption) {
+        countrySelect.setAttribute("aria-activedescendant", activeOption.id);
+      }
+
+      // Mettre à jour aria-selected
+      countryOptions.forEach((option, index) => {
+        option.setAttribute(
+          "aria-selected",
+          (index === currentIndex).toString()
+        );
+      });
+    }
+
+    // Fonction pour sélectionner un pays
+    function selectCountry(index) {
+      currentIndex = index;
+      const selectedOption = countryOptions[index];
+      const countryName = selectedOption.textContent.trim();
+      const countryFlag = selectedOption.querySelector("img").src;
+
+      // Mettre à jour l'affichage
+      countryLabel.textContent = countryName;
+      countrySelect.querySelector("img").src = countryFlag;
+
+      // Fermer le menu
+      isOpen = false;
+      updateAriaState();
+
+      // Annoncer le changement pour les lecteurs d'écran
+      const announcement = document.createElement("div");
+      announcement.setAttribute("aria-live", "polite");
+      announcement.className = "sr-only";
+      announcement.textContent = `Selected: ${countryName}`;
+      document.body.appendChild(announcement);
+      setTimeout(() => document.body.removeChild(announcement), 1000);
+    }
+
+    // Gestionnaire pour le toggle principal
+    countrySelect.addEventListener("click", function (e) {
+      e.preventDefault();
+      isOpen = !isOpen;
+      updateAriaState();
+    });
+
+    // Gestionnaire pour les touches du clavier sur le toggle
+    countrySelect.addEventListener("keydown", function (e) {
+      switch (e.key) {
+        case "Enter":
+        case " ":
+          e.preventDefault();
+          isOpen = !isOpen;
+          updateAriaState();
+          break;
+        case "ArrowDown":
+          e.preventDefault();
+          if (!isOpen) {
+            isOpen = true;
+            updateAriaState();
+          } else {
+            currentIndex = Math.min(
+              currentIndex + 1,
+              countryOptions.length - 1
+            );
+            updateAriaState();
+          }
+          break;
+        case "ArrowUp":
+          e.preventDefault();
+          if (!isOpen) {
+            isOpen = true;
+            updateAriaState();
+          } else {
+            currentIndex = Math.max(currentIndex - 1, 0);
+            updateAriaState();
+          }
+          break;
+        case "Escape":
+          e.preventDefault();
+          isOpen = false;
+          updateAriaState();
+          break;
+      }
+    });
+
+    // Gestionnaires pour chaque option
+    countryOptions.forEach((option, index) => {
+      // Clic sur une option
+      option.addEventListener("click", function (e) {
+        e.preventDefault();
+        selectCountry(index);
+      });
+
+      // Navigation clavier sur les options
+      option.addEventListener("keydown", function (e) {
+        switch (e.key) {
+          case "Enter":
+          case " ":
+            e.preventDefault();
+            selectCountry(index);
+            break;
+          case "ArrowDown":
+            e.preventDefault();
+            currentIndex = Math.min(index + 1, countryOptions.length - 1);
+            updateAriaState();
+            break;
+          case "ArrowUp":
+            e.preventDefault();
+            currentIndex = Math.max(index - 1, 0);
+            updateAriaState();
+            break;
+          case "Escape":
+            e.preventDefault();
+            isOpen = false;
+            updateAriaState();
+            break;
+        }
+      });
+
+      // Focus sur les options
+      option.addEventListener("focus", function () {
+        currentIndex = index;
+        updateAriaState();
+      });
+    });
+
+    // Fermer le menu si on clique ailleurs
+    document.addEventListener("click", function (e) {
+      if (!countrySelect.contains(e.target) && isOpen) {
+        isOpen = false;
+        updateAriaState();
+      }
+    });
+
+    // Initialiser l'état
+    updateAriaState();
+  });
+</script>
