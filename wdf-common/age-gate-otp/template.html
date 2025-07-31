@@ -2218,6 +2218,19 @@
     vertical-align: middle;
   }
 
+  /* Classe pour masquer visuellement mais garder accessible aux lecteurs d'écran */
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
   /* .sn_site_wrapper._blur::after {
         right: 0;
         bottom: 0;
@@ -2541,12 +2554,21 @@
                   </div>
                 </div>
                 <div class="ag-select mb-30">
-                  <div class="ag-select_toggle">
+                  <label for="country-select" class="sr-only"
+                    >Select your country/region</label
+                  >
+                  <div
+                    class="ag-select_toggle"
+                    id="country-select"
+                    tabindex="0"
+                  >
                     <img
                       src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/us.png"
+                      alt=""
+                      aria-hidden="true"
                     />
                     <div class="ag-country_name">United States</div>
-                    <i class="sn_sprite _accordion">
+                    <i class="sn_sprite _accordion" aria-hidden="true">
                       <svg viewBox="0 0 500 500">
                         <path
                           xmlns="http://www.w3.org/2000/svg"
@@ -2625,42 +2647,64 @@
                 <div id="ag-b-co">
                   <div class="layout_box ag-inputs" data-type="full">
                     <div class="form-group _m">
+                      <label for="birth-month" class="sr-only"
+                        >Birth month</label
+                      >
                       <input
                         type="number"
-                        min="0"
-                        data-name="month_f"
+                        id="birth-month"
+                        name="birth-month"
+                        min="1"
                         max="12"
+                        data-name="month_f"
                         placeholder="MM"
+                        aria-label="Birth month"
+                        aria-describedby="age-check"
                         class="form-control"
                       />
                     </div>
                     <div class="form-group _d">
+                      <label for="birth-day" class="sr-only">Birth day</label>
                       <input
                         type="number"
-                        min="0"
+                        id="birth-day"
+                        name="birth-day"
+                        min="1"
                         max="31"
                         data-name="day_f"
                         placeholder="DD"
+                        aria-label="Birth day"
+                        aria-describedby="age-check"
                         class="form-control"
                       />
                     </div>
                     <div class="form-group _y">
+                      <label for="birth-year" class="sr-only">Birth year</label>
                       <input
                         type="number"
-                        min="0"
+                        id="birth-year"
+                        name="birth-year"
+                        min="1900"
                         max="2121"
                         data-name="year_f"
                         placeholder="YYYY"
+                        aria-label="Birth year"
+                        aria-describedby="age-check"
                         class="form-control"
                       />
                     </div>
                   </div>
+                  <span id="age-check" class="sr-only">
+                    These fields are required to verify that you are of legal
+                    age to access the site.
+                  </span>
 
                   <div class="layout_box ag-buttons" data-type="simple">
                     <button
                       value="y"
                       id="y_btn"
                       class="sn_btn _tertiary ml-20 mr-20 mb-10"
+                      aria-label="I am of legal age"
                     >
                       yes
                     </button>
@@ -2668,6 +2712,7 @@
                       value="n"
                       id="n_btn"
                       class="sn_btn _tertiary ml-20 mr-20 mb-10"
+                      aria-label="I am not of legal age"
                     >
                       no
                     </button>
@@ -2675,38 +2720,59 @@
 
                   <div class="layout_box ag-inputs" data-type="progressive">
                     <div class="form-group-1">
+                      <label for="birth-year-progressive" class="sr-only"
+                        >Birth year</label
+                      >
                       <input
                         type="number"
+                        id="birth-year-progressive"
+                        name="birth-year-progressive"
                         placeholder="YYYY"
                         max="2121"
-                        min="0"
+                        min="1900"
+                        aria-label="Birth year"
+                        aria-describedby="age-check"
                         class="form-control-1 mt-10"
                         data-name="year_f"
                       />
                     </div>
                     <div class="form-group-1" style="display: none">
+                      <label for="birth-month-progressive" class="sr-only"
+                        >Birth month</label
+                      >
                       <input
                         type="number"
+                        id="birth-month-progressive"
+                        name="birth-month-progressive"
                         placeholder="MM"
                         max="12"
-                        min="0"
+                        min="1"
+                        aria-label="Birth month"
+                        aria-describedby="age-check"
                         class="form-control-1 mt-10"
                         data-name="month_f"
                       />
                     </div>
                     <div class="form-group-1" style="display: none">
+                      <label for="birth-day-progressive" class="sr-only"
+                        >Birth day</label
+                      >
                       <input
                         type="number"
+                        id="birth-day-progressive"
+                        name="birth-day-progressive"
                         placeholder="DD"
                         max="31"
-                        min="0"
+                        min="1"
+                        aria-label="Birth day"
+                        aria-describedby="age-check"
                         class="form-control-1 mt-10"
                         data-name="day_f"
                       />
                     </div>
                   </div>
 
-                  <div class="mt-10 sn_caption">
+                  <div class="mt-10 sn_caption" role="alert" aria-live="polite">
                     <div class="_text_danger error_date" style="display: none">
                       __invalid_date__
                     </div>
@@ -2715,9 +2781,13 @@
                     </div>
                   </div>
                   <div class="sn_form_custom_control _checkbox mt-20 mt-lg-30">
-                    <input type="checkbox" id="remember" />
+                    <input
+                      type="checkbox"
+                      id="remember"
+                      aria-describedby="remember-description"
+                    />
                     <label for="remember">
-                      <i class="sn_sprite _check">
+                      <i class="sn_sprite _check" aria-hidden="true">
                         <svg viewBox="0 0 500 500">
                           <path
                             xmlns="http://www.w3.org/2000/svg"
@@ -2727,11 +2797,17 @@
                       </i>
                       <span class="remember_text">__remember_text__</span>
                     </label>
+                    <span id="remember-description" class="sr-only">
+                      Check this box to remember your age verification for
+                      future visits
+                    </span>
                   </div>
 
                   <button
                     disabled="disabled"
                     class="submit_btn sn_btn _primary_variant _full mt-20 mt-lg-30"
+                    aria-label="Submit age verification"
+                    id="submit-button"
                   >
                     __button_text__
                   </button>
