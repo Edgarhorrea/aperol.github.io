@@ -2589,6 +2589,7 @@
                     role="listbox"
                     aria-labelledby="country-select-label"
                     style="display: none"
+                    tabindex="-1"
                   >
                     <div class="ag-select_menu_wr">
                       <div class="ag-select_menu_in">
@@ -3029,18 +3030,28 @@
           e.preventDefault();
           isOpen = !isOpen;
           updateAriaState();
+          if (isOpen) {
+            // Focus sur la première option quand le menu s'ouvre
+            setTimeout(() => {
+              countryOptions[0].focus();
+            }, 10);
+          }
           break;
         case "ArrowDown":
           e.preventDefault();
           if (!isOpen) {
             isOpen = true;
             updateAriaState();
+            setTimeout(() => {
+              countryOptions[0].focus();
+            }, 10);
           } else {
             currentIndex = Math.min(
               currentIndex + 1,
               countryOptions.length - 1
             );
             updateAriaState();
+            countryOptions[currentIndex].focus();
           }
           break;
         case "ArrowUp":
@@ -3048,15 +3059,20 @@
           if (!isOpen) {
             isOpen = true;
             updateAriaState();
+            setTimeout(() => {
+              countryOptions[countryOptions.length - 1].focus();
+            }, 10);
           } else {
             currentIndex = Math.max(currentIndex - 1, 0);
             updateAriaState();
+            countryOptions[currentIndex].focus();
           }
           break;
         case "Escape":
           e.preventDefault();
           isOpen = false;
           updateAriaState();
+          countrySelect.focus();
           break;
       }
     });
@@ -3121,6 +3137,26 @@
       if (!countrySelect.contains(e.target) && isOpen) {
         isOpen = false;
         updateAriaState();
+        countrySelect.focus();
+      }
+    });
+
+    // Empêcher le menu de capturer le focus
+    countryMenu.addEventListener("keydown", function (e) {
+      if (e.key === "Tab") {
+        // Permettre la navigation Tab naturelle
+        return;
+      }
+    });
+
+    // Gestionnaire pour la navigation Tab dans le menu
+    countryMenu.addEventListener("focusin", function (e) {
+      if (e.target.classList.contains("ag-select_menu_i")) {
+        const index = Array.from(countryOptions).indexOf(e.target);
+        if (index !== -1) {
+          currentIndex = index;
+          updateAriaState();
+        }
       }
     });
 
