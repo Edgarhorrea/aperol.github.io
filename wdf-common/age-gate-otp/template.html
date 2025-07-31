@@ -2218,19 +2218,6 @@
     vertical-align: middle;
   }
 
-  /* Classe pour masquer visuellement mais garder accessible aux lecteurs d'écran */
-  .sr-only {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
-  }
-
   /* .sn_site_wrapper._blur::after {
         right: 0;
         bottom: 0;
@@ -2477,19 +2464,6 @@
       max-width: 150px !important;
     }
   }
-  /* Classe pour le contenu accessible aux lecteurs d'écran mais invisible visuellement */
-  .sr-only {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
-  }
-
   #age-gate-otp .ag-wrapper {
     display: block;
     min-height: 100vh;
@@ -2567,29 +2541,12 @@
                   </div>
                 </div>
                 <div class="ag-select mb-30">
-                  <label for="country-select" class="sr-only"
-                    >Select your country/region</label
-                  >
-                  <div
-                    class="ag-select_toggle"
-                    id="country-select"
-                    role="combobox"
-                    aria-haspopup="listbox"
-                    aria-expanded="false"
-                    aria-labelledby="country-select-label"
-                    tabindex="0"
-                    aria-activedescendant="option-us"
-                    aria-describedby="country-select-help"
-                  >
+                  <div class="ag-select_toggle">
                     <img
                       src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/us.png"
-                      alt=""
-                      aria-hidden="true"
                     />
-                    <div class="ag-country_name" id="country-select-label">
-                      United States
-                    </div>
-                    <i class="sn_sprite _accordion" aria-hidden="true">
+                    <div class="ag-country_name">United States</div>
+                    <i class="sn_sprite _accordion">
                       <svg viewBox="0 0 500 500">
                         <path
                           xmlns="http://www.w3.org/2000/svg"
@@ -2598,13 +2555,7 @@
                       </svg>
                     </i>
                   </div>
-                  <div
-                    class="ag-select_menu"
-                    role="listbox"
-                    aria-labelledby="country-select-label"
-                    style="display: none"
-                    tabindex="-1"
-                  >
+                  <div class="ag-select_menu" style="display: none">
                     <div class="ag-select_menu_wr">
                       <div class="ag-select_menu_in">
                         <div class="ag-select_menu_i">
@@ -2670,56 +2621,36 @@
                       </div>
                     </div>
                   </div>
-                  <span id="country-select-help" class="sr-only"
-                    >Use arrow keys to navigate options, Enter to select</span
-                  >
                 </div>
                 <div id="ag-b-co">
                   <div class="layout_box ag-inputs" data-type="full">
                     <div class="form-group _m">
-                      <label for="birth-month" class="sr-only"
-                        >Birth month</label
-                      >
                       <input
                         type="number"
-                        id="birth-month"
-                        name="birth-month"
-                        min="1"
+                        min="0"
+                        data-name="month_f"
                         max="12"
                         placeholder="MM"
-                        aria-label="Birth month"
-                        aria-describedby="age-check"
-                        data-name="month_f"
                         class="form-control"
                       />
                     </div>
                     <div class="form-group _d">
-                      <label for="birth-day" class="sr-only">Birth day</label>
                       <input
                         type="number"
-                        id="birth-day"
-                        name="birth-day"
-                        min="1"
+                        min="0"
                         max="31"
-                        placeholder="DD"
-                        aria-label="Birth day"
-                        aria-describedby="age-check"
                         data-name="day_f"
+                        placeholder="DD"
                         class="form-control"
                       />
                     </div>
                     <div class="form-group _y">
-                      <label for="birth-year" class="sr-only">Birth year</label>
                       <input
                         type="number"
-                        id="birth-year"
-                        name="birth-year"
-                        min="1900"
+                        min="0"
                         max="2121"
-                        placeholder="YYYY"
-                        aria-label="Birth year"
-                        aria-describedby="age-check"
                         data-name="year_f"
+                        placeholder="YYYY"
                         class="form-control"
                       />
                     </div>
@@ -2730,7 +2661,6 @@
                       value="y"
                       id="y_btn"
                       class="sn_btn _tertiary ml-20 mr-20 mb-10"
-                      aria-label="I am of legal age"
                     >
                       yes
                     </button>
@@ -2738,7 +2668,6 @@
                       value="n"
                       id="n_btn"
                       class="sn_btn _tertiary ml-20 mr-20 mb-10"
-                      aria-label="I am not of legal age"
                     >
                       no
                     </button>
@@ -2746,105 +2675,49 @@
 
                   <div class="layout_box ag-inputs" data-type="progressive">
                     <div class="form-group-1">
-                      <label for="birth-year-progressive" class="sr-only"
-                        >Birth year</label
-                      >
                       <input
                         type="number"
-                        id="birth-year-progressive"
-                        name="birth-year-progressive"
                         placeholder="YYYY"
                         max="2121"
-                        min="1900"
-                        aria-label="Birth year"
-                        aria-describedby="age-check"
+                        min="0"
                         class="form-control-1 mt-10"
                         data-name="year_f"
                       />
                     </div>
                     <div class="form-group-1" style="display: none">
-                      <label for="birth-month-progressive" class="sr-only"
-                        >Birth month</label
-                      >
                       <input
                         type="number"
-                        id="birth-month-progressive"
-                        name="birth-month-progressive"
                         placeholder="MM"
                         max="12"
-                        min="1"
-                        aria-label="Birth month"
-                        aria-describedby="age-check"
+                        min="0"
                         class="form-control-1 mt-10"
                         data-name="month_f"
                       />
                     </div>
                     <div class="form-group-1" style="display: none">
-                      <label for="birth-day-progressive" class="sr-only"
-                        >Birth day</label
-                      >
                       <input
                         type="number"
-                        id="birth-day-progressive"
-                        name="birth-day-progressive"
                         placeholder="DD"
                         max="31"
-                        min="1"
-                        aria-label="Birth day"
-                        aria-describedby="age-check"
+                        min="0"
                         class="form-control-1 mt-10"
                         data-name="day_f"
                       />
                     </div>
                   </div>
 
-                  <div class="mt-10 sn_caption" role="alert" aria-live="polite">
-                    <div
-                      class="_text_danger error_date"
-                      style="display: none"
-                      id="error-date"
-                    >
+                  <div class="mt-10 sn_caption">
+                    <div class="_text_danger error_date" style="display: none">
                       __invalid_date__
                     </div>
-                    <div
-                      class="_text_danger error_age"
-                      style="display: none"
-                      id="error-age"
-                    >
+                    <div class="_text_danger error_age" style="display: none">
                       __invalid_age__
                     </div>
                   </div>
-
-                  <span id="age-check" class="sr-only">
-                    These fields are required to verify that you are of legal
-                    age to access the site.
-                  </span>
-
-                  <span id="country-select-help" class="sr-only">
-                    Press Enter or Space to open country selection. Use arrow
-                    keys to navigate through countries, Enter to select, Escape
-                    to close
-                  </span>
                   <div class="sn_form_custom_control _checkbox mt-20 mt-lg-30">
-                    <input
-                      type="checkbox"
-                      id="remember"
-                      aria-describedby="remember-description"
-                      style="cursor: pointer"
-                    />
-                    <label
-                      for="remember"
-                      style="
-                        cursor: pointer;
-                        display: flex;
-                        align-items: center;
-                      "
-                    >
-                      <i
-                        class="sn_sprite _check"
-                        aria-hidden="true"
-                        style="cursor: pointer"
-                      >
+                    <input type="checkbox" id="remember" />
+                    <label for="remember">
+                      <i class="sn_sprite _check">
                         <svg viewBox="0 0 500 500">
                           <path
                             xmlns="http://www.w3.org/2000/svg"
@@ -2854,17 +2727,11 @@
                       </i>
                       <span class="remember_text">__remember_text__</span>
                     </label>
-                    <span id="remember-description" class="sr-only">
-                      Check this box to remember your age verification for
-                      future visits
-                    </span>
                   </div>
 
                   <button
                     disabled="disabled"
                     class="submit_btn sn_btn _primary_variant _full mt-20 mt-lg-30"
-                    aria-label="Submit age verification"
-                    id="submit-button"
                   >
                     __button_text__
                   </button>
@@ -2887,636 +2754,3 @@
     </div>
   </div>
 </section>
-
-<script>
-  // Sélecteur de pays accessible - Version simplifiée
-  document.addEventListener("DOMContentLoaded", function () {
-    const countrySelect = document.getElementById("country-select");
-    const countryMenu = document.querySelector(".ag-select_menu");
-    const countryLabel = document.getElementById("country-select-label");
-
-    // Écouter les événements de changement de pays pour compatibilité avec les autres scripts
-    document.addEventListener("countryChange", function (e) {
-      const countryValue = e.detail.value;
-
-      // Déclencher les événements que les autres scripts attendent
-      const countryChangeEvent = new CustomEvent("countrySelected", {
-        detail: { country: countryValue },
-      });
-      document.dispatchEvent(countryChangeEvent);
-
-      // Déclencher aussi un événement sur window pour compatibilité maximale
-      window.dispatchEvent(
-        new CustomEvent("countryChanged", {
-          detail: { country: countryValue },
-        })
-      );
-    });
-
-    // Attendre que les options soient générées par le script age-gate-otp.js
-    function initializeAccessibility() {
-      const countryOptions = document.querySelectorAll(".ag-select_menu_i");
-
-      if (countryOptions.length === 0) {
-        // Si les options ne sont pas encore générées, attendre un peu
-        setTimeout(initializeAccessibility, 200);
-        return;
-      }
-
-      console.log("Options trouvées:", countryOptions.length);
-
-      // Vérifier que les options ont bien des data-code
-      const validOptions = Array.from(countryOptions).filter(
-        (option) => option.getAttribute("data-code") !== null
-      );
-
-      if (validOptions.length === 0) {
-        console.log("Aucune option valide trouvée, réessayer...");
-        setTimeout(initializeAccessibility, 200);
-        return;
-      }
-
-      console.log("Options valides trouvées:", validOptions.length);
-
-      let currentIndex = 0;
-      let isOpen = false;
-
-      // Fonction pour sélectionner un pays
-      function selectCountry(index) {
-        currentIndex = index;
-        const selectedOption = validOptions[index];
-        const countryName = selectedOption.textContent.trim();
-        const countryFlag = selectedOption.querySelector("img").src;
-        const countryCode = selectedOption.getAttribute("data-code");
-
-        console.log("Sélection du pays:", countryCode, countryName);
-
-        // Mettre à jour l'affichage
-        countryLabel.textContent = countryName;
-        countrySelect.querySelector("img").src = countryFlag;
-
-        // Déclencher l'événement personnalisé pour les autres scripts
-        const changeEvent = new CustomEvent("countryChange", {
-          detail: {
-            value: countryCode,
-            name: countryName,
-            flag: countryFlag,
-          },
-        });
-        document.dispatchEvent(changeEvent);
-
-        // Annoncer le changement pour les lecteurs d'écran
-        const announcement = document.createElement("div");
-        announcement.setAttribute("aria-live", "polite");
-        announcement.className = "sr-only";
-        announcement.textContent = `Selected: ${countryName}`;
-        document.body.appendChild(announcement);
-        setTimeout(() => document.body.removeChild(announcement), 1000);
-      }
-
-      // Gestionnaire pour le toggle principal
-      countrySelect.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        isOpen = !isOpen;
-        countryMenu.style.display = isOpen ? "block" : "none";
-      });
-
-      // Gestionnaire pour les touches du clavier sur le toggle
-      countrySelect.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          isOpen = !isOpen;
-          countryMenu.style.display = isOpen ? "block" : "none";
-        }
-      });
-
-      // Gestionnaires pour chaque option
-      validOptions.forEach((option, index) => {
-        // Clic sur une option
-        option.addEventListener("click", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          selectCountry(index);
-          isOpen = false;
-          countryMenu.style.display = "none";
-          countrySelect.focus();
-        });
-
-        // Navigation clavier sur les options
-        option.addEventListener("keydown", function (e) {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            e.stopPropagation();
-            selectCountry(index);
-            isOpen = false;
-            countryMenu.style.display = "none";
-            countrySelect.focus();
-          }
-        });
-      });
-
-      // Fermer le menu si on clique ailleurs
-      document.addEventListener("click", function (e) {
-        if (!countrySelect.contains(e.target) && isOpen) {
-          isOpen = false;
-          countryMenu.style.display = "none";
-          countrySelect.focus();
-        }
-      });
-    }
-
-    // Initialiser l'accessibilité
-    initializeAccessibility();
-
-    // Fonction pour mettre à jour l'état ARIA
-    function updateAriaState() {
-      countrySelect.setAttribute("aria-expanded", isOpen.toString());
-      countryMenu.style.display = isOpen ? "block" : "none";
-
-      // Mettre à jour aria-activedescendant
-      const activeOption = countryOptions[currentIndex];
-      if (activeOption) {
-        countrySelect.setAttribute("aria-activedescendant", activeOption.id);
-      }
-
-      // Mettre à jour aria-selected
-      countryOptions.forEach((option, index) => {
-        option.setAttribute(
-          "aria-selected",
-          (index === currentIndex).toString()
-        );
-      });
-
-      // Gérer la navigation Tab
-      countryOptions.forEach((option, index) => {
-        if (isOpen) {
-          option.setAttribute("tabindex", "0");
-        } else {
-          option.setAttribute("tabindex", "-1");
-        }
-      });
-    }
-
-    // Fonction pour sélectionner un pays
-    function selectCountry(index) {
-      currentIndex = index;
-      const selectedOption = countryOptions[index];
-      const countryName = selectedOption.textContent.trim();
-      const countryFlag = selectedOption.querySelector("img").src;
-      const countryCode = selectedOption.getAttribute("data-code");
-
-      // Mettre à jour l'affichage
-      countryLabel.textContent = countryName;
-      countrySelect.querySelector("img").src = countryFlag;
-
-      // Déclencher l'événement personnalisé pour les autres scripts
-      const changeEvent = new CustomEvent("countryChange", {
-        detail: {
-          value: countryCode,
-          name: countryName,
-          flag: countryFlag,
-        },
-      });
-      document.dispatchEvent(changeEvent);
-
-      // Déclencher aussi un événement change sur le toggle pour compatibilité
-      const nativeChangeEvent = new Event("change", { bubbles: true });
-      countrySelect.dispatchEvent(nativeChangeEvent);
-
-      // Annoncer le changement pour les lecteurs d'écran
-      const announcement = document.createElement("div");
-      announcement.setAttribute("aria-live", "polite");
-      announcement.className = "sr-only";
-      announcement.textContent = `Selected: ${countryName}`;
-      document.body.appendChild(announcement);
-      setTimeout(() => document.body.removeChild(announcement), 1000);
-    }
-
-    // Gestionnaire pour le toggle principal
-    countrySelect.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      isOpen = !isOpen;
-      updateAriaState();
-
-      // Si le menu s'ouvre, focus sur l'option sélectionnée après un délai
-      if (isOpen) {
-        setTimeout(() => {
-          countryOptions[currentIndex].focus();
-        }, 10);
-      }
-    });
-
-    // Gestionnaire pour les touches du clavier sur le toggle
-    countrySelect.addEventListener("keydown", function (e) {
-      switch (e.key) {
-        case "Enter":
-        case " ":
-          e.preventDefault();
-          isOpen = !isOpen;
-          updateAriaState();
-          if (isOpen) {
-            // Focus sur l'option actuellement sélectionnée
-            setTimeout(() => {
-              countryOptions[currentIndex].focus();
-            }, 10);
-          }
-          break;
-        case "ArrowDown":
-          e.preventDefault();
-          if (!isOpen) {
-            isOpen = true;
-            updateAriaState();
-            setTimeout(() => {
-              countryOptions[currentIndex].focus();
-            }, 10);
-          } else {
-            currentIndex = Math.min(
-              currentIndex + 1,
-              countryOptions.length - 1
-            );
-            updateAriaState();
-            countryOptions[currentIndex].focus();
-          }
-          break;
-        case "ArrowUp":
-          e.preventDefault();
-          if (!isOpen) {
-            isOpen = true;
-            updateAriaState();
-            setTimeout(() => {
-              countryOptions[currentIndex].focus();
-            }, 10);
-          } else {
-            currentIndex = Math.max(currentIndex - 1, 0);
-            updateAriaState();
-            countryOptions[currentIndex].focus();
-          }
-          break;
-        case "Escape":
-          e.preventDefault();
-          isOpen = false;
-          updateAriaState();
-          countrySelect.focus();
-          break;
-      }
-    });
-
-    // Gestionnaires pour chaque option
-    countryOptions.forEach((option, index) => {
-      // Clic sur une option
-      option.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        selectCountry(index);
-        // Fermer le menu après la sélection
-        isOpen = false;
-        updateAriaState();
-        countrySelect.focus();
-      });
-
-      // Navigation clavier sur les options
-      option.addEventListener("keydown", function (e) {
-        switch (e.key) {
-          case "Enter":
-          case " ":
-            e.preventDefault();
-            e.stopPropagation();
-            selectCountry(index);
-            // Fermer le menu après la sélection
-            isOpen = false;
-            updateAriaState();
-            countrySelect.focus();
-            break;
-          case "ArrowDown":
-            e.preventDefault();
-            e.stopPropagation();
-            currentIndex = Math.min(index + 1, countryOptions.length - 1);
-            updateAriaState();
-            countryOptions[currentIndex].focus();
-            break;
-          case "ArrowUp":
-            e.preventDefault();
-            e.stopPropagation();
-            currentIndex = Math.max(index - 1, 0);
-            updateAriaState();
-            countryOptions[currentIndex].focus();
-            break;
-          case "Escape":
-            e.preventDefault();
-            e.stopPropagation();
-            isOpen = false;
-            updateAriaState();
-            countrySelect.focus();
-            break;
-          case "Tab":
-            // Permettre la navigation Tab naturelle
-            break;
-        }
-      });
-
-      // Focus sur les options
-      option.addEventListener("focus", function () {
-        currentIndex = index;
-        updateAriaState();
-      });
-
-      // Hover pour améliorer l'UX
-      option.addEventListener("mouseenter", function () {
-        currentIndex = index;
-        updateAriaState();
-      });
-    });
-
-    // Fermer le menu si on clique ailleurs
-    document.addEventListener("click", function (e) {
-      // Ne pas fermer si on clique sur le sélecteur ou ses enfants
-      if (!countrySelect.contains(e.target) && isOpen) {
-        isOpen = false;
-        updateAriaState();
-        countrySelect.focus();
-      }
-    });
-
-    // Empêcher le menu de capturer le focus
-    countryMenu.addEventListener("keydown", function (e) {
-      if (e.key === "Tab") {
-        // Permettre la navigation Tab naturelle
-        return;
-      }
-    });
-
-    // Gestionnaire pour la navigation Tab dans le menu
-    countryMenu.addEventListener("focusin", function (e) {
-      if (e.target.classList.contains("ag-select_menu_i")) {
-        const index = Array.from(countryOptions).indexOf(e.target);
-        if (index !== -1) {
-          currentIndex = index;
-          updateAriaState();
-        }
-      }
-    });
-
-    // Empêcher la navigation Tab dans le menu quand il est fermé
-    countryMenu.addEventListener("keydown", function (e) {
-      if (e.key === "Tab" && !isOpen) {
-        e.preventDefault();
-        countrySelect.focus();
-      }
-    });
-
-    // Initialiser l'état
-    updateAriaState();
-
-    // Gestion du bouton submit
-    const submitButton = document.getElementById("submit-button");
-    const birthMonthInput = document.getElementById("birth-month");
-    const birthDayInput = document.getElementById("birth-day");
-    const birthYearInput = document.getElementById("birth-year");
-    const birthMonthProgressive = document.getElementById(
-      "birth-month-progressive"
-    );
-    const birthDayProgressive = document.getElementById(
-      "birth-day-progressive"
-    );
-    const birthYearProgressive = document.getElementById(
-      "birth-year-progressive"
-    );
-
-    // Fonction pour vérifier si tous les champs requis sont remplis
-    function checkFormValidity() {
-      // Vérifier les champs complets (data-type="full")
-      const fullInputs = [birthMonthInput, birthDayInput, birthYearInput];
-      const fullValid = fullInputs.every(
-        (input) => input && input.value.trim() !== ""
-      );
-
-      // Vérifier les champs progressifs (data-type="progressive")
-      const progressiveInputs = [
-        birthYearProgressive,
-        birthMonthProgressive,
-        birthDayProgressive,
-      ];
-      const progressiveValid = progressiveInputs.every(
-        (input) => input && input.value.trim() !== ""
-      );
-
-      // Activer le bouton si au moins un type de formulaire est valide
-      const isValid = fullValid || progressiveValid;
-
-      if (submitButton) {
-        submitButton.disabled = !isValid;
-        submitButton.setAttribute("aria-disabled", (!isValid).toString());
-
-        // Mettre à jour l'aria-label pour indiquer l'état
-        if (isValid) {
-          submitButton.setAttribute(
-            "aria-label",
-            "Submit age verification - Form is ready"
-          );
-        } else {
-          submitButton.setAttribute(
-            "aria-label",
-            "Submit age verification - Please fill in all required fields"
-          );
-        }
-      }
-    }
-
-    // Écouter les changements sur tous les champs de saisie
-    const allInputs = [
-      birthMonthInput,
-      birthDayInput,
-      birthYearInput,
-      birthMonthProgressive,
-      birthDayProgressive,
-      birthYearProgressive,
-    ];
-
-    allInputs.forEach((input) => {
-      if (input) {
-        input.addEventListener("input", checkFormValidity);
-        input.addEventListener("change", checkFormValidity);
-      }
-    });
-
-    // Vérifier l'état initial
-    checkFormValidity();
-
-    // Gestionnaire pour le bouton submit
-    if (submitButton) {
-      submitButton.addEventListener("click", function (e) {
-        if (submitButton.disabled) {
-          e.preventDefault();
-          // Annoncer pourquoi le bouton est désactivé
-          const announcement = document.createElement("div");
-          announcement.setAttribute("aria-live", "polite");
-          announcement.className = "sr-only";
-          announcement.textContent =
-            "Please fill in all required fields before submitting";
-          document.body.appendChild(announcement);
-          setTimeout(() => document.body.removeChild(announcement), 2000);
-        }
-      });
-
-      // Gestionnaire pour la touche Entrée sur le bouton
-      submitButton.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" && submitButton.disabled) {
-          e.preventDefault();
-          // Annoncer pourquoi le bouton est désactivé
-          const announcement = document.createElement("div");
-          announcement.setAttribute("aria-live", "polite");
-          announcement.className = "sr-only";
-          announcement.textContent =
-            "Please fill in all required fields before submitting";
-          document.body.appendChild(announcement);
-          setTimeout(() => document.body.removeChild(announcement), 2000);
-        }
-      });
-    }
-
-    // JavaScript pour l'accessibilité du sélecteur de pays
-    document.addEventListener("DOMContentLoaded", function () {
-      const countrySelect = document.getElementById("country-select");
-      const countryMenu = document.querySelector(".ag-select_menu");
-      const countryOptions = document.querySelectorAll(".ag-select_menu_i");
-      let isOpen = false;
-      let currentIndex = 1; // Index de l'option sélectionnée par défaut (United States)
-
-      if (!countrySelect || !countryMenu || countryOptions.length === 0) {
-        return;
-      }
-
-      // Gestionnaire pour le toggle principal
-      countrySelect.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        isOpen = !isOpen;
-        countryMenu.style.display = isOpen ? "block" : "none";
-        countrySelect.setAttribute("aria-expanded", isOpen.toString());
-      });
-
-      // Gestionnaire pour les touches du clavier sur le toggle
-      countrySelect.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          isOpen = !isOpen;
-          countryMenu.style.display = isOpen ? "block" : "none";
-          countrySelect.setAttribute("aria-expanded", isOpen.toString());
-        }
-      });
-
-      // Gestionnaires pour chaque option
-      countryOptions.forEach((option, index) => {
-        option.addEventListener("click", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          selectCountry(index);
-        });
-
-        option.addEventListener("keydown", function (e) {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            selectCountry(index);
-          }
-        });
-
-        // Rendre les options focusables
-        option.setAttribute("tabindex", "0");
-        option.setAttribute("role", "option");
-      });
-
-      // Gestionnaire pour la navigation au clavier dans le menu
-      countryMenu.addEventListener("keydown", function (e) {
-        if (!isOpen) return;
-
-        switch (e.key) {
-          case "ArrowDown":
-            e.preventDefault();
-            currentIndex = (currentIndex + 1) % countryOptions.length;
-            updateActiveOption();
-            break;
-          case "ArrowUp":
-            e.preventDefault();
-            currentIndex =
-              currentIndex === 0 ? countryOptions.length - 1 : currentIndex - 1;
-            updateActiveOption();
-            break;
-          case "Escape":
-            e.preventDefault();
-            isOpen = false;
-            countryMenu.style.display = "none";
-            countrySelect.setAttribute("aria-expanded", "false");
-            countrySelect.focus();
-            break;
-        }
-      });
-
-      function updateActiveOption() {
-        countryOptions.forEach((option, index) => {
-          if (index === currentIndex) {
-            option.setAttribute("aria-selected", "true");
-            option.focus();
-            countrySelect.setAttribute(
-              "aria-activedescendant",
-              `option-${index}`
-            );
-          } else {
-            option.setAttribute("aria-selected", "false");
-          }
-        });
-      }
-
-      function selectCountry(index) {
-        const selectedOption = countryOptions[index];
-        const countryName = selectedOption.textContent.trim();
-        const countryFlag = selectedOption.querySelector("img").src;
-        const countryCode = selectedOption.getAttribute("data-code");
-
-        // Mettre à jour l'affichage
-        countrySelect.querySelector("img").src = countryFlag;
-        countrySelect.querySelector(".ag-country_name").textContent =
-          countryName;
-
-        // Fermer le menu
-        isOpen = false;
-        countryMenu.style.display = "none";
-        countrySelect.setAttribute("aria-expanded", "false");
-
-        // Mettre à jour les attributs ARIA
-        countryOptions.forEach((option, i) => {
-          option.setAttribute("aria-selected", i === index ? "true" : "false");
-        });
-
-        // Déclencher les événements pour la compatibilité
-        const changeEvent = new CustomEvent("countryChange", {
-          detail: {
-            value: countryCode,
-            name: countryName,
-            flag: countryFlag,
-          },
-        });
-        document.dispatchEvent(changeEvent);
-
-        // Événements pour la compatibilité avec age-gate-otp.js
-        const countryChangeEvent = new CustomEvent("countrySelected", {
-          detail: { country: countryCode },
-        });
-        document.dispatchEvent(countryChangeEvent);
-
-        window.dispatchEvent(
-          new CustomEvent("countryChanged", {
-            detail: { country: countryCode },
-          })
-        );
-
-        // Retourner le focus au toggle
-        countrySelect.focus();
-      }
-
-      // Initialiser l'état
-      updateActiveOption();
-    });
-  });
-</script>
