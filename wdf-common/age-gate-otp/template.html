@@ -2844,9 +2844,24 @@
 
       if (countryOptions.length === 0) {
         // Si les options ne sont pas encore générées, attendre un peu
-        setTimeout(initializeAccessibility, 100);
+        setTimeout(initializeAccessibility, 200);
         return;
       }
+
+      console.log("Options trouvées:", countryOptions.length);
+
+      // Vérifier que les options ont bien des data-code
+      const validOptions = Array.from(countryOptions).filter(
+        (option) => option.getAttribute("data-code") !== null
+      );
+
+      if (validOptions.length === 0) {
+        console.log("Aucune option valide trouvée, réessayer...");
+        setTimeout(initializeAccessibility, 200);
+        return;
+      }
+
+      console.log("Options valides trouvées:", validOptions.length);
 
       let currentIndex = 0;
       let isOpen = false;
@@ -2854,10 +2869,12 @@
       // Fonction pour sélectionner un pays
       function selectCountry(index) {
         currentIndex = index;
-        const selectedOption = countryOptions[index];
+        const selectedOption = validOptions[index];
         const countryName = selectedOption.textContent.trim();
         const countryFlag = selectedOption.querySelector("img").src;
         const countryCode = selectedOption.getAttribute("data-code");
+
+        console.log("Sélection du pays:", countryCode, countryName);
 
         // Mettre à jour l'affichage
         countryLabel.textContent = countryName;
@@ -2891,7 +2908,7 @@
       });
 
       // Gestionnaires pour chaque option
-      countryOptions.forEach((option, index) => {
+      validOptions.forEach((option, index) => {
         // Clic sur une option
         option.addEventListener("click", function (e) {
           e.preventDefault();
