@@ -2970,6 +2970,24 @@
     const countryOptions = document.querySelectorAll(".ag-select_menu_i");
     const countryLabel = document.getElementById("country-select-label");
 
+    // Écouter les événements de changement de pays pour compatibilité avec les autres scripts
+    document.addEventListener("countryChange", function (e) {
+      const countryValue = e.detail.value;
+
+      // Déclencher les événements que les autres scripts attendent
+      const countryChangeEvent = new CustomEvent("countrySelected", {
+        detail: { country: countryValue },
+      });
+      document.dispatchEvent(countryChangeEvent);
+
+      // Déclencher aussi un événement sur window pour compatibilité maximale
+      window.dispatchEvent(
+        new CustomEvent("countryChanged", {
+          detail: { country: countryValue },
+        })
+      );
+    });
+
     let currentIndex = 1; // Index de l'option sélectionnée (US par défaut)
     let isOpen = false;
 
@@ -3008,10 +3026,25 @@
       const selectedOption = countryOptions[index];
       const countryName = selectedOption.textContent.trim();
       const countryFlag = selectedOption.querySelector("img").src;
+      const countryValue = selectedOption.getAttribute("data-value");
 
       // Mettre à jour l'affichage
       countryLabel.textContent = countryName;
       countrySelect.querySelector("img").src = countryFlag;
+
+      // Déclencher l'événement personnalisé pour les autres scripts
+      const changeEvent = new CustomEvent("countryChange", {
+        detail: {
+          value: countryValue,
+          name: countryName,
+          flag: countryFlag,
+        },
+      });
+      document.dispatchEvent(changeEvent);
+
+      // Déclencher aussi un événement change sur le toggle pour compatibilité
+      const nativeChangeEvent = new Event("change", { bubbles: true });
+      countrySelect.dispatchEvent(nativeChangeEvent);
 
       // Annoncer le changement pour les lecteurs d'écran
       const announcement = document.createElement("div");
