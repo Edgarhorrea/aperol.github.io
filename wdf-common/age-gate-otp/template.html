@@ -2597,8 +2597,9 @@
                           role="option"
                           data-value="international"
                           aria-selected="false"
-                          tabindex="-1"
+                          tabindex="0"
                           id="option-international"
+                          style="cursor: pointer"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/tk.png"
@@ -2611,8 +2612,9 @@
                           role="option"
                           data-value="us"
                           aria-selected="true"
-                          tabindex="-1"
+                          tabindex="0"
                           id="option-us"
+                          style="cursor: pointer"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/us.png"
@@ -2625,8 +2627,9 @@
                           role="option"
                           data-value="it"
                           aria-selected="false"
-                          tabindex="-1"
+                          tabindex="0"
                           id="option-it"
+                          style="cursor: pointer"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/it.png"
@@ -2639,8 +2642,9 @@
                           role="option"
                           data-value="de"
                           aria-selected="false"
-                          tabindex="-1"
+                          tabindex="0"
                           id="option-de"
+                          style="cursor: pointer"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/de.png"
@@ -2653,8 +2657,9 @@
                           role="option"
                           data-value="fr"
                           aria-selected="false"
-                          tabindex="-1"
+                          tabindex="0"
                           id="option-fr"
+                          style="cursor: pointer"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/fr.png"
@@ -2667,8 +2672,9 @@
                           role="option"
                           data-value="es"
                           aria-selected="false"
-                          tabindex="-1"
+                          tabindex="0"
                           id="option-es"
+                          style="cursor: pointer"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/es.png"
@@ -2681,8 +2687,9 @@
                           role="option"
                           data-value="nl"
                           aria-selected="false"
-                          tabindex="-1"
+                          tabindex="0"
                           id="option-nl"
+                          style="cursor: pointer"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/nl.png"
@@ -2695,8 +2702,9 @@
                           role="option"
                           data-value="br"
                           aria-selected="false"
-                          tabindex="-1"
+                          tabindex="0"
                           id="option-br"
+                          style="cursor: pointer"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/br.png"
@@ -2709,8 +2717,9 @@
                           role="option"
                           data-value="be"
                           aria-selected="false"
-                          tabindex="-1"
+                          tabindex="0"
                           id="option-be"
+                          style="cursor: pointer"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/be.png"
@@ -2723,8 +2732,9 @@
                           role="option"
                           data-value="jp"
                           aria-selected="false"
-                          tabindex="-1"
+                          tabindex="0"
                           id="option-jp"
+                          style="cursor: pointer"
                         >
                           <img
                             src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/jp.png"
@@ -2892,9 +2902,21 @@
                       type="checkbox"
                       id="remember"
                       aria-describedby="remember-description"
+                      style="cursor: pointer"
                     />
-                    <label for="remember">
-                      <i class="sn_sprite _check" aria-hidden="true">
+                    <label
+                      for="remember"
+                      style="
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                      "
+                    >
+                      <i
+                        class="sn_sprite _check"
+                        aria-hidden="true"
+                        style="cursor: pointer"
+                      >
                         <svg viewBox="0 0 500 500">
                           <path
                             xmlns="http://www.w3.org/2000/svg"
@@ -3044,6 +3066,7 @@
       // Clic sur une option
       option.addEventListener("click", function (e) {
         e.preventDefault();
+        e.stopPropagation();
         selectCountry(index);
       });
 
@@ -3053,28 +3076,41 @@
           case "Enter":
           case " ":
             e.preventDefault();
+            e.stopPropagation();
             selectCountry(index);
             break;
           case "ArrowDown":
             e.preventDefault();
+            e.stopPropagation();
             currentIndex = Math.min(index + 1, countryOptions.length - 1);
             updateAriaState();
+            countryOptions[currentIndex].focus();
             break;
           case "ArrowUp":
             e.preventDefault();
+            e.stopPropagation();
             currentIndex = Math.max(index - 1, 0);
             updateAriaState();
+            countryOptions[currentIndex].focus();
             break;
           case "Escape":
             e.preventDefault();
+            e.stopPropagation();
             isOpen = false;
             updateAriaState();
+            countrySelect.focus();
             break;
         }
       });
 
       // Focus sur les options
       option.addEventListener("focus", function () {
+        currentIndex = index;
+        updateAriaState();
+      });
+
+      // Hover pour améliorer l'UX
+      option.addEventListener("mouseenter", function () {
         currentIndex = index;
         updateAriaState();
       });
