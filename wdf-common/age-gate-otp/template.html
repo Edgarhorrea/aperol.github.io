@@ -2557,24 +2557,196 @@
                   <label for="country-select" class="sr-only"
                     >Select your country/region</label
                   >
-                  <select
+                  <div
                     class="ag-select_toggle"
                     id="country-select"
+                    role="combobox"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
                     aria-labelledby="country-select-label"
+                    tabindex="0"
+                    aria-activedescendant="option-us"
                     aria-describedby="country-select-help"
-                    style="cursor: pointer"
                   >
-                    <option value="international">International</option>
-                    <option value="us" selected>United States</option>
-                    <option value="it">Italy</option>
-                    <option value="de">Germany</option>
-                    <option value="fr">France</option>
-                    <option value="es">Spain</option>
-                    <option value="nl">Netherlands</option>
-                    <option value="br">Brazil</option>
-                    <option value="be">Belgium</option>
-                    <option value="jp">Japan</option>
-                  </select>
+                    <img
+                      src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/us.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    <div class="ag-country_name" id="country-select-label">
+                      United States
+                    </div>
+                    <i class="sn_sprite _accordion" aria-hidden="true">
+                      <svg viewBox="0 0 500 500">
+                        <path
+                          xmlns="http://www.w3.org/2000/svg"
+                          d="M250 392.2L.5 142.7l34.9-34.9L250 322.4l214.6-214.6 34.9 34.9z"
+                        />
+                      </svg>
+                    </i>
+                  </div>
+                  <div
+                    class="ag-select_menu"
+                    role="listbox"
+                    aria-labelledby="country-select-label"
+                    style="display: none"
+                    tabindex="-1"
+                  >
+                    <div class="ag-select_menu_wr">
+                      <div class="ag-select_menu_in">
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="international"
+                          aria-selected="false"
+                          tabindex="-1"
+                          id="option-international"
+                          style="cursor: pointer"
+                        >
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/tk.png"
+                            alt=""
+                            aria-hidden="true"
+                          />International
+                        </div>
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="us"
+                          aria-selected="true"
+                          tabindex="-1"
+                          id="option-us"
+                          style="cursor: pointer"
+                        >
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/us.png"
+                            alt=""
+                            aria-hidden="true"
+                          />United States
+                        </div>
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="it"
+                          aria-selected="false"
+                          tabindex="-1"
+                          id="option-it"
+                          style="cursor: pointer"
+                        >
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/it.png"
+                            alt=""
+                            aria-hidden="true"
+                          />Italy
+                        </div>
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="de"
+                          aria-selected="false"
+                          tabindex="-1"
+                          id="option-de"
+                          style="cursor: pointer"
+                        >
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/de.png"
+                            alt=""
+                            aria-hidden="true"
+                          />Germany
+                        </div>
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="fr"
+                          aria-selected="false"
+                          tabindex="-1"
+                          id="option-fr"
+                          style="cursor: pointer"
+                        >
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/fr.png"
+                            alt=""
+                            aria-hidden="true"
+                          />France
+                        </div>
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="es"
+                          aria-selected="false"
+                          tabindex="-1"
+                          id="option-es"
+                          style="cursor: pointer"
+                        >
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/es.png"
+                            alt=""
+                            aria-hidden="true"
+                          />Spain
+                        </div>
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="nl"
+                          aria-selected="false"
+                          tabindex="-1"
+                          id="option-nl"
+                          style="cursor: pointer"
+                        >
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/nl.png"
+                            alt=""
+                            aria-hidden="true"
+                          />Netherlands
+                        </div>
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="br"
+                          aria-selected="false"
+                          tabindex="-1"
+                          id="option-br"
+                          style="cursor: pointer"
+                        >
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/br.png"
+                            alt=""
+                            aria-hidden="true"
+                          />Brazil
+                        </div>
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="be"
+                          aria-selected="false"
+                          tabindex="-1"
+                          id="option-be"
+                          style="cursor: pointer"
+                        >
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/be.png"
+                            alt=""
+                            aria-hidden="true"
+                          />Belgium
+                        </div>
+                        <div
+                          class="ag-select_menu_i"
+                          role="option"
+                          data-value="jp"
+                          aria-selected="false"
+                          tabindex="-1"
+                          id="option-jp"
+                          style="cursor: pointer"
+                        >
+                          <img
+                            src="https://campari.com/app/themes/campari-wdf/assets/images/flags/60x40/jp.png"
+                            alt=""
+                            aria-hidden="true"
+                          />Japan
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div id="ag-b-co">
                   <div class="layout_box ag-inputs" data-type="full">
@@ -2794,19 +2966,233 @@
   // Sélecteur de pays accessible
   document.addEventListener("DOMContentLoaded", function () {
     const countrySelect = document.getElementById("country-select");
+    const countryMenu = document.querySelector(".ag-select_menu");
+    const countryOptions = document.querySelectorAll(".ag-select_menu_i");
+    const countryLabel = document.getElementById("country-select-label");
 
-    // Gestionnaire pour le changement de pays
-    countrySelect.addEventListener("change", function (e) {
-      const selectedValue = e.target.value;
-      const selectedText = e.target.options[e.target.selectedIndex].text;
+    let currentIndex = 1; // Index de l'option sélectionnée (US par défaut)
+    let isOpen = false;
+
+    // Fonction pour mettre à jour l'état ARIA
+    function updateAriaState() {
+      countrySelect.setAttribute("aria-expanded", isOpen.toString());
+      countryMenu.style.display = isOpen ? "block" : "none";
+
+      // Mettre à jour aria-activedescendant
+      const activeOption = countryOptions[currentIndex];
+      if (activeOption) {
+        countrySelect.setAttribute("aria-activedescendant", activeOption.id);
+      }
+
+      // Mettre à jour aria-selected
+      countryOptions.forEach((option, index) => {
+        option.setAttribute(
+          "aria-selected",
+          (index === currentIndex).toString()
+        );
+      });
+
+      // Gérer la navigation Tab
+      countryOptions.forEach((option, index) => {
+        if (isOpen) {
+          option.setAttribute("tabindex", "0");
+        } else {
+          option.setAttribute("tabindex", "-1");
+        }
+      });
+    }
+
+    // Fonction pour sélectionner un pays
+    function selectCountry(index) {
+      currentIndex = index;
+      const selectedOption = countryOptions[index];
+      const countryName = selectedOption.textContent.trim();
+      const countryFlag = selectedOption.querySelector("img").src;
+
+      // Mettre à jour l'affichage
+      countryLabel.textContent = countryName;
+      countrySelect.querySelector("img").src = countryFlag;
 
       // Annoncer le changement pour les lecteurs d'écran
       const announcement = document.createElement("div");
       announcement.setAttribute("aria-live", "polite");
       announcement.className = "sr-only";
-      announcement.textContent = `Selected: ${selectedText}`;
+      announcement.textContent = `Selected: ${countryName}`;
       document.body.appendChild(announcement);
       setTimeout(() => document.body.removeChild(announcement), 1000);
+    }
+
+    // Gestionnaire pour le toggle principal
+    countrySelect.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      isOpen = !isOpen;
+      updateAriaState();
+
+      // Si le menu s'ouvre, focus sur l'option sélectionnée après un délai
+      if (isOpen) {
+        setTimeout(() => {
+          countryOptions[currentIndex].focus();
+        }, 10);
+      }
+    });
+
+    // Gestionnaire pour les touches du clavier sur le toggle
+    countrySelect.addEventListener("keydown", function (e) {
+      switch (e.key) {
+        case "Enter":
+        case " ":
+          e.preventDefault();
+          isOpen = !isOpen;
+          updateAriaState();
+          if (isOpen) {
+            // Focus sur l'option actuellement sélectionnée
+            setTimeout(() => {
+              countryOptions[currentIndex].focus();
+            }, 10);
+          }
+          break;
+        case "ArrowDown":
+          e.preventDefault();
+          if (!isOpen) {
+            isOpen = true;
+            updateAriaState();
+            setTimeout(() => {
+              countryOptions[currentIndex].focus();
+            }, 10);
+          } else {
+            currentIndex = Math.min(
+              currentIndex + 1,
+              countryOptions.length - 1
+            );
+            updateAriaState();
+            countryOptions[currentIndex].focus();
+          }
+          break;
+        case "ArrowUp":
+          e.preventDefault();
+          if (!isOpen) {
+            isOpen = true;
+            updateAriaState();
+            setTimeout(() => {
+              countryOptions[currentIndex].focus();
+            }, 10);
+          } else {
+            currentIndex = Math.max(currentIndex - 1, 0);
+            updateAriaState();
+            countryOptions[currentIndex].focus();
+          }
+          break;
+        case "Escape":
+          e.preventDefault();
+          isOpen = false;
+          updateAriaState();
+          countrySelect.focus();
+          break;
+      }
+    });
+
+    // Gestionnaires pour chaque option
+    countryOptions.forEach((option, index) => {
+      // Clic sur une option
+      option.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        selectCountry(index);
+        // Fermer le menu après la sélection
+        isOpen = false;
+        updateAriaState();
+        countrySelect.focus();
+      });
+
+      // Navigation clavier sur les options
+      option.addEventListener("keydown", function (e) {
+        switch (e.key) {
+          case "Enter":
+          case " ":
+            e.preventDefault();
+            e.stopPropagation();
+            selectCountry(index);
+            // Fermer le menu après la sélection
+            isOpen = false;
+            updateAriaState();
+            countrySelect.focus();
+            break;
+          case "ArrowDown":
+            e.preventDefault();
+            e.stopPropagation();
+            currentIndex = Math.min(index + 1, countryOptions.length - 1);
+            updateAriaState();
+            countryOptions[currentIndex].focus();
+            break;
+          case "ArrowUp":
+            e.preventDefault();
+            e.stopPropagation();
+            currentIndex = Math.max(index - 1, 0);
+            updateAriaState();
+            countryOptions[currentIndex].focus();
+            break;
+          case "Escape":
+            e.preventDefault();
+            e.stopPropagation();
+            isOpen = false;
+            updateAriaState();
+            countrySelect.focus();
+            break;
+          case "Tab":
+            // Permettre la navigation Tab naturelle
+            break;
+        }
+      });
+
+      // Focus sur les options
+      option.addEventListener("focus", function () {
+        currentIndex = index;
+        updateAriaState();
+      });
+
+      // Hover pour améliorer l'UX
+      option.addEventListener("mouseenter", function () {
+        currentIndex = index;
+        updateAriaState();
+      });
+    });
+
+    // Fermer le menu si on clique ailleurs
+    document.addEventListener("click", function (e) {
+      // Ne pas fermer si on clique sur le sélecteur ou ses enfants
+      if (!countrySelect.contains(e.target) && isOpen) {
+        isOpen = false;
+        updateAriaState();
+        countrySelect.focus();
+      }
+    });
+
+    // Empêcher le menu de capturer le focus
+    countryMenu.addEventListener("keydown", function (e) {
+      if (e.key === "Tab") {
+        // Permettre la navigation Tab naturelle
+        return;
+      }
+    });
+
+    // Gestionnaire pour la navigation Tab dans le menu
+    countryMenu.addEventListener("focusin", function (e) {
+      if (e.target.classList.contains("ag-select_menu_i")) {
+        const index = Array.from(countryOptions).indexOf(e.target);
+        if (index !== -1) {
+          currentIndex = index;
+          updateAriaState();
+        }
+      }
+    });
+
+    // Empêcher la navigation Tab dans le menu quand il est fermé
+    countryMenu.addEventListener("keydown", function (e) {
+      if (e.key === "Tab" && !isOpen) {
+        e.preventDefault();
+        countrySelect.focus();
+      }
     });
 
     // Initialiser l'état
