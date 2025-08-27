@@ -650,6 +650,7 @@ ageGateOTP.prototype.setCountry = function (
     typeof selectedCountry.code != "undefined"
       ? selectedCountry.code.toLowerCase()
       : "int";
+  _this.countryCode = countryCode; // Store the country code
   _this.redirectPath =
     typeof selectedCountry.redirectPath != "undefined"
       ? selectedCountry.redirectPath
