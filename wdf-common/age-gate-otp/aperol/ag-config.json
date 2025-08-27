@@ -260,10 +260,11 @@
                 "yesBtn": "yes",
                 "noBtn": "no"
             },
-            "redirectPath": ""
+            "redirectPath": "https://us-shop.aperol.com/"
         }
     ]
 }
+
 
 
 
