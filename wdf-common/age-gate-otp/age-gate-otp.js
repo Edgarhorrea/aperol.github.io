@@ -564,20 +564,6 @@ ageGateOTP.prototype.checkAndDoRedirect = function () {
     console.log("On the US store");
     window.location.replace(window.location.origin + currentPath); // Keep the current path
   } else {
-    // Check if user is on shop.aperol.com and country code is "us"
-    if (currentUrl.includes("shop.aperol.com") && _this.countryCode === "us") {
-      console.log(
-        "User on shop.aperol.com with US country code, redirecting to us-shop.aperol.com"
-      );
-      // Redirect to the same path on us-shop.aperol.com
-      let usShopUrl = currentUrl.replace(
-        "shop.aperol.com",
-        "us-shop.aperol.com"
-      );
-      window.location.replace(usShopUrl);
-      return;
-    }
-
     // Check if redirectPath is set
     if (_this.redirectPath != null) {
       // Check if the current URL already contains the redirectPath (e.g., fr-be, nl-be, etc.)
