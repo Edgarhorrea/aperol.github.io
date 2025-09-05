@@ -38,19 +38,31 @@ function isFromAperolDomain() {
     "www.us-shop.aperol.com",
   ];
 
-  if (!referrer) return false;
+  console.log("🔍 DEBUG - Referrer:", referrer);
+  console.log("🔍 DEBUG - Current hostname:", window.location.hostname);
+
+  if (!referrer) {
+    console.log("❌ DEBUG - No referrer found");
+    return false;
+  }
 
   try {
     const referrerUrl = new URL(referrer);
     const referrerHostname = referrerUrl.hostname.toLowerCase();
 
+    console.log("🔍 DEBUG - Referrer hostname:", referrerHostname);
+    console.log("🔍 DEBUG - Aperol domains to check:", aperolDomains);
+
     // Vérifier si le referrer est un domaine Aperol
-    return aperolDomains.some(
+    const isAperolDomain = aperolDomains.some(
       (domain) =>
         referrerHostname === domain || referrerHostname.endsWith("." + domain)
     );
+
+    console.log("✅ DEBUG - Is Aperol domain:", isAperolDomain);
+    return isAperolDomain;
   } catch (e) {
-    console.log("Error parsing referrer:", e);
+    console.log("❌ DEBUG - Error parsing referrer:", e);
     return false;
   }
 }
@@ -380,8 +392,12 @@ function bypassGeo(callback) {
 }
 
 // Vérification simple : si l'utilisateur vient d'un domaine Aperol, bypass automatique
-if (isFromAperolDomain()) {
-  console.log("User coming from Aperol domain, bypassing age gate");
+console.log("🚀 DEBUG - Starting Aperol domain check...");
+const isFromAperol = isFromAperolDomain();
+console.log("🚀 DEBUG - isFromAperolDomain result:", isFromAperol);
+
+if (isFromAperol) {
+  console.log("✅ User coming from Aperol domain, bypassing age gate");
 
   // Configuration par défaut pour le bypass
   const defaultConfig = {
@@ -391,12 +407,18 @@ if (isFromAperolDomain()) {
     elementsToHide: "#age-gate-otp",
   };
 
+  console.log("🔧 DEBUG - Applying bypass with config:", defaultConfig);
+
   // Bypass immédiat
   AgeGateByPass.isToBypass = true;
   bypass(defaultConfig);
 
-  console.log("AgeGateBypass exit with ", AgeGateByPass.isToBypass);
+  console.log("✅ AgeGateBypass exit with ", AgeGateByPass.isToBypass);
   return;
+} else {
+  console.log(
+    "❌ User NOT coming from Aperol domain, continuing with normal flow"
+  );
 }
 
 // Logique existante pour les autres cas (campagnes UTM, etc.)
