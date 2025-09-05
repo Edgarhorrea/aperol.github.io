@@ -1,6 +1,6 @@
 if (typeof console === "undefined" || typeof console.log === "undefined") {
   console = {};
-  console.log = function () { };
+  console.log = function () {};
 }
 
 const scriptBypassURL = new URL(document.currentScript.src);
@@ -14,23 +14,60 @@ if (!AgeGateByPass) {
 
 var sanitizer = function (str) {
   return str.replace(/[^\w.^-]/gi, function (c) {
-    return '&#' + c.charCodeAt(0) + ';';
+    return "&#" + c.charCodeAt(0) + ";";
   });
 };
 
-const globalDomain = document.getElementById('ageGateBypass').getAttribute('data-domain-path');
+const globalDomain = document
+  .getElementById("ageGateBypass")
+  .getAttribute("data-domain-path");
 const reqUrl = window.location.search;
 const urlParams = new URLSearchParams(reqUrl);
 var hostName = window.location.hostname;
 var protocol = window.location.protocol;
+
+// Fonction pour vérifier si l'utilisateur vient d'un domaine Aperol
+function isFromAperolDomain() {
+  const referrer = document.referrer;
+  const aperolDomains = [
+    "aperol.com",
+    "shop.aperol.com",
+    "us-shop.aperol.com",
+    "www.aperol.com",
+    "www.shop.aperol.com",
+    "www.us-shop.aperol.com",
+  ];
+
+  if (!referrer) return false;
+
+  try {
+    const referrerUrl = new URL(referrer);
+    const referrerHostname = referrerUrl.hostname.toLowerCase();
+
+    // Vérifier si le referrer est un domaine Aperol
+    return aperolDomains.some(
+      (domain) =>
+        referrerHostname === domain || referrerHostname.endsWith("." + domain)
+    );
+  } catch (e) {
+    console.log("Error parsing referrer:", e);
+    return false;
+  }
+}
 var env =
   window.location.toString().indexOf("/dev/") > -1
     ? "/dev"
     : window.location.toString().indexOf("/stg/") > -1
-      ? "/stg"
-      : "";
+    ? "/stg"
+    : "";
 //env = "";
-var configUrl = scriptBypassURL.protocol + "//" + scriptBypassURL.hostname + "/wdf-common/age-gate-bypass/" + sanitizer(globalDomain) + "/campaigns.json";
+var configUrl =
+  scriptBypassURL.protocol +
+  "//" +
+  scriptBypassURL.hostname +
+  "/wdf-common/age-gate-bypass/" +
+  sanitizer(globalDomain) +
+  "/campaigns.json";
 console.log(configUrl);
 // if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
 //   configUrl = "./campaigns.json";
@@ -67,22 +104,25 @@ function getCookieBypass(cName) {
 }
 
 function bypass(config) {
-  const addCSS = (css) => (document.head.appendChild(document.createElement("style")).innerHTML = css);
+  const addCSS = (css) =>
+    (document.head.appendChild(document.createElement("style")).innerHTML =
+      css);
   if (config.elementsToHide) {
     addCSS(`${config.elementsToHide}{ display:none!important;}`);
 
-    if(config.elementsToHide == '.sn_age_gate'){ //BB
-      document.querySelector('body').classList.remove("overflow-hidden");
-      document.querySelector('.sn_site_wrapper').classList.remove("_blur");
+    if (config.elementsToHide == ".sn_age_gate") {
+      //BB
+      document.querySelector("body").classList.remove("overflow-hidden");
+      document.querySelector(".sn_site_wrapper").classList.remove("_blur");
     }
   }
 
-  if (typeof (config.agegateCookieValue) == 'string') {
-    if ((config.agegateCookieValue).startsWith('#UTIL:')) {
-      let util = (config.agegateCookieValue).replace('#UTIL:', '');
+  if (typeof config.agegateCookieValue == "string") {
+    if (config.agegateCookieValue.startsWith("#UTIL:")) {
+      let util = config.agegateCookieValue.replace("#UTIL:", "");
 
       switch (util) {
-        case 'TIMESTAMP':
+        case "TIMESTAMP":
           config.agegateCookieValue = Date.now();
           setLocalStorage(config.agegateCookieName, config.agegateCookieValue);
           break;
@@ -95,11 +135,11 @@ function bypass(config) {
   setLocalStorage(config.agegateCookieName, config.agegateCookieValue);
   setSessionStorage(config.agegateCookieName, config.agegateCookieValue);
   setCookieBypass(config.agegateCookieName, config.agegateCookieValue, 0);
-  document.body.classList.remove('overflowHidden');
-  document.body.classList.remove('notScrollable');
+  document.body.classList.remove("overflowHidden");
+  document.body.classList.remove("notScrollable");
 
-  window.dispatchEvent(new CustomEvent('sn:gtma:age-gate-bypass:ok'));
-  window.dispatchEvent(new CustomEvent('sn:gtma:age-gate:ok'));
+  window.dispatchEvent(new CustomEvent("sn:gtma:age-gate-bypass:ok"));
+  window.dispatchEvent(new CustomEvent("sn:gtma:age-gate:ok"));
 
   if (config.refreshPage) {
     location.reload();
@@ -107,13 +147,16 @@ function bypass(config) {
 }
 
 function hideDivAgeGate(config) {
-  const addCSS = (css) => (document.head.appendChild(document.createElement("style")).innerHTML = css);
+  const addCSS = (css) =>
+    (document.head.appendChild(document.createElement("style")).innerHTML =
+      css);
   if (config.elementsToHide) {
     addCSS(`${config.elementsToHide}{ display:none!important;}`);
 
-    if(config.elementsToHide == '.sn_age_gate'){ //BB
-      document.querySelector('body').classList.remove("overflow-hidden");
-      document.querySelector('.sn_site_wrapper').classList.remove("_blur");
+    if (config.elementsToHide == ".sn_age_gate") {
+      //BB
+      document.querySelector("body").classList.remove("overflow-hidden");
+      document.querySelector(".sn_site_wrapper").classList.remove("_blur");
     }
   }
 }
@@ -147,7 +190,6 @@ function verifyReOpenMessageDiv(config) {
     }
     div = document.createElement("div");
 
-
     if (reopenDivConf.style && reopenDivConf.style.length > 0) {
       div.style = reopenDivConf.style;
     }
@@ -156,12 +198,17 @@ function verifyReOpenMessageDiv(config) {
 
     let p = document.createElement("p");
     p.style = "margin:0;padding:0";
-    p.innerHTML = config.translations[lang] ? config.translations[lang].reopenMessageDivText : reopenDivConf.text;
+    p.innerHTML = config.translations[lang]
+      ? config.translations[lang].reopenMessageDivText
+      : reopenDivConf.text;
 
     // span that close the div
     let span = document.createElement("span");
     span.id = reopenDivConf.closeSpanId;
-    if (reopenDivConf.closeSpanStyle && reopenDivConf.closeSpanStyle.length > 0) {
+    if (
+      reopenDivConf.closeSpanStyle &&
+      reopenDivConf.closeSpanStyle.length > 0
+    ) {
       span.style = reopenDivConf.closeSpanStyle;
     }
     span.innerHTML = config.translations[lang]
@@ -171,7 +218,11 @@ function verifyReOpenMessageDiv(config) {
     p.appendChild(span);
     div.appendChild(p);
 
-    if (reopenDivConf.containerClass && reopenDivConf.containerClass != '' && typeof (reopenDivConf.containerClass) != 'undefined') {
+    if (
+      reopenDivConf.containerClass &&
+      reopenDivConf.containerClass != "" &&
+      typeof reopenDivConf.containerClass != "undefined"
+    ) {
       document.querySelector(reopenDivConf.containerClass).appendChild(div);
     } else {
       document.body.appendChild(div);
@@ -213,12 +264,18 @@ function createMessageDiv(config, forceRecreate) {
     div.id = bypassDivConfig.id;
 
     let p = document.createElement("p");
-    p.style = "margin:0;padding:0;margin:0 auto;max-width: calc(100% - 5px);font-size: 0.8rem;";
-    p.innerHTML = config.translations[lang] ? config.translations[lang].bypassedDivText : bypassDivConfig.text;
+    p.style =
+      "margin:0;padding:0;margin:0 auto;max-width: calc(100% - 5px);font-size: 0.8rem;";
+    p.innerHTML = config.translations[lang]
+      ? config.translations[lang].bypassedDivText
+      : bypassDivConfig.text;
     // span that close the div
     let span = document.createElement("span");
     span.id = bypassDivConfig.closeSpanId;
-    if (bypassDivConfig.closeSpanStyle && bypassDivConfig.closeSpanStyle.length > 0) {
+    if (
+      bypassDivConfig.closeSpanStyle &&
+      bypassDivConfig.closeSpanStyle.length > 0
+    ) {
       span.style = bypassDivConfig.closeSpanStyle;
     }
     span.innerHTML = config.translations[lang]
@@ -228,12 +285,19 @@ function createMessageDiv(config, forceRecreate) {
     p.appendChild(span);
     div.appendChild(p);
 
-    if (bypassDivConfig.containerClass && bypassDivConfig.containerClass != '' && typeof (bypassDivConfig.containerClass) != 'undefined') {
+    if (
+      bypassDivConfig.containerClass &&
+      bypassDivConfig.containerClass != "" &&
+      typeof bypassDivConfig.containerClass != "undefined"
+    ) {
       document.querySelector(bypassDivConfig.containerClass).appendChild(div);
     } else {
       document.body.appendChild(div);
     }
-    setTimeout(() => manageDisappearingBypassDiv(div), bypassDivConfig.disappearingSecs * 1000);
+    setTimeout(
+      () => manageDisappearingBypassDiv(div),
+      bypassDivConfig.disappearingSecs * 1000
+    );
   }
 }
 
@@ -245,7 +309,7 @@ function closeMessageDiv(div, config) {
 
 function checkResponse(res) {
   if (res.status == "fulfilled") {
-    if (typeof (res) == "string") {
+    if (typeof res == "string") {
       res = JSON.parse(res);
     }
     return res.value;
@@ -255,31 +319,34 @@ function checkResponse(res) {
 }
 
 function getCommonCampaigns(callback) {
-  var commonCampaignsUrl = scriptBypassURL.protocol + "//" + scriptBypassURL.hostname + "/wdf-common/age-gate-bypass/commoncampaigns.json";
+  var commonCampaignsUrl =
+    scriptBypassURL.protocol +
+    "//" +
+    scriptBypassURL.hostname +
+    "/wdf-common/age-gate-bypass/commoncampaigns.json";
   let commonCampaigns = getConfig(commonCampaignsUrl);
   let commonCampaignsObj = {};
 
-  Promise.allSettled([commonCampaigns])
-    .then(function (res) {
-      let [commonCampaigns] = res;
+  Promise.allSettled([commonCampaigns]).then(function (res) {
+    let [commonCampaigns] = res;
 
-      commonCampaigns = checkResponse(commonCampaigns);
+    commonCampaigns = checkResponse(commonCampaigns);
 
-      if (commonCampaigns != null) {
-        commonCampaignsObj = commonCampaigns;
-      }
+    if (commonCampaigns != null) {
+      commonCampaignsObj = commonCampaigns;
+    }
 
-      callback(commonCampaignsObj);
-    });
+    callback(commonCampaignsObj);
+  });
 }
 
 function mergeCampaigns(commonCampaigns, websiteCampaigns) {
   for (let k in commonCampaigns) {
-    if (typeof (websiteCampaigns[k]) == 'undefined') {
+    if (typeof websiteCampaigns[k] == "undefined") {
       websiteCampaigns[k] = commonCampaigns[k];
     } else {
       for (let j in commonCampaigns[k]) {
-        if (typeof (websiteCampaigns[k][j]) == 'undefined') {
+        if (typeof websiteCampaigns[k][j] == "undefined") {
           websiteCampaigns[k][j] = commonCampaigns[k][j];
         }
       }
@@ -290,79 +357,77 @@ function mergeCampaigns(commonCampaigns, websiteCampaigns) {
 }
 
 function bypassGeo(callback) {
-  let countryPath = "https://test.df-controltower.mycampari.com/pp/wp-json/api/v1/geolocation";
+  let countryPath =
+    "https://test.df-controltower.mycampari.com/pp/wp-json/api/v1/geolocation";
   let countryData = getConfig(countryPath);
   let countryDataObj = {
-    'result' : false,
-    'data' : [],
-    'message' : '' 
+    result: false,
+    data: [],
+    message: "",
   };
 
-  Promise.allSettled([countryData])
-    .then(function (res) {
-      let [countryData] = res;
+  Promise.allSettled([countryData]).then(function (res) {
+    let [countryData] = res;
 
-      countryData = checkResponse(countryData);
+    countryData = checkResponse(countryData);
 
-      if (countryData != null) {
-        countryDataObj = countryData;
-      }
+    if (countryData != null) {
+      countryDataObj = countryData;
+    }
 
-      callback(countryDataObj);
-    });
+    callback(countryDataObj);
+  });
 }
 
-bypassGeo(function(geolocationObj){
-  if(geolocationObj['result']){
-    let forbiddenCountry = ['FR'];
+// Vérification simple : si l'utilisateur vient d'un domaine Aperol, bypass automatique
+if (isFromAperolDomain()) {
+  console.log("User coming from Aperol domain, bypassing age gate");
 
-    if(forbiddenCountry.includes(geolocationObj['data'])){
+  // Configuration par défaut pour le bypass
+  const defaultConfig = {
+    agegateCookieName: "age-gate-ok",
+    agegateCookieValue: true,
+    refreshPage: false,
+    elementsToHide: "#age-gate-otp",
+  };
+
+  // Bypass immédiat
+  AgeGateByPass.isToBypass = true;
+  bypass(defaultConfig);
+
+  console.log("AgeGateBypass exit with ", AgeGateByPass.isToBypass);
+  return;
+}
+
+// Logique existante pour les autres cas (campagnes UTM, etc.)
+bypassGeo(function (geolocationObj) {
+  if (geolocationObj["result"]) {
+    let forbiddenCountry = ["FR"];
+
+    if (forbiddenCountry.includes(geolocationObj["data"])) {
       return;
     }
   }
 
   getConfig(configUrl)
-  .then((data) => {
-    globalConfig = data;
+    .then((data) => {
+      globalConfig = data;
 
-    getCommonCampaigns(function (commonCampaigns) {
-      data.campaigns = mergeCampaigns(commonCampaigns, data.campaigns);
-      verifyReOpenMessageDiv(globalConfig);
-      verifyIsToCreateMessageDiv(globalConfig);
+      getCommonCampaigns(function (commonCampaigns) {
+        data.campaigns = mergeCampaigns(commonCampaigns, data.campaigns);
+        verifyReOpenMessageDiv(globalConfig);
+        verifyIsToCreateMessageDiv(globalConfig);
 
-      if (getCookieBypass(globalConfig.agegateCookieName)) {
-        AgeGateByPass.isToBypass = true;
+        if (getCookieBypass(globalConfig.agegateCookieName)) {
+          AgeGateByPass.isToBypass = true;
 
-        //start: fix problem with glengrant custom agegate
-        setSessionStorage(globalConfig.agegateCookieName, globalConfig.agegateCookieValue);
-        //end: fix problem with glengrant custom agegate
+          //start: fix problem with glengrant custom agegate
+          setSessionStorage(
+            globalConfig.agegateCookieName,
+            globalConfig.agegateCookieValue
+          );
+          //end: fix problem with glengrant custom agegate
 
-        let campaigns = data.campaigns;
-        let campaignConfig;
-        let result;
-        for (let k in campaigns) {
-          bypass_id = urlParams.get(k);
-          if (bypass_id) {
-            result = campaigns[k].hasOwnProperty(bypass_id);
-          }
-          else {
-            result = false;
-            // break;
-          }
-
-          if(!result){
-            break;
-          }
-        }
-
-        hideDivAgeGate(globalConfig);
-
-        if (result) {
-          AgeGateByPass.comboCountryId = globalConfig.comboCountryId;
-          createMessageDiv(globalConfig);
-        }
-      } else {
-        if (globalConfig.isBypassActive) {
           let campaigns = data.campaigns;
           let campaignConfig;
           let result;
@@ -370,31 +435,56 @@ bypassGeo(function(geolocationObj){
             bypass_id = urlParams.get(k);
             if (bypass_id) {
               result = campaigns[k].hasOwnProperty(bypass_id);
-            }
-            else {
+            } else {
               result = false;
               // break;
             }
 
-            if(result){
+            if (!result) {
               break;
             }
           }
+
+          hideDivAgeGate(globalConfig);
+
           if (result) {
-            AgeGateByPass.isToBypass = true;
-            bypass(globalConfig);
             AgeGateByPass.comboCountryId = globalConfig.comboCountryId;
-          }
-          if (AgeGateByPass.isToBypass) {
             createMessageDiv(globalConfig);
           }
+        } else {
+          if (globalConfig.isBypassActive) {
+            let campaigns = data.campaigns;
+            let campaignConfig;
+            let result;
+            for (let k in campaigns) {
+              bypass_id = urlParams.get(k);
+              if (bypass_id) {
+                result = campaigns[k].hasOwnProperty(bypass_id);
+              } else {
+                result = false;
+                // break;
+              }
 
-          console.log("AgeGateBypass exit with ", AgeGateByPass.isToBypass);
+              if (result) {
+                break;
+              }
+            }
+            if (result) {
+              AgeGateByPass.isToBypass = true;
+              bypass(globalConfig);
+              AgeGateByPass.comboCountryId = globalConfig.comboCountryId;
+            }
+            if (AgeGateByPass.isToBypass) {
+              createMessageDiv(globalConfig);
+            }
+
+            console.log("AgeGateBypass exit with ", AgeGateByPass.isToBypass);
+          }
         }
-      }
-      return null;
+        return null;
+      });
+    })
+    .catch((error) => {
+      console.log("Error while fetching file : ", error);
     });
-  }).catch((error) => {
-    console.log("Error while fetching file : ", error);
-  });
 });
