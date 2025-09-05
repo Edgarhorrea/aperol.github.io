@@ -4,19 +4,11 @@ if (typeof console === "undefined" || typeof console.log === "undefined") {
 }
 
 // Variables globales
-var lang = document.documentElement.lang;
-var globalConfig;
 var AgeGateByPass;
 if (!AgeGateByPass) {
   AgeGateByPass = new Object();
   AgeGateByPass.isToBypass = false;
 }
-
-var sanitizer = function (str) {
-  return str.replace(/[^\w.^-]/gi, function (c) {
-    return "&#" + c.charCodeAt(0) + ";";
-  });
-};
 
 // Fonction pour vérifier si l'utilisateur vient d'un domaine Aperol
 function isFromAperolDomain() {
@@ -30,11 +22,7 @@ function isFromAperolDomain() {
     "www.us-shop.aperol.com",
   ];
 
-  console.log("🔍 DEBUG - Referrer:", referrer);
-  console.log("🔍 DEBUG - Current hostname:", window.location.hostname);
-
   if (!referrer) {
-    console.log("❌ DEBUG - No referrer found");
     return false;
   }
 
@@ -42,19 +30,12 @@ function isFromAperolDomain() {
     const referrerUrl = new URL(referrer);
     const referrerHostname = referrerUrl.hostname.toLowerCase();
 
-    console.log("🔍 DEBUG - Referrer hostname:", referrerHostname);
-    console.log("🔍 DEBUG - Aperol domains to check:", aperolDomains);
-
     // Vérifier si le referrer est un domaine Aperol
-    const isAperolDomain = aperolDomains.some(
+    return aperolDomains.some(
       (domain) =>
         referrerHostname === domain || referrerHostname.endsWith("." + domain)
     );
-
-    console.log("✅ DEBUG - Is Aperol domain:", isAperolDomain);
-    return isAperolDomain;
   } catch (e) {
-    console.log("❌ DEBUG - Error parsing referrer:", e);
     return false;
   }
 }
@@ -133,25 +114,10 @@ function bypass(config) {
 
 // Fonction principale d'initialisation
 function initAgeGateBypass() {
-  console.log("🚀 DEBUG - Starting Age Gate Bypass initialization...");
-
-  const ageGateElement = document.getElementById("ageGateBypass");
-  if (!ageGateElement) {
-    console.log("❌ DEBUG - Element with ID 'ageGateBypass' not found");
-    return;
-  }
-
-  const globalDomain = ageGateElement.getAttribute("data-domain-path");
-  console.log("🔍 DEBUG - Global domain:", globalDomain);
-
   // Vérification simple : si l'utilisateur vient d'un domaine Aperol, bypass automatique
-  console.log("🚀 DEBUG - Starting Aperol domain check...");
   const isFromAperol = isFromAperolDomain();
-  console.log("🚀 DEBUG - isFromAperolDomain result:", isFromAperol);
 
   if (isFromAperol) {
-    console.log("✅ User coming from Aperol domain, bypassing age gate");
-
     // Configuration par défaut pour le bypass
     const defaultConfig = {
       agegateCookieName: "age-gate-ok",
@@ -160,28 +126,16 @@ function initAgeGateBypass() {
       elementsToHide: "#age-gate-otp",
     };
 
-    console.log("🔧 DEBUG - Applying bypass with config:", defaultConfig);
-
     // Bypass immédiat
     AgeGateByPass.isToBypass = true;
     bypass(defaultConfig);
-
-    console.log("✅ AgeGateBypass exit with ", AgeGateByPass.isToBypass);
     return;
-  } else {
-    console.log(
-      "❌ User NOT coming from Aperol domain, continuing with normal flow"
-    );
   }
 }
 
 // Initialiser le script quand le DOM est prêt
-console.log("🧪 DEBUG - Script loaded, waiting for DOM...");
-
 if (document.readyState === "loading") {
-  console.log("🧪 DEBUG - DOM still loading, adding event listener...");
   document.addEventListener("DOMContentLoaded", initAgeGateBypass);
 } else {
-  console.log("🧪 DEBUG - DOM already loaded, initializing immediately...");
   initAgeGateBypass();
 }
