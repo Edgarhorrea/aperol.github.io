@@ -560,9 +560,51 @@ ageGateOTP.prototype.checkAndDoRedirect = function () {
 
   // Check if the current URL is the US store domain
   if (currentUrl.includes("us-shop.aperol.com")) {
-    // If on the US store, replace the URL with the same path but without redirectPath
-    console.log("On the US store");
-    window.location.replace(window.location.origin + currentPath); // Keep the current path
+    console.log("On the US store domain");
+
+    // If user selected a non-US country, redirect to shop.aperol.com with the appropriate path
+    if (_this.countryCode !== "us" && _this.redirectPath != null) {
+      console.log(
+        "User selected non-US country, redirecting to shop.aperol.com with path:",
+        _this.redirectPath
+      );
+
+      // Extract the path without any market prefix from current path
+      let pathWithoutMarket = currentPath;
+      let marketPrefixRegex = /^\/[a-z]{2,3}-[a-z]{2}(\/|$)/i;
+      if (marketPrefixRegex.test(currentPath)) {
+        pathWithoutMarket = currentPath.replace(/^\/[a-z]{2,3}-[a-z]{2}/, "");
+        console.log(
+          "Detected market prefix, path without market:",
+          pathWithoutMarket
+        );
+      }
+
+      // Build the new URL on shop.aperol.com
+      let newUrl = "https://shop.aperol.com";
+
+      if (!pathWithoutMarket || pathWithoutMarket === "/") {
+        // Redirect to market homepage
+        newUrl += _this.redirectPath;
+        console.log("Redirecting to market homepage:", newUrl);
+      } else {
+        // Keep the path and add it after the redirectPath
+        newUrl += _this.redirectPath + pathWithoutMarket;
+        console.log("Redirecting to same page in different market:", newUrl);
+      }
+
+      // Add search parameters if they exist
+      if (window.location.search) {
+        newUrl += window.location.search;
+      }
+
+      window.location.replace(newUrl);
+      return;
+    } else {
+      // If user selected US or no redirectPath, stay on US store
+      console.log("User selected US or no redirect path, staying on US store");
+      window.location.replace(window.location.origin + currentPath);
+    }
   } else {
     // Check if user is on shop.aperol.com and country code is "us"
     if (currentUrl.includes("shop.aperol.com") && _this.countryCode === "us") {
