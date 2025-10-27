@@ -31,7 +31,7 @@ function isFromAperolDomain() {
     try {
       const referrerUrl = new URL(referrer);
       const referrerHostname = referrerUrl.hostname.toLowerCase();
-      
+
       console.log("Age Gate Bypass - Referrer hostname:", referrerHostname);
       console.log("Age Gate Bypass - Authorized domains:", aperolDomains);
 
@@ -40,7 +40,7 @@ function isFromAperolDomain() {
         (domain) =>
           referrerHostname === domain || referrerHostname.endsWith("." + domain)
       );
-      
+
       console.log("Age Gate Bypass - Is authorized:", isAuthorized);
       return isAuthorized;
     } catch (e) {
@@ -48,30 +48,26 @@ function isFromAperolDomain() {
     }
   }
 
-  // Méthode 2: Vérifier le sessionStorage pour les cas où le referrer est bloqué
-  console.log("Age Gate Bypass - No referrer found, checking sessionStorage");
-  
+  // Méthode 2: Vérifier utm_source=themixer dans l'URL
+  console.log("Age Gate Bypass - No referrer found, checking utm_source");
+
   try {
-    const storedReferrer = sessionStorage.getItem('aperol-referrer');
-    console.log("Age Gate Bypass - Stored referrer:", storedReferrer);
-    
-    if (storedReferrer) {
-      const referrerUrl = new URL(storedReferrer);
-      const referrerHostname = referrerUrl.hostname.toLowerCase();
-      
-      const isAuthorized = aperolDomains.some(
-        (domain) =>
-          referrerHostname === domain || referrerHostname.endsWith("." + domain)
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmSource = urlParams.get("utm_source");
+
+    console.log("Age Gate Bypass - UTM Source:", utmSource);
+
+    if (utmSource && utmSource.toLowerCase() === "themixer") {
+      console.log(
+        "Age Gate Bypass - UTM source is themixer, bypassing age gate"
       );
-      
-      console.log("Age Gate Bypass - Stored referrer authorized:", isAuthorized);
-      return isAuthorized;
+      return true;
     }
   } catch (e) {
-    console.log("Age Gate Bypass - Error parsing stored referrer:", e);
+    console.log("Age Gate Bypass - Error parsing UTM parameters:", e);
   }
 
-  console.log("Age Gate Bypass - No authorized domain detected");
+  console.log("Age Gate Bypass - No authorized domain or UTM source detected");
   return false;
 }
 

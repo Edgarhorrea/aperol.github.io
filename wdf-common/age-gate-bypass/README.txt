@@ -5,7 +5,8 @@ Ce script permet de bypasser automatiquement l'age gate pour les utilisateurs ve
 
 ## Fonctionnement
 - Le script vérifie le referrer de l'utilisateur
-- Si l'utilisateur vient d'un domaine Aperol ou The Mixer, l'age gate est automatiquement masqué
+- Si l'utilisateur vient d'un domaine Aperol, l'age gate est automatiquement masqué
+- Si l'utilisateur vient avec utm_source=themixer dans l'URL, l'age gate est automatiquement masqué
 - Si l'utilisateur vient d'ailleurs, l'age gate s'affiche normalement
 
 ## Intégration
@@ -24,6 +25,12 @@ Ajoutez ce script AVANT votre age gate existant :
 - www.us-shop.aperol.com
 - themixer.com
 - www.themixer.com
+
+## Utilisation avec The Mixer
+Pour que le bypass fonctionne avec The Mixer, ajoutez le paramètre UTM à vos liens :
+```
+https://shop.aperol.com/?utm_source=themixer
+```
 
 ## Configuration
 Le script masque automatiquement l'élément avec l'ID `#age-gate-otp`. Si votre age gate utilise un autre sélecteur, modifiez la ligne `elementsToHide: "#age-gate-otp"` dans le script.
