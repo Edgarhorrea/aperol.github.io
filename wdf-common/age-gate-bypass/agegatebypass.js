@@ -26,30 +26,53 @@ function isFromAperolDomain() {
 
   console.log("Age Gate Bypass - Referrer:", referrer);
 
-  if (!referrer) {
-    console.log("Age Gate Bypass - No referrer found");
-    return false;
+  // Méthode 1: Vérifier le referrer standard
+  if (referrer) {
+    try {
+      const referrerUrl = new URL(referrer);
+      const referrerHostname = referrerUrl.hostname.toLowerCase();
+      
+      console.log("Age Gate Bypass - Referrer hostname:", referrerHostname);
+      console.log("Age Gate Bypass - Authorized domains:", aperolDomains);
+
+      // Vérifier si le referrer est un domaine autorisé
+      const isAuthorized = aperolDomains.some(
+        (domain) =>
+          referrerHostname === domain || referrerHostname.endsWith("." + domain)
+      );
+      
+      console.log("Age Gate Bypass - Is authorized:", isAuthorized);
+      return isAuthorized;
+    } catch (e) {
+      console.log("Age Gate Bypass - Error parsing referrer:", e);
+    }
   }
 
+  // Méthode 2: Vérifier le sessionStorage pour les cas où le referrer est bloqué
+  console.log("Age Gate Bypass - No referrer found, checking sessionStorage");
+  
   try {
-    const referrerUrl = new URL(referrer);
-    const referrerHostname = referrerUrl.hostname.toLowerCase();
-
-    console.log("Age Gate Bypass - Referrer hostname:", referrerHostname);
-    console.log("Age Gate Bypass - Authorized domains:", aperolDomains);
-
-    // Vérifier si le referrer est un domaine autorisé
-    const isAuthorized = aperolDomains.some(
-      (domain) =>
-        referrerHostname === domain || referrerHostname.endsWith("." + domain)
-    );
-
-    console.log("Age Gate Bypass - Is authorized:", isAuthorized);
-    return isAuthorized;
+    const storedReferrer = sessionStorage.getItem('aperol-referrer');
+    console.log("Age Gate Bypass - Stored referrer:", storedReferrer);
+    
+    if (storedReferrer) {
+      const referrerUrl = new URL(storedReferrer);
+      const referrerHostname = referrerUrl.hostname.toLowerCase();
+      
+      const isAuthorized = aperolDomains.some(
+        (domain) =>
+          referrerHostname === domain || referrerHostname.endsWith("." + domain)
+      );
+      
+      console.log("Age Gate Bypass - Stored referrer authorized:", isAuthorized);
+      return isAuthorized;
+    }
   } catch (e) {
-    console.log("Age Gate Bypass - Error parsing referrer:", e);
-    return false;
+    console.log("Age Gate Bypass - Error parsing stored referrer:", e);
   }
+
+  console.log("Age Gate Bypass - No authorized domain detected");
+  return false;
 }
 
 // Set a Cookie
