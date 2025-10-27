@@ -10,7 +10,7 @@ if (!AgeGateByPass) {
   AgeGateByPass.isToBypass = false;
 }
 
-// Fonction pour vérifier si l'utilisateur vient d'un domaine Aperol
+// Fonction pour vérifier si l'utilisateur vient d'un domaine autorisé (Aperol ou The Mixer)
 function isFromAperolDomain() {
   const referrer = document.referrer;
   const aperolDomains = [
@@ -24,7 +24,10 @@ function isFromAperolDomain() {
     "www.themixer.com",
   ];
 
+  console.log("Age Gate Bypass - Referrer:", referrer);
+
   if (!referrer) {
+    console.log("Age Gate Bypass - No referrer found");
     return false;
   }
 
@@ -32,12 +35,19 @@ function isFromAperolDomain() {
     const referrerUrl = new URL(referrer);
     const referrerHostname = referrerUrl.hostname.toLowerCase();
 
-    // Vérifier si le referrer est un domaine Aperol
-    return aperolDomains.some(
+    console.log("Age Gate Bypass - Referrer hostname:", referrerHostname);
+    console.log("Age Gate Bypass - Authorized domains:", aperolDomains);
+
+    // Vérifier si le referrer est un domaine autorisé
+    const isAuthorized = aperolDomains.some(
       (domain) =>
         referrerHostname === domain || referrerHostname.endsWith("." + domain)
     );
+
+    console.log("Age Gate Bypass - Is authorized:", isAuthorized);
+    return isAuthorized;
   } catch (e) {
+    console.log("Age Gate Bypass - Error parsing referrer:", e);
     return false;
   }
 }
@@ -116,10 +126,16 @@ function bypass(config) {
 
 // Fonction principale d'initialisation
 function initAgeGateBypass() {
-  // Vérification simple : si l'utilisateur vient d'un domaine Aperol, bypass automatique
+  console.log("Age Gate Bypass - Initializing...");
+
+  // Vérification simple : si l'utilisateur vient d'un domaine autorisé, bypass automatique
   const isFromAperol = isFromAperolDomain();
 
   if (isFromAperol) {
+    console.log(
+      "Age Gate Bypass - Authorized domain detected, bypassing age gate"
+    );
+
     // Configuration par défaut pour le bypass
     const defaultConfig = {
       agegateCookieName: "age-gate-ok",
@@ -132,6 +148,10 @@ function initAgeGateBypass() {
     AgeGateByPass.isToBypass = true;
     bypass(defaultConfig);
     return;
+  } else {
+    console.log(
+      "Age Gate Bypass - No authorized domain detected, age gate will show normally"
+    );
   }
 }
 
