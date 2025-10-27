@@ -20,6 +20,8 @@ function isFromAperolDomain() {
     "www.aperol.com",
     "www.shop.aperol.com",
     "www.us-shop.aperol.com",
+    "themixer.com",
+    "www.themixer.com",
   ];
 
   if (!referrer) {
